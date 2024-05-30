@@ -1,0 +1,35 @@
+{
+  "CengMianQuanZHong": 8,
+  "CengMian": "建设运行",
+  "Rules": [
+    {
+      "TestObject": "制定密码应用方案",
+      "HighRisk": true,
+      "ZhiBiaoYaoQiu": "8.7 a）应依据密码相关标准和密码应用需求，制定密码应用方案；",
+      "ZhiBiaoQuanZhong": 1
+    },
+    {
+      "TestObject": "制定密钥安全管理策略",
+      "ZhiBiaoYaoQiu": "8.7 b）应根据密码应用方案，确定系统涉及的密钥种类、体系及其生命周期环节，各环节安全管理要求参照《信息安全技术 信息系统密码应用基本要求》附录A；",
+      "ZhiBiaoQuanZhong": 1
+    },
+    {
+      "TestObject": "制定实施方案",
+      "ZhiBiaoYaoQiu": "8.7 c）应按照应用方案实施建设；",
+      "ZhiBiaoQuanZhong": 0.7
+    },
+    {
+      "TestObject": "投入运行前进行密码应用安全性评估",
+      "ZhiBiaoYaoQiu": "8.7 d）投入运行前应进行密码应用安全性评估，评估通过后系统方可正式运行；",
+      "ZhiBiaoQuanZhong": 1
+    },
+    {
+      "TestObject": "定期开展密码应用安全性评估及攻防对抗演习",
+      "ZhiBiaoYaoQiu": "8.7 e）在运行过程中，应严格执行既定的密码应用安全管理制度，应定期开展密码应用安全性评估及攻防对抗演习，并根据评估结果进行整改。",
+      "ZhiBiaoQuanZhong": 0.7
+    }
+
+
+  ]
+
+}

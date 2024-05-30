@@ -1,0 +1,37 @@
+{
+	"CengMianQuanZhong": 20,
+	"CengMian": "网络和通信安全",
+	"Rules": [
+		{
+			"TestObject": "身份鉴别",
+			"HighRisk": true,
+			"ZhiBiaoYaoQiu": "8.2 a）应采用密码技术对通信实体进行身份鉴别，保证通信实体身份的真实性；",
+			"ZhiBiaoQuanZhong": 1
+		},
+		{
+			"TestObject": "通信数据完整性",
+			"ZhiBiaoYaoQiu": "8.2 b) 宜采用密码技术保证通信过程中数据的完整性；",
+			"ZhiBiaoQuanZhong": 0.7
+		},
+		{
+			"TestObject": "通信过程中重要数据的机密性",
+			"HighRisk": true,
+			"ZhiBiaoYaoQiu": "8.2 c) 应采用密码技术保证通信过程中重要数据的机密性；",
+			"ZhiBiaoQuanZhong": 1
+		},
+		{
+			"TestObject": "网络边界访问控制信息的完整性",
+			"ZhiBiaoYaoQiu": "8.2 d) 宜采用密码技术保证网络边界访问控制信息的完整性；",
+			"ZhiBiaoQuanZhong": 0.4
+		},
+		{
+			"TestObject": "安全接入认证",
+			"HighRisk": true,
+			"ZhiBiaoYaoQiu": "8.2 e) 可采用密码技术对从外部连接到内部网络的设备进行接入认证，确保接入的设备身份真实性。",
+			"ZhiBiaoQuanZhong": 0.4
+		}
+
+
+	]
+
+}

@@ -1,0 +1,38 @@
+{
+  "CengMianQuanZHong": 8,
+  "CengMian": "管理制度",
+  "Rules": [
+    {
+      "TestObject": "具备密码应用安全管理制度",
+      "HighRisk": true,
+      "ZhiBiaoYaoQiu": "8.5 a）应具备密码应用安全管理制度，包括密码人员管理、密钥管理、建设运行、应急处置、密码软硬件及介质管理等制度；",
+      "ZhiBiaoQuanZhong": 1
+    },
+    {
+      "TestObject": "密钥管理规则",
+      "ZhiBiaoYaoQiu": "8.5 b）应根据密码应用方案建立相应密钥管理规则；",
+      "ZhiBiaoQuanZhong": 0.7
+    },
+    {
+      "TestObject": "建立操作规程",
+      "ZhiBiaoYaoQiu": "8.5 c）应对管理人员或操作人员执行的日常管理操作建立操作规程",
+      "ZhiBiaoQuanZhong": 0.7
+    },
+    {
+      "TestObject": "定期修订安全管理制度",
+      "ZhiBiaoYaoQiu": "8.5 d）应定期对密码应用安全管理制度和操作规程的合理性和适用性进行论证和审定，对存在不足或需要改进之处进行修订；",
+      "ZhiBiaoQuanZhong": 0.7
+    },
+    {
+      "TestObject": "明确管理制度发布流程",
+      "ZhiBiaoYaoQiu": "8.5 e）应明确相关密码应用安全管理制度和操作规程的发布流程并进行版本控制；",
+      "ZhiBiaoQuanZhong": 0.7
+    },
+    {
+      "TestObject": "制度执行过程记录留存",
+      "ZhiBiaoYaoQiu": "8.5 f）应具有密码应用操作规程的相关执行记录并妥善保存。",
+      "ZhiBiaoQuanZhong": 0.7
+    }
+  ]
+
+}

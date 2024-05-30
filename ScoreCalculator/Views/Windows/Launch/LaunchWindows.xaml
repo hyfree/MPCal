@@ -1,0 +1,217 @@
+﻿<Window
+    x:Class="ScoreCalculator.Views.Windows.Launch.LaunchWindows"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:commands="clr-namespace:ScoreCalculator.Views.Commands"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:hc="https://handyorg.github.io/handycontrol"
+    xmlns:local="clr-namespace:ScoreCalculator.Views.Windows"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="商用密码应用安全性评估系统"
+    Width="1200"
+    Height="600"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <Style x:Key="btn" TargetType="Button">
+            <Style.Setters>
+                <Setter Property="Width" Value="300" />
+                <Setter Property="Height" Value="25" />
+                <Setter Property="Margin" Value="10,5,10,0" />
+            </Style.Setters>
+        </Style>
+    </Window.Resources>
+    <DockPanel>
+        <Menu Background="LightSkyBlue" DockPanel.Dock="Top">
+            <MenuItem Header="文件">
+                <MenuItem Command="commands:ProjectCommands.CreatProjectData" Header="新建项目" />
+            </MenuItem>
+            <MenuItem Header="客户资料管理" />
+            <MenuItem Header="项目资料管理" />
+            <MenuItem Header="流转单管理" />
+            <MenuItem Header="模板管理" />
+            <MenuItem Header="知识库" />
+
+            <MenuItem Header="系统设置">
+                <MenuItem Header="个性化" />
+                <MenuItem Header="重置系统" />
+                <MenuItem Header="检查更新" />
+                <MenuItem Header="关于系统" />
+
+            </MenuItem>
+            <MenuItem Header="帮助文档" />
+        </Menu>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+
+                <ColumnDefinition Width="400" />
+                <ColumnDefinition Width="auto" />
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+
+                <StackPanel>
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        Style="{StaticResource TextBlockSubTitle}"
+                        Text="项目名称" />
+                    <hc:SearchBar Width="300" Margin="0,0,0,0" />
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        Style="{StaticResource TextBlockSubTitle}"
+                        Text="被测单位" />
+                    <hc:SearchBar Width="300" Margin="0,0,0,0" />
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        Style="{StaticResource TextBlockSubTitle}"
+                        Text="测评年度" />
+                    <hc:SearchBar Width="300" Margin="0,0,0,0" />
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        Style="{StaticResource TextBlockSubTitle}"
+                        Text="所属省份" />
+                    <hc:SearchBar Width="300" Margin="0,0,0,0" />
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        Style="{StaticResource TextBlockSubTitle}"
+                        Text="所属地区" />
+                    <hc:SearchBar Width="300" Margin="0,0,0,0" />
+
+                    <Button
+                        Click="OnRefresh"
+                        Content="刷新界面"
+                        Style="{StaticResource btn}" />
+                    <Button
+                        Click="OnCreatProject"
+                        Content="新建"
+                        Style="{StaticResource btn}" />
+                    <Button Content="打开" Style="{StaticResource btn}" />
+                    <Button Content="导入" Style="{StaticResource btn}" />
+                    <Button Content="修改" Style="{StaticResource btn}" />
+                    <Button Content="克隆" Style="{StaticResource btn}" />
+                    <Button
+                        Click="OnDelete"
+                        Content="删除"
+                        Style="{StaticResource btn}" />
+
+                    <Separator Margin="20" />
+                    <Button Content="测评准备" Style="{StaticResource btn}" />
+                    <Button Content="方案编制" Style="{StaticResource btn}" />
+                    <Button Content="现场测评" Style="{StaticResource btn}" />
+                    <Button Content="报告编制" Style="{StaticResource btn}" />
+                    <Button Content="密评证据" Style="{StaticResource btn}" />
+                    <Button Content="过程文件" Style="{StaticResource btn}" />
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Column="1">
+                <DataGrid
+                    x:Name="DataGridUI"
+                    Grid.Row="1"
+                    AutoGenerateColumns="False"
+                    HeadersVisibility="All"
+                    IsReadOnly="True"
+                    RowHeaderWidth="60"
+                    SelectedIndex="0"
+                    SelectionMode="Single">
+                    <DataGrid.ContextMenu>
+                        <ContextMenu>
+
+                            <MenuItem Header="系统信息维护">
+                                <MenuItem
+                                    x:Name="WuLiHuanJing"
+                                    Command="commands:ProjectCommands.OpenMarkingScheme"
+                                    CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.SelectedItem}"
+                                    Header="物理环境" />
+                                <MenuItem
+                                    x:Name="WangLuoTongXun"
+                                    Command="commands:ProjectCommands.OpenMarkingScheme"
+                                    CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.SelectedItem}"
+                                    Header="网络和通信" />
+                                <MenuItem
+                                    x:Name="SheBeiJiSuan"
+                                    Command="commands:ProjectCommands.OpenMarkingScheme"
+                                    CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.SelectedItem}"
+                                    Header="设备和计算" />
+                                <MenuItem
+                                    x:Name="YingYongShuJu"
+                                    Command="commands:ProjectCommands.OpenMarkingScheme"
+                                    CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.SelectedItem}"
+                                    Header="应用和数据" />
+                                <MenuItem
+                                    x:Name="CePingZhunBei"
+                                    Command="commands:ProjectCommands.OpenMarkingScheme"
+                                    CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.SelectedItem}"
+                                    Header="测评准备" />
+                            </MenuItem>
+                            <MenuItem
+                                x:Name="OpenMarkingScheme"
+                                Command="commands:ProjectCommands.OpenMarkingScheme"
+                                CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.SelectedItem}"
+                                Header="打分" />
+                            <MenuItem
+                                x:Name="CreatSystem"
+                                Command="commands:ProjectCommands.CreatProjectData"
+                                Header="新建项目"
+                                IsEnabled="True" />
+                            <MenuItem
+                                x:Name="DeleteSystem"
+                                Command="commands:ProjectCommands.DeleteProjectData"
+                                CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.SelectedItem}"
+                                Header="删除项目" />
+
+
+                        </ContextMenu>
+                    </DataGrid.ContextMenu>
+
+                    <DataGrid.Columns>
+                        <DataGridTextColumn
+                            Width="100"
+                            Binding="{Binding Id}"
+                            Header="Id" />
+                        <DataGridTextColumn
+                            Width="100"
+                            Binding="{Binding Name}"
+                            Header="被测系统名称" />
+                        <DataGridTextColumn
+                            Width="100"
+                            Binding="{Binding TestObjectName}"
+                            Header="所属项目" />
+                        <DataGridTextColumn
+                            Width="100"
+                            Binding="{Binding TestObjectName}"
+                            Header="被测单位" />
+                        <DataGridTextColumn
+                            Width="100"
+                            Binding="{Binding Provinces}"
+                            Header="所属省份" />
+                        <DataGridTextColumn
+                            Width="100"
+                            Binding="{Binding City}"
+                            Header="所属城市" />
+                        <DataGridTextColumn
+                            Width="100"
+                            Binding="{Binding Year}"
+                            Header="测评年度" />
+                        <DataGridTextColumn
+                            Width="100"
+                            Binding="{Binding Level}"
+                            Header="测评级别" />
+                        <DataGridTextColumn
+                            Width="100"
+                            Binding="{Binding TestObjectName}"
+                            Header="当前状态" />
+                        <DataGridTextColumn
+                            Width="100"
+                            Binding="{Binding TestObjectName}"
+                            Header="测评结论" />
+                        <DataGridTextColumn
+                            Width="100"
+                            Binding="{Binding Score}"
+                            Header="测评分数" />
+
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </Grid>
+    </DockPanel>
+
+</Window>

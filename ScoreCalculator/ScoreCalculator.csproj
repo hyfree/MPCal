@@ -1,0 +1,194 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <Platforms>AnyCPU;x64</Platforms>
+    <ApplicationIcon>Resources\Icons\calculators.ico</ApplicationIcon>
+    <AssemblyName>密评计算工具</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Data\Template\**" />
+    <EmbeddedResource Remove="Data\Template\**" />
+    <None Remove="Data\Template\**" />
+    <Page Remove="Data\Template\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Models\TestStatus.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\Icons\calculators.png" />
+    <None Remove="Resources\Images\about.png" />
+    <None Remove="Resources\Images\add.png" />
+    <None Remove="Resources\Images\AI.png" />
+    <None Remove="Resources\Images\data.png" />
+    <None Remove="Resources\Images\delete.png" />
+    <None Remove="Resources\Images\edit.png" />
+    <None Remove="Resources\Images\fix.png" />
+    <None Remove="Resources\Images\import.png" />
+    <None Remove="Resources\Images\KnowledgeBase.png" />
+    <None Remove="Resources\Images\LiangHuaPingGu.png" />
+    <None Remove="Resources\Images\printer.png" />
+    <None Remove="Resources\Images\project.png" />
+    <None Remove="Resources\Images\save.png" />
+    <None Remove="Resources\Images\setting.png" />
+    <None Remove="Resources\Images\tools.png" />
+    <None Remove="Resources\Images\ZhiLiang.png" />
+    <None Remove="Resources\Img\1.jpg" />
+    <None Remove="Resources\Img\2.jpg" />
+    <None Remove="Resources\Img\3.jpg" />
+    <None Remove="Resources\Img\4.jpg" />
+    <None Remove="Resources\Img\5.jpg" />
+    <None Remove="Resources\Img\b1.jpg" />
+    <None Remove="Resources\Img\b2.jpg" />
+    <None Remove="Resources\Img\car_chase.gif" />
+    <None Remove="Resources\Img\chrome_dragon.png" />
+    <None Remove="Resources\Img\cloud.png" />
+    <None Remove="Resources\Img\Cover.png" />
+    <None Remove="Resources\Img\Dance.png" />
+    <None Remove="Resources\Img\Flag\ca-Es.png" />
+    <None Remove="Resources\Img\Flag\cn.png" />
+    <None Remove="Resources\Img\Flag\en.png" />
+    <None Remove="Resources\Img\Flag\fa.png" />
+    <None Remove="Resources\Img\Flag\fr.png" />
+    <None Remove="Resources\Img\Flag\ko-KR.png" />
+    <None Remove="Resources\Img\Flag\pt-BR.png" />
+    <None Remove="Resources\Img\Flag\ru.png" />
+    <None Remove="Resources\Img\Flag\tr.png" />
+    <None Remove="Resources\Img\icon-white.ico" />
+    <None Remove="Resources\Img\icon.ico" />
+    <None Remove="Resources\Img\qq_group_1.jpg" />
+    <None Remove="Resources\Img\qq_group_2.jpg" />
+    <None Remove="Resources\Img\under_construction.gif" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Resources\Icons\calculators.ico" />
+    <Resource Include="Resources\Images\AI.png" />
+    <Resource Include="Resources\Images\KnowledgeBase.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Icons\calculators.png" />
+    <Resource Include="Resources\Images\about.png" />
+    <Resource Include="Resources\Images\add.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\App.png" />
+    <Resource Include="Resources\Images\data.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\delete.png" />
+    <Resource Include="Resources\Images\edit.png" />
+    <Resource Include="Resources\Images\FengXian.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="8.0.0" />
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="9.0.0" />
+    <PackageReference Include="HandyControl" Version="3.5.1" />
+    <PackageReference Include="NPOI" Version="2.7.0" />
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="8.0.4" />
+    <PackageReference Include="Microsoft.Data.Sqlite.Core" Version="8.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.4" />
+    <PackageReference Include="Snowflake.Core" Version="2.0.0" />
+    <PackageReference Include="Z.EntityFramework.Extensions.EFCore" Version="8.102.2.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\Calculator.png" />
+    <Resource Include="Resources\Images\fix.png" />
+    <Resource Include="Resources\Images\GuanLi.png" />
+    <Resource Include="Resources\Images\GuanLiMian.png" />
+    <Resource Include="Resources\Images\import.png" />
+    <Resource Include="Resources\Images\Item.png" />
+    <Resource Include="Resources\Images\JianShe.png" />
+    <Resource Include="Resources\Images\JiFang.png" />
+    <Resource Include="Resources\Images\JiShuMian.png" />
+    <Resource Include="Resources\Images\LiangHuaPingGu.png" />
+    <Resource Include="Resources\Images\Overview.png" />
+    <Resource Include="Resources\Images\printer.png" />
+    <Resource Include="Resources\Images\project.png" />
+    <Resource Include="Resources\Images\RenYuan.png" />
+    <Resource Include="Resources\Images\save.png" />
+    <Resource Include="Resources\Images\setting.png" />
+    <Resource Include="Resources\Images\SheBei.png" />
+    <Resource Include="Resources\Images\Table.png" />
+    <Resource Include="Resources\Images\tools.png" />
+    <Resource Include="Resources\Images\WangLuo.png" />
+    <Resource Include="Resources\Images\YingJi.png" />
+    <Resource Include="Resources\Images\ZhiLiang.png" />
+    <Resource Include="Resources\Img\1.jpg" />
+    <Resource Include="Resources\Img\2.jpg" />
+    <Resource Include="Resources\Img\3.jpg" />
+    <Resource Include="Resources\Img\4.jpg" />
+    <Resource Include="Resources\Img\5.jpg" />
+    <Resource Include="Resources\Img\b1.jpg" />
+    <Resource Include="Resources\Img\b2.jpg" />
+    <Resource Include="Resources\Img\car_chase.gif" />
+    <Resource Include="Resources\Img\chrome_dragon.png" />
+    <Resource Include="Resources\Img\cloud.png" />
+    <Resource Include="Resources\Img\Cover.png" />
+    <Resource Include="Resources\Img\Dance.png" />
+    <Resource Include="Resources\Img\Flag\ca-Es.png" />
+    <Resource Include="Resources\Img\Flag\cn.png" />
+    <Resource Include="Resources\Img\Flag\en.png" />
+    <Resource Include="Resources\Img\Flag\fa.png" />
+    <Resource Include="Resources\Img\Flag\fr.png" />
+    <Resource Include="Resources\Img\Flag\ko-KR.png" />
+    <Resource Include="Resources\Img\Flag\pt-BR.png" />
+    <Resource Include="Resources\Img\Flag\ru.png" />
+    <Resource Include="Resources\Img\Flag\tr.png" />
+    <Resource Include="Resources\Img\icon-white.ico" />
+    <Resource Include="Resources\Img\icon.ico" />
+    <Resource Include="Resources\Img\qq_group_1.jpg" />
+    <Resource Include="Resources\Img\qq_group_2.jpg" />
+    <Resource Include="Resources\Img\under_construction.gif" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Data\Level3\CalculationTable\SheBei.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Data\Level3\CalculationTable\WuLi.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Data\Level3\CalculationTable\WangLuo.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Data\Level3\CalculationTable\YingJi.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Data\Level3\CalculationTable\JianShe.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Data\Level3\CalculationTable\RenYuan.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Data\Level3\CalculationTable\GuanLi.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Data\Level3\CalculationTable\YingYong.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Data\Word\商用密码应用安全性评估问题确认单.docx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Data\Level3\ChaJuFenXi\" />
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
+</Project>

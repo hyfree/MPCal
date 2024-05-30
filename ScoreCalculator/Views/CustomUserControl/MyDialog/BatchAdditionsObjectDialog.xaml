@@ -1,0 +1,70 @@
+﻿<Window
+    x:Class="ScoreCalculator.Views.CustomUserControl.MyDialog.BatchAdditionsObjectDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:ScoreCalculator.Views.CustomUserControl.MyDialog"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="批量增加"
+    Width="300"
+    Height="600"
+    mc:Ignorable="d">
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel
+            Grid.Row="0"
+            VerticalAlignment="Center"
+            Orientation="Horizontal">
+            <TextBlock
+                x:Name="MyNameTextBlock"
+                VerticalAlignment="Center"
+                TextAlignment="Center">
+                被测对象名称
+            </TextBlock>
+            <TextBox
+                x:Name="MyNameTextBox"
+                Width="150"
+                Height="20"
+                Margin="5,0,0,0" />
+        </StackPanel>
+        <StackPanel Grid.Row="1" Margin="0,5,0,0">
+            <CheckBox x:Name="wuli_SheFenJianBie" Tag="WuLi-身份鉴别">机房—身份鉴别</CheckBox>
+            <CheckBox x:Name="wuli_DianZiMenJinJiLu" Tag="WuLi-电子门禁记录数据存储完整性">机房—电子门禁记录</CheckBox>
+            <CheckBox x:Name="wuli_ShiPinJianKongJiLu" Tag="WuLi-视频监控记录数据存储完整性">机房—视频监控记录</CheckBox>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Margin="0,5,0,0">
+            <CheckBox x:Name="wangluo_SheFenJianBie" Tag="WangLuo-身份鉴别">网络层—身份鉴别</CheckBox>
+            <CheckBox x:Name="wangluo_WangZhengXing" Tag="WangLuo-通信数据完整性">网络层—通信数据完整性</CheckBox>
+            <CheckBox x:Name="wangluo_JiMiXing" Tag="WangLuo-通信过程中重要数据的机密性">网络层—通信过程中重要数据的机密性</CheckBox>
+            <CheckBox x:Name="wangluo_FangWenKongZhi" Tag="WangLuo-网络边界访问控制信息的完整性">网络层—网络边界访问控制信息的完整性</CheckBox>
+        </StackPanel>
+        <StackPanel Grid.Row="3" Margin="0,5,0,0">
+            <CheckBox x:Name="shebei_ShenFenJianBie" Tag="SheBei-身份鉴别">设备—身份鉴别</CheckBox>
+            <CheckBox x:Name="shebei_YuanChengGuanLiTongDao">设备—远程管理通道</CheckBox>
+            <CheckBox x:Name="shebei_FangWenKongZhi">设备—系统资源访问控制信息完整性</CheckBox>
+            <CheckBox x:Name="shebei_RiZhi">设备—日志记录完整性</CheckBox>
+            <CheckBox x:Name="shebei_ZhongYaoKeZhiXingChengXu">设备—重要可执行程序完整性、重要可执行程序来源真实性</CheckBox>
+
+        </StackPanel>
+        <StackPanel Grid.Row="4" Margin="0,5,0,0">
+            <CheckBox x:Name="yingyong_ShenFenJianBie">应用—身份鉴别</CheckBox>
+            <CheckBox x:Name="yingyong_ChuanShuJiMiXing">应用—传输机密性</CheckBox>
+            <CheckBox x:Name="yingyong_ChuanShuWanZhengXIng">应用—传输完整性</CheckBox>
+            <CheckBox x:Name="yingyong_CunChuJiMiXing">应用—存储机密性</CheckBox>
+            <CheckBox x:Name="yingyong_CunChuWanZhengXing">应用—存储完整性</CheckBox>
+
+        </StackPanel>
+
+
+        <StackPanel Grid.Row="5">
+            <Button Click="Button_Click">确认</Button>
+        </StackPanel>
+    </Grid>
+</Window>

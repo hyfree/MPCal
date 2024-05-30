@@ -1,0 +1,26 @@
+{
+	"CengMianQuanZhong": 10,
+	"CengMian": "物理和环境安全",
+	
+	"Rules": [
+		{
+			"TestObject": "身份鉴别",
+			"HighRisk": true,
+			"ZhiBiaoYaoQiu": "8.1 a）宜采用密码技术进行物理访问身份鉴别，保证重要区域进入人员身份的真实性；",
+			"ZhiBiaoQuanZhong": 1
+		},
+		{
+			"TestObject": "电子门禁记录数据存储完整性",
+			"ZhiBiaoYaoQiu": "8.1 b）宜采用密码技术保证电子门禁系统进出记录数据的存储完整性；",
+			"ZhiBiaoQuanZhong": 0.7
+		},
+		{
+			"TestObject": "视频监控记录数据存储完整性",
+			"ZhiBiaoYaoQiu": "8.1 c）宜采用密码技术保证视频监控音像记录数据的存储完整性。",
+			"ZhiBiaoQuanZhong": 0.7
+		}
+
+
+	]
+
+}

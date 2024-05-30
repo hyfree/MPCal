@@ -1,0 +1,40 @@
+﻿{
+	"CengMianQuanZhong": 10,
+	"CengMian": "设备和计算安全",
+	"Rules": [
+		{
+			"TestObject": "身份鉴别",
+			"HighRisk": true,
+			"ZhiBiaoYaoQiu": "8.3 a) 应采用密码技术对登录设备的用户进行身份鉴别，保证用户身份的真实性；",
+			"ZhiBiaoQuanZhong": 1
+		},
+		{
+			"TestObject": "远程管理通道安全",
+			"HighRisk": true,
+			"ZhiBiaoYaoQiu": "8.3 b) 远程管理设备时，应采用密码技术建立安全的信息传输通道；",
+			"ZhiBiaoQuanZhong": 1
+		},
+		{
+			"TestObject": "系统资源访问控制信息完整性",
+			"ZhiBiaoYaoQiu": "8.3 c) 宜采用密码技术保证系统资源访问控制信息的完整性；",
+			"ZhiBiaoQuanZhong": 0.4
+		},
+		{
+			"TestObject": "重要信息资源安全标记的完整性",
+			"ZhiBiaoYaoQiu": "8.3 d)宜使用密码技术保证设备中的重要信息资源安全标记的完整性；",
+			"ZhiBiaoQuanZhong": 0.4
+		},
+		{
+			"TestObject": "日志记录完整性",
+			"ZhiBiaoYaoQiu": "8.3 e) 宜采用密码技术保证日志记录的完整性；",
+			"ZhiBiaoQuanZhong": 0.4
+		},
+		{
+			"TestObject": "重要可执行程序完整性、重要可执行程序来源真实性",
+			"ZhiBiaoYaoQiu": "8.3 f) 宜采用密码技术对重要可执行程序进行完整性保护，并对其来源进行真实性验证。"
+		}
+
+
+	]
+
+}
