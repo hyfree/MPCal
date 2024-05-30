@@ -68,12 +68,19 @@ MPCal 是一个使用C#和WPF框架开发的商用密码应用安全性测评工
   
   - [ ] 模拟整改
 
+###### 使用前的配置要求
+
+下载和安装.net8 sdk
+
+https://dotnet.microsoft.com/zh-cn/download/dotnet/8.0
 
 
 ###### 开发前的配置要求
 
 1. VS2022
 2. NET8 SDK
+
+
 
 ###### **安装步骤**
 
