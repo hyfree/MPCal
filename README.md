@@ -1,8 +1,4 @@
-
-
 # 商用密码应用安全性测评计算工具
-
-MPScoreCalculator 是一个使用C#和WPF框架开发的商用密码应用安全性测评工具。
 
 <br />
 
@@ -11,9 +7,9 @@ MPScoreCalculator 是一个使用C#和WPF框架开发的商用密码应用安全
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">"完美的"商用密码应用安全性测评计算工具</h3>
+<h3 align="center">"完美的"商用密码应用安全性测评分数计算工具</h3>
   <p align="center">
-    一个"完美的"README模板去快速开始你的项目！
+    使用MPScoreCalculator计算分数和洞察系统风险 ！
     <br />
     <a href="https://github.com/hyfree/MPScoreCalculator"><strong>探索本项目的文档 »</strong></a>
     <br />
@@ -29,12 +25,9 @@ MPScoreCalculator 是一个使用C#和WPF框架开发的商用密码应用安全
 
 </p>
 
-
- 
- 
 ## 目录
 
-- [上手指南](#上手指南)
+- [概述](#概述)
   - [开发前的配置要求](#开发前的配置要求)
   - [安装步骤](#安装步骤)
 - [文件目录说明](#文件目录说明)
@@ -47,18 +40,40 @@ MPScoreCalculator 是一个使用C#和WPF框架开发的商用密码应用安全
 - [作者](#作者)
 - [鸣谢](#鸣谢)
 
-### 上手指南
+### 概述
 
-- 依据《商用密码应用安全性评估量化评估规则（2023）》第3版开发
-- 支持等保3级别系统的商用密码应用安全性测评分数计算
+MPScoreCalculator 是一个使用C#和WPF框架开发的商用密码应用安全性测评工具。
 
+
+
+- [x] 依据《商用密码应用安全性评估量化评估规则（2023）》第3版开发
+
+- [ ] 商用密码应用安全性评估分数计算（仅支持3级别）
+
+- [ ] 自动化风险分析和统计
+
+- [ ] 知识库
+
+- [ ] Chat GPT AI自动分析和纠错
+
+- [ ] 从其他数据源导入数据
+
+- [ ] 输出到其他数据源
+  
+  - [x] 安全性问题确认单
+  
+  - [ ] 差分分析
+  
+  - [ ] 整改建议
+  
+  - [ ] 模拟整改
 
 
 
 ###### 开发前的配置要求
 
-1. xxxxx x.x.x
-2. xxxxx x.x.x
+1. VS2022
+2. NET8 SDK
 
 ###### **安装步骤**
 
@@ -70,6 +85,7 @@ git clone https://github.com/shaojintian/Best_README_template.git
 ```
 
 ### 文件目录说明
+
 eg:
 
 ```
@@ -89,14 +105,9 @@ filetree
 ├── /templates/
 ├── useless.md
 └── /util/
-
 ```
 
-
-
-
-
-### 开发的架构 
+### 开发的架构
 
 请阅读[ARCHITECTURE.md](https://github.com/shaojintian/Best_README_template/blob/master/ARCHITECTURE.md) 查阅为该项目的架构。
 
@@ -106,9 +117,8 @@ filetree
 
 ### 使用到的框架
 
-- [xxxxxxx](https://getbootstrap.com)
-- [xxxxxxx](https://jquery.com)
-- [xxxxxxx](https://laravel.com)
+-  [HandyControl](https://github.com/HandyOrg/HandyControl)
+- [NPOI]([GitHub - dotnetcore/NPOI)
 
 ### 贡献者
 
@@ -118,14 +128,11 @@ filetree
 
 贡献使开源社区成为一个学习、激励和创造的绝佳场所。你所作的任何贡献都是**非常感谢**的。
 
-
 1. Fork the Project
 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
 3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
-
-
 
 ### 版本控制
 
@@ -133,18 +140,13 @@ filetree
 
 ### 作者
 
-hyfree
-
-知乎:xxxx  &ensp; qq:xxxxxx    
-
  *您也可以在贡献者名单中参看所有参与该项目的开发者。*
 
 ### 版权说明
 
-该项目签署了GPL 授权许可，详情请参阅 [LICENSE.txt](https://github.com/hyfree/MPScoreCalculator/blob/master/LICENSE.txt)
+该项目签署了GPL v3授权许可，详情请参阅 [LICENSE.txt](https://github.com/hyfree/MPScoreCalculator/blob/master/LICENSE.txt)
 
 ### 鸣谢
-
 
 - [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
 - [Img Shields](https://shields.io)
