@@ -77,10 +77,8 @@ https://dotnet.microsoft.com/zh-cn/download/dotnet/8.0
 
 ###### 开发前的配置要求
 
-1. VS2022
+1. VS2022(需要安装桌面开发环境WPF工作负载)
 2. NET8 SDK
-
-
 
 ###### **安装步骤**
 
