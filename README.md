@@ -144,7 +144,7 @@ filetree
 
 ### 版权说明
 
-该项目签署了GPL v3授权许可，详情请参阅 [LICENSE.txt](https://github.com/hyfree/MPScoreCalculator/blob/master/LICENSE.txt)
+该项目签署了GPL v3授权许可，详情请参阅 [LICENSE.txt](https://github.com/hyfree/MPScoreCalculator/blob/master/LICENSE)
 
 ### 鸣谢
 
