@@ -117,5 +117,11 @@ namespace ScoreCalculator.Views.Windows.Launch
 
             HandyControl.Controls.Growl.Success("加载项目集合完成");
         }
+
+        private void MenuItem_About_Click(object sender, RoutedEventArgs e)
+        {
+            AboutWindow aboutWindow=new AboutWindow();
+            aboutWindow.Show();
+        }
     }
 }

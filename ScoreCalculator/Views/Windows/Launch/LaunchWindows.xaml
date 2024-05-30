@@ -7,7 +7,7 @@
     xmlns:hc="https://handyorg.github.io/handycontrol"
     xmlns:local="clr-namespace:ScoreCalculator.Views.Windows"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Title="商用密码应用安全性评估系统"
+    Title="MPCal"
     Width="1200"
     Height="600"
     mc:Ignorable="d">
@@ -35,10 +35,11 @@
                 <MenuItem Header="个性化" />
                 <MenuItem Header="重置系统" />
                 <MenuItem Header="检查更新" />
-                <MenuItem Header="关于系统" />
+                <MenuItem Header="帮助文档" />
+                <MenuItem Click="MenuItem_About_Click" Header="关于工具" />
 
             </MenuItem>
-            <MenuItem Header="帮助文档" />
+
         </Menu>
 
         <Grid>

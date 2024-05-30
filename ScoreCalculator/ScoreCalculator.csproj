@@ -7,7 +7,7 @@
     <UseWPF>true</UseWPF>
     <Platforms>AnyCPU;x64</Platforms>
     <ApplicationIcon>Resources\Icons\calculators.ico</ApplicationIcon>
-    <AssemblyName>密评计算工具</AssemblyName>
+    <AssemblyName>MPCal</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>

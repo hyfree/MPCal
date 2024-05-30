@@ -9,7 +9,7 @@
 
 <h3 align="center">"完美的"商用密码应用安全性测评分数计算工具</h3>
   <p align="center">
-    使用MPScoreCalculator计算分数和洞察系统风险 ！
+    使用MPCal计算分数和洞察系统风险 ！
     <br />
     <a href="https://github.com/hyfree/MPScoreCalculator"><strong>探索本项目的文档 »</strong></a>
     <br />
@@ -42,7 +42,7 @@
 
 ### 概述
 
-MPScoreCalculator 是一个使用C#和WPF框架开发的商用密码应用安全性测评工具。
+MPCal 是一个使用C#和WPF框架开发的商用密码应用安全性测评工具。
 
 
 
