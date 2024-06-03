@@ -131,17 +131,32 @@ namespace ScoreCalculator.Models.Entity
         /// <summary>
         /// 测评现状
         /// </summary>
-        public string? Description { get; set; }
+        public string? _Description ;
+  
+        public string? Description
+        {
+            get { return _Description; }
+            set { SetProperty(ref _Description, value); }
+        }
         /// <summary>
         /// 问题描述
         /// </summary>
-        public string? Question { get; set; }
+        public string? _Question ;
+        public string? Question
+        {
+            get { return _Question; }
+            set { SetProperty(ref _Question, value); }
+        }
 
         /// <summary>
         /// 建议
         /// </summary>
-        public string? Suggest { get; set; }
-
+        public string? _Suggest ;
+        public string? Suggest
+        {
+            get { return _Suggest; }
+            set { SetProperty(ref _Suggest, value); }
+        }
 
 
         public RecordEntryEntity() { }

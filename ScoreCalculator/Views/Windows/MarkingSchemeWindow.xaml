@@ -643,6 +643,7 @@
                         Grid.Row="1"
                         AutoGenerateColumns="False"
                         HeadersVisibility="All"
+                        RowDetailsVisibilityMode="Visible"
                         RowHeaderWidth="60"
                         ScrollViewer.VerticalScrollBarVisibility="Visible"
                         SelectedCellsChanged="DataGridUI_SelectedCellsChanged"
@@ -737,6 +738,53 @@
                                 </DataGridComboBoxColumn.ElementStyle>
                             </DataGridComboBoxColumn>
                         </DataGrid.Columns>
+                        <DataGrid.RowDetailsTemplate>
+                            <DataTemplate>
+                                <Border
+                                    Padding="10"
+                                    Background="BlanchedAlmond"
+                                    BorderThickness="0">
+                                    <StackPanel Orientation="Vertical">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock
+                                                VerticalAlignment="Center"
+                                                FontSize="12"
+                                                Foreground="MidnightBlue"
+                                                Text="测评现状: " />
+                                            <TextBlock
+                                                VerticalAlignment="Center"
+                                                FontSize="12"
+                                                Foreground="MidnightBlue"
+                                                Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}" />
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock
+                                                VerticalAlignment="Center"
+                                                FontSize="12"
+                                                Foreground="MidnightBlue"
+                                                Text="问题描述: " />
+                                            <TextBlock
+                                                VerticalAlignment="Center"
+                                                FontSize="12"
+                                                Foreground="MidnightBlue"
+                                                Text="{Binding Question, UpdateSourceTrigger=PropertyChanged}" />
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock
+                                                VerticalAlignment="Center"
+                                                FontSize="12"
+                                                Foreground="MidnightBlue"
+                                                Text="整改建议: " />
+                                            <TextBlock
+                                                VerticalAlignment="Center"
+                                                FontSize="12"
+                                                Foreground="MidnightBlue"
+                                                Text="{Binding Suggest, UpdateSourceTrigger=PropertyChanged}" />
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </DataGrid.RowDetailsTemplate>
                     </DataGrid>
 
                 </Grid>
