@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Dynamic;
 using System.Text;
+using System.Threading;
 
 using ScoreCalculator.Utils;
 
@@ -52,6 +53,7 @@ namespace ScoreCalculator.Services
         /// <returns></returns>
         public long NextId()
         {
+            Thread.Sleep(1);
             return GeInstance().NextId();
         }
         /// <summary>
