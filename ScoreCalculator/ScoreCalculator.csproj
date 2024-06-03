@@ -26,6 +26,7 @@
     <None Remove="Resources\Images\about.png" />
     <None Remove="Resources\Images\add.png" />
     <None Remove="Resources\Images\AI.png" />
+    <None Remove="Resources\Images\Cloud.png" />
     <None Remove="Resources\Images\data.png" />
     <None Remove="Resources\Images\delete.png" />
     <None Remove="Resources\Images\edit.png" />
@@ -33,11 +34,15 @@
     <None Remove="Resources\Images\import.png" />
     <None Remove="Resources\Images\KnowledgeBase.png" />
     <None Remove="Resources\Images\LiangHuaPingGu.png" />
+    <None Remove="Resources\Images\MaoZi.png" />
+    <None Remove="Resources\Images\ML.png" />
+    <None Remove="Resources\Images\MyCloud.png" />
     <None Remove="Resources\Images\printer.png" />
     <None Remove="Resources\Images\project.png" />
     <None Remove="Resources\Images\save.png" />
     <None Remove="Resources\Images\setting.png" />
     <None Remove="Resources\Images\tools.png" />
+    <None Remove="Resources\Images\XingWeiKu.png" />
     <None Remove="Resources\Images\ZhiLiang.png" />
     <None Remove="Resources\Img\1.jpg" />
     <None Remove="Resources\Img\2.jpg" />
@@ -116,6 +121,9 @@
     <Resource Include="Resources\Images\JiFang.png" />
     <Resource Include="Resources\Images\JiShuMian.png" />
     <Resource Include="Resources\Images\LiangHuaPingGu.png" />
+    <Resource Include="Resources\Images\MaoZi.png" />
+    <Resource Include="Resources\Images\ML.png" />
+    <Resource Include="Resources\Images\MyCloud.png" />
     <Resource Include="Resources\Images\Overview.png" />
     <Resource Include="Resources\Images\printer.png" />
     <Resource Include="Resources\Images\project.png" />
@@ -126,6 +134,7 @@
     <Resource Include="Resources\Images\Table.png" />
     <Resource Include="Resources\Images\tools.png" />
     <Resource Include="Resources\Images\WangLuo.png" />
+    <Resource Include="Resources\Images\XingWeiKu.png" />
     <Resource Include="Resources\Images\YingJi.png" />
     <Resource Include="Resources\Images\ZhiLiang.png" />
     <Resource Include="Resources\Img\1.jpg" />

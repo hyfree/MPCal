@@ -60,684 +60,730 @@
     <hc:Window.NonClientAreaContent>
         <CustomUserControl:NoUserContent x:Name="noUserContent" />
     </hc:Window.NonClientAreaContent>
-    <DockPanel>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="30" />
+        </Grid.RowDefinitions>
+        <DockPanel Grid.Row="0">
 
-        <DockPanel DockPanel.Dock="Left">
-            <hc:SideMenu
+            <DockPanel DockPanel.Dock="Left">
+                <hc:SideMenu
+                    Width="250"
+                    Margin="8"
+                    BorderThickness="1"
+                    DockPanel.Dock="Left"
+                    ExpandMode="Freedom"
+                    SelectionChanged="SideMenu_SelectionChanged">
+
+                    <hc:SideMenuItem Header="1 总览">
+                        <hc:SideMenuItem.Icon>
+                            <Image
+                                Width="24"
+                                Height="24"
+                                Source="/Resources/Images/Overview.png" />
+                        </hc:SideMenuItem.Icon>
+                        <hc:SideMenuItem Header="1.1 总分" Tag="总分">
+                            <hc:SideMenuItem.Icon>
+                                <Image
+                                    Width="24"
+                                    Height="24"
+                                    Source="/Resources/Images/Calculator.png" />
+                            </hc:SideMenuItem.Icon>
+                        </hc:SideMenuItem>
+                        <hc:SideMenuItem Header="1.2 整体量化评估" Tag="整体量化评估">
+                            <hc:SideMenuItem.Icon>
+                                <Image
+                                    Width="24"
+                                    Height="24"
+                                    Source="/Resources/Images/LiangHuaPingGu.png" />
+                            </hc:SideMenuItem.Icon>
+                        </hc:SideMenuItem>
+                        <hc:SideMenuItem Header="1.3 风险分析" Tag="风险分析">
+                            <hc:SideMenuItem.Icon>
+                                <Image
+                                    Width="24"
+                                    Height="24"
+                                    Source="/Resources/Images/FengXian.png" />
+                            </hc:SideMenuItem.Icon>
+                        </hc:SideMenuItem>
+                        <hc:SideMenuItem Header="1.4 测评基本情况" Tag="测评基本情况">
+                            <hc:SideMenuItem.Icon>
+                                <Image
+                                    Width="24"
+                                    Height="24"
+                                    Source="/Resources/Images/Table.png" />
+                            </hc:SideMenuItem.Icon>
+                        </hc:SideMenuItem>
+                    </hc:SideMenuItem>
+
+                    <hc:SideMenuItem Header="2 物理与环境" Tag="物理与环境">
+                        <hc:SideMenuItem.Icon>
+                            <Image
+                                Width="24"
+                                Height="24"
+                                Source="/Resources/Images/JiFang.png" />
+                        </hc:SideMenuItem.Icon>
+                        <hc:SideMenuItem Header="2.1 身份鉴别" Tag="WuLi-身份鉴别">
+                            <hc:SideMenuItem.Icon>
+                                <Image
+                                    Width="24"
+                                    Height="24"
+                                    Source="/Resources/Images/Item.png" />
+                            </hc:SideMenuItem.Icon>
+                        </hc:SideMenuItem>
+                        <hc:SideMenuItem Header="2.2 电子门禁记录数据存储完整性" Tag="WuLi-电子门禁记录数据存储完整性">
+                            <hc:SideMenuItem.Icon>
+                                <Image
+                                    Width="24"
+                                    Height="24"
+                                    Source="/Resources/Images/Item.png" />
+                            </hc:SideMenuItem.Icon>
+                        </hc:SideMenuItem>
+                        <hc:SideMenuItem Header="2.3 视频监控记录数据存储完整性" Tag="WuLi-视频监控记录数据存储完整性">
+                            <hc:SideMenuItem.Icon>
+                                <Image
+                                    Width="24"
+                                    Height="24"
+                                    Source="/Resources/Images/Item.png" />
+                            </hc:SideMenuItem.Icon>
+                        </hc:SideMenuItem>
+                    </hc:SideMenuItem>
+                    <hc:SideMenuItem Header="3 网络与通信">
+                        <hc:SideMenuItem.Icon>
+                            <Image
+                                Width="24"
+                                Height="24"
+                                Source="/Resources/Images/WangLuo.png" />
+                        </hc:SideMenuItem.Icon>
+                        <hc:SideMenuItem Header="3.1 身份鉴别" Tag="WangLuo-身份鉴别">
+                            <hc:SideMenuItem.Icon>
+                                <Image
+                                    Width="24"
+                                    Height="24"
+                                    Source="/Resources/Images/Item.png" />
+                            </hc:SideMenuItem.Icon>
+                        </hc:SideMenuItem>
+                        <hc:SideMenuItem Header="3.2 通信数据完整性" Tag="WangLuo-通信数据完整性">
+                            <hc:SideMenuItem.Icon>
+                                <Image
+                                    Width="24"
+                                    Height="24"
+                                    Source="/Resources/Images/Item.png" />
+                            </hc:SideMenuItem.Icon>
+                        </hc:SideMenuItem>
+                        <hc:SideMenuItem Header="3.3 通信过程中重要数据的机密性" Tag="WangLuo-通信过程中重要数据的机密性">
+                            <hc:SideMenuItem.Icon>
+                                <Image
+                                    Width="24"
+                                    Height="24"
+                                    Source="/Resources/Images/Item.png" />
+                            </hc:SideMenuItem.Icon>
+                        </hc:SideMenuItem>
+                        <hc:SideMenuItem Header="3.4 网络边界访问控制信息的完整性" Tag="WangLuo-网络边界访问控制信息的完整性">
+                            <hc:SideMenuItem.Icon>
+                                <Image
+                                    Width="24"
+                                    Height="24"
+                                    Source="/Resources/Images/Item.png" />
+                            </hc:SideMenuItem.Icon>
+                        </hc:SideMenuItem>
+                        <hc:SideMenuItem Header="3.5 安全接入认证" Tag="WangLuo-安全接入认证">
+                            <hc:SideMenuItem.Icon>
+                                <Image
+                                    Width="24"
+                                    Height="24"
+                                    Source="/Resources/Images/Item.png" />
+                            </hc:SideMenuItem.Icon>
+                        </hc:SideMenuItem>
+                    </hc:SideMenuItem>
+                    <hc:SideMenuItem Header="4 设备与计算">
+                        <hc:SideMenuItem.Icon>
+                            <Image
+                                Width="24"
+                                Height="24"
+                                Source="/Resources/Images/SheBei.png" />
+                        </hc:SideMenuItem.Icon>
+                        <hc:SideMenuItem Header="4.1 身份鉴别" Tag="SheBei-身份鉴别">
+                            <hc:SideMenuItem.Icon>
+                                <Image
+                                    Width="24"
+                                    Height="24"
+                                    Source="/Resources/Images/Item.png" />
+                            </hc:SideMenuItem.Icon>
+                        </hc:SideMenuItem>
+                        <hc:SideMenuItem Header="4.2 远程管理通道安全" Tag="SheBei-远程管理通道安全">
+                            <hc:SideMenuItem.Icon>
+                                <Image
+                                    Width="24"
+                                    Height="24"
+                                    Source="/Resources/Images/Item.png" />
+                            </hc:SideMenuItem.Icon>
+                        </hc:SideMenuItem>
+                        <hc:SideMenuItem Header="4.3 系统资源访问控制信息完整性" Tag="SheBei-系统资源访问控制信息完整性">
+                            <hc:SideMenuItem.Icon>
+                                <Image
+                                    Width="24"
+                                    Height="24"
+                                    Source="/Resources/Images/Item.png" />
+                            </hc:SideMenuItem.Icon>
+                        </hc:SideMenuItem>
+                        <hc:SideMenuItem Header="4.4 重要资源安全标记的完整性" Tag="SheBei-重要信息资源安全标记的完整性">
+                            <hc:SideMenuItem.Icon>
+                                <Image
+                                    Width="24"
+                                    Height="24"
+                                    Source="/Resources/Images/Item.png" />
+                            </hc:SideMenuItem.Icon>
+                        </hc:SideMenuItem>
+                        <hc:SideMenuItem Header="4.5 日志记录完整性" Tag="SheBei-日志记录完整性">
+                            <hc:SideMenuItem.Icon>
+                                <Image
+                                    Width="24"
+                                    Height="24"
+                                    Source="/Resources/Images/Item.png" />
+                            </hc:SideMenuItem.Icon>
+                        </hc:SideMenuItem>
+                        <hc:SideMenuItem Header="4.6 重要可执行程序完整性、重要可执行程序来源真实性" Tag="SheBei-重要可执行程序完整性、重要可执行程序来源真实性">
+                            <hc:SideMenuItem.Icon>
+                                <Image
+                                    Width="24"
+                                    Height="24"
+                                    Source="/Resources/Images/Item.png" />
+                            </hc:SideMenuItem.Icon>
+                        </hc:SideMenuItem>
+                    </hc:SideMenuItem>
+                    <hc:SideMenuItem Header="5 应用与数据">
+                        <hc:SideMenuItem.Icon>
+                            <Image
+                                Width="24"
+                                Height="24"
+                                Source="/Resources/Images/App.png" />
+                        </hc:SideMenuItem.Icon>
+                        <hc:SideMenuItem Header="5.1 身份鉴别" Tag="YingYong-身份鉴别">
+                            <hc:SideMenuItem.Icon>
+                                <Image
+                                    Width="24"
+                                    Height="24"
+                                    Source="/Resources/Images/Item.png" />
+                            </hc:SideMenuItem.Icon>
+                        </hc:SideMenuItem>
+                        <hc:SideMenuItem Header="5.2 访问控制信息完整性" Tag="YingYong-访问控制信息完整性">
+                            <hc:SideMenuItem.Icon>
+                                <Image
+                                    Width="24"
+                                    Height="24"
+                                    Source="/Resources/Images/Item.png" />
+                            </hc:SideMenuItem.Icon>
+                        </hc:SideMenuItem>
+                        <hc:SideMenuItem Header="5.3 重要信息资源标记的完整性" Tag="YingYong-重要信息资源安全标记的完整性">
+                            <hc:SideMenuItem.Icon>
+                                <Image
+                                    Width="24"
+                                    Height="24"
+                                    Source="/Resources/Images/Item.png" />
+                            </hc:SideMenuItem.Icon>
+                        </hc:SideMenuItem>
+                        <hc:SideMenuItem Header="5.4 重要数据传输机密性" Tag="YingYong-重要数据传输机密性">
+                            <hc:SideMenuItem.Icon>
+                                <Image
+                                    Width="24"
+                                    Height="24"
+                                    Source="/Resources/Images/Item.png" />
+                            </hc:SideMenuItem.Icon>
+
+                        </hc:SideMenuItem>
+                        <hc:SideMenuItem Header="5.5 重要数据存储机密性" Tag="YingYong-重要数据存储机密性">
+                            <hc:SideMenuItem.Icon>
+                                <Image
+                                    Width="24"
+                                    Height="24"
+                                    Source="/Resources/Images/Item.png" />
+                            </hc:SideMenuItem.Icon>
+                        </hc:SideMenuItem>
+                        <hc:SideMenuItem Header="5.6 重要数据传输完整性" Tag="YingYong-重要数据传输完整性">
+                            <hc:SideMenuItem.Icon>
+                                <Image
+                                    Width="24"
+                                    Height="24"
+                                    Source="/Resources/Images/Item.png" />
+                            </hc:SideMenuItem.Icon>
+                        </hc:SideMenuItem>
+                        <hc:SideMenuItem Header="5.7 重要数据存储完整性" Tag="YingYong-重要数据存储完整性">
+                            <hc:SideMenuItem.Icon>
+                                <Image
+                                    Width="24"
+                                    Height="24"
+                                    Source="/Resources/Images/Item.png" />
+                            </hc:SideMenuItem.Icon>
+                        </hc:SideMenuItem>
+                        <hc:SideMenuItem Header="5.8 不可否认性" Tag="YingYong-不可否认性">
+                            <hc:SideMenuItem.Icon>
+                                <Image
+                                    Width="24"
+                                    Height="24"
+                                    Source="/Resources/Images/Item.png" />
+                            </hc:SideMenuItem.Icon>
+                        </hc:SideMenuItem>
+                    </hc:SideMenuItem>
+
+                    <hc:SideMenuItem Header="6 管理制度" Tag="GuanLi">
+                        <hc:SideMenuItem.Icon>
+                            <Image
+                                Width="24"
+                                Height="24"
+                                Source="/Resources/Images/GuanLi.png" />
+                        </hc:SideMenuItem.Icon>
+                        <hc:SideMenuItem Header="6.1 具备密码应用安全管理制度" Tag="GuanLi-具备密码应用安全管理制度">
+                            <hc:SideMenuItem.Icon>
+                                <Image
+                                    Width="24"
+                                    Height="24"
+                                    Source="/Resources/Images/Item.png" />
+                            </hc:SideMenuItem.Icon>
+                        </hc:SideMenuItem>
+                        <hc:SideMenuItem Header="6.2 密钥管理规则" Tag="GuanLi-密钥管理规则">
+                            <hc:SideMenuItem.Icon>
+                                <Image
+                                    Width="24"
+                                    Height="24"
+                                    Source="/Resources/Images/Item.png" />
+                            </hc:SideMenuItem.Icon>
+                        </hc:SideMenuItem>
+                        <hc:SideMenuItem Header="6.3 建立操作规程" Tag="GuanLi-建立操作规程">
+                            <hc:SideMenuItem.Icon>
+                                <Image
+                                    Width="24"
+                                    Height="24"
+                                    Source="/Resources/Images/Item.png" />
+                            </hc:SideMenuItem.Icon>
+                        </hc:SideMenuItem>
+                        <hc:SideMenuItem Header="6.4 定期修订安全管理制度" Tag="GuanLi-定期修订安全管理制度">
+                            <hc:SideMenuItem.Icon>
+                                <Image
+                                    Width="24"
+                                    Height="24"
+                                    Source="/Resources/Images/Item.png" />
+                            </hc:SideMenuItem.Icon>
+                        </hc:SideMenuItem>
+                        <hc:SideMenuItem Header="6.5 明确管理制度发布流程" Tag="GuanLi-明确管理制度发布流程">
+                            <hc:SideMenuItem.Icon>
+                                <Image
+                                    Width="24"
+                                    Height="24"
+                                    Source="/Resources/Images/Item.png" />
+                            </hc:SideMenuItem.Icon>
+                        </hc:SideMenuItem>
+                        <hc:SideMenuItem Header="6.6 制度执行过程记录留存" Tag="GuanLi-制度执行过程记录留存">
+                            <hc:SideMenuItem.Icon>
+                                <Image
+                                    Width="24"
+                                    Height="24"
+                                    Source="/Resources/Images/Item.png" />
+                            </hc:SideMenuItem.Icon>
+                        </hc:SideMenuItem>
+                    </hc:SideMenuItem>
+                    <hc:SideMenuItem Header="7 人员管理" Tag="RenYuan">
+                        <hc:SideMenuItem.Icon>
+                            <Image
+                                Width="24"
+                                Height="24"
+                                Source="/Resources/Images/RenYuan.png" />
+                        </hc:SideMenuItem.Icon>
+                        <hc:SideMenuItem Header="7.1 了解并遵守密码相关法律法规和密码管理制度" Tag="RenYuan-了解并遵守密码相关法律法规和密码管理制度">
+                            <hc:SideMenuItem.Icon>
+                                <Image
+                                    Width="24"
+                                    Height="24"
+                                    Source="/Resources/Images/Item.png" />
+                            </hc:SideMenuItem.Icon>
+                        </hc:SideMenuItem>
+                        <hc:SideMenuItem Header="7.2 建立密码应用岗位责任制度" Tag="RenYuan-建立密码应用岗位责任制度">
+                            <hc:SideMenuItem.Icon>
+                                <Image
+                                    Width="24"
+                                    Height="24"
+                                    Source="/Resources/Images/Item.png" />
+                            </hc:SideMenuItem.Icon>
+                        </hc:SideMenuItem>
+                        <hc:SideMenuItem Header="7.3 建立上岗人员培训制度" Tag="RenYuan-建立上岗人员培训制度">
+                            <hc:SideMenuItem.Icon>
+                                <Image
+                                    Width="24"
+                                    Height="24"
+                                    Source="/Resources/Images/Item.png" />
+                            </hc:SideMenuItem.Icon>
+                        </hc:SideMenuItem>
+                        <hc:SideMenuItem Header="7.4 定期进行安全岗位人员考核" Tag="RenYuan-定期进行安全岗位人员考核">
+                            <hc:SideMenuItem.Icon>
+                                <Image
+                                    Width="24"
+                                    Height="24"
+                                    Source="/Resources/Images/Item.png" />
+                            </hc:SideMenuItem.Icon>
+                        </hc:SideMenuItem>
+                        <hc:SideMenuItem Header="7.5 建立关键岗位人员保密制度和调离制度" Tag="RenYuan-建立关键岗位人员保密制度和调离制度">
+                            <hc:SideMenuItem.Icon>
+                                <Image
+                                    Width="24"
+                                    Height="24"
+                                    Source="/Resources/Images/Item.png" />
+                            </hc:SideMenuItem.Icon>
+                        </hc:SideMenuItem>
+                    </hc:SideMenuItem>
+                    <hc:SideMenuItem Header="8 建设运行" Tag="JianShe">
+                        <hc:SideMenuItem.Icon>
+                            <Image
+                                Width="24"
+                                Height="24"
+                                Source="/Resources/Images/JianShe.png" />
+                        </hc:SideMenuItem.Icon>
+                        <hc:SideMenuItem Header="8.1 制定密码应用方案" Tag="JianShe-制定密码应用方案">
+                            <hc:SideMenuItem.Icon>
+                                <Image
+                                    Width="24"
+                                    Height="24"
+                                    Source="/Resources/Images/Item.png" />
+                            </hc:SideMenuItem.Icon>
+                        </hc:SideMenuItem>
+                        <hc:SideMenuItem Header="8.2 制定密钥安全管理策略" Tag="JianShe-制定密钥安全管理策略">
+                            <hc:SideMenuItem.Icon>
+                                <Image
+                                    Width="24"
+                                    Height="24"
+                                    Source="/Resources/Images/Item.png" />
+                            </hc:SideMenuItem.Icon>
+                        </hc:SideMenuItem>
+                        <hc:SideMenuItem Header="8.3 制定实施方案" Tag="JianShe-制定实施方案">
+                            <hc:SideMenuItem.Icon>
+                                <Image
+                                    Width="24"
+                                    Height="24"
+                                    Source="/Resources/Images/Item.png" />
+                            </hc:SideMenuItem.Icon>
+                        </hc:SideMenuItem>
+                        <hc:SideMenuItem Header="8.4 投入运行前进行密码应用安全性评估" Tag="JianShe-投入运行前进行密码应用安全性评估">
+                            <hc:SideMenuItem.Icon>
+                                <Image
+                                    Width="24"
+                                    Height="24"
+                                    Source="/Resources/Images/Item.png" />
+                            </hc:SideMenuItem.Icon>
+                        </hc:SideMenuItem>
+                        <hc:SideMenuItem Header="8.5 定期开展密码应用安全性评估及攻防对抗演习" Tag="JianShe-定期开展密码应用安全性评估及攻防对抗演习">
+                            <hc:SideMenuItem.Icon>
+                                <Image
+                                    Width="24"
+                                    Height="24"
+                                    Source="/Resources/Images/Item.png" />
+                            </hc:SideMenuItem.Icon>
+                        </hc:SideMenuItem>
+
+                    </hc:SideMenuItem>
+                    <hc:SideMenuItem Header="9 应急处置" Tag="YingJi">
+                        <hc:SideMenuItem.Icon>
+                            <Image
+                                Width="24"
+                                Height="24"
+                                Source="/Resources/Images/YingJi.png" />
+                        </hc:SideMenuItem.Icon>
+
+                        <hc:SideMenuItem Header="9.1 应急策略" Tag="YingJi-应急策略">
+                            <hc:SideMenuItem.Icon>
+                                <Image
+                                    Width="24"
+                                    Height="24"
+                                    Source="/Resources/Images/Item.png" />
+                            </hc:SideMenuItem.Icon>
+                        </hc:SideMenuItem>
+                        <hc:SideMenuItem Header="9.2 事件处置" Tag="YingJi-事件处置">
+                            <hc:SideMenuItem.Icon>
+                                <Image
+                                    Width="24"
+                                    Height="24"
+                                    Source="/Resources/Images/Item.png" />
+                            </hc:SideMenuItem.Icon>
+                        </hc:SideMenuItem>
+                        <hc:SideMenuItem Header="9.2 向有关主管部门上报处置情况" Tag="YingJi-向有关主管部门上报处置情况">
+                            <hc:SideMenuItem.Icon>
+                                <Image
+                                    Width="24"
+                                    Height="24"
+                                    Source="/Resources/Images/Item.png" />
+                            </hc:SideMenuItem.Icon>
+                        </hc:SideMenuItem>
+                    </hc:SideMenuItem>
+                </hc:SideMenu>
+            </DockPanel>
+            <hc:TabControl
                 Width="250"
-                Margin="32"
-                BorderThickness="1"
-                DockPanel.Dock="Left"
-                ExpandMode="Freedom"
-                SelectionChanged="SideMenu_SelectionChanged">
+                DockPanel.Dock="Right"
+                TabItemWidth="50">
+                <hc:TabItem Header="属性">
+                    <hc:PropertyGrid
+                        x:Name="PropertyGridUI"
+                        Grid.Row="1"
+                        SelectedObject="{Binding SelectedItem, ElementName=DataGridUI, UpdateSourceTrigger=PropertyChanged}" />
 
-                <hc:SideMenuItem Header="1 总览">
-                    <hc:SideMenuItem.Icon>
-                        <Image
-                            Width="24"
-                            Height="24"
-                            Source="/Resources/Images/Overview.png" />
-                    </hc:SideMenuItem.Icon>
-                    <hc:SideMenuItem Header="1.1 总分" Tag="总分">
-                        <hc:SideMenuItem.Icon>
-                            <Image
-                                Width="24"
-                                Height="24"
-                                Source="/Resources/Images/Calculator.png" />
-                        </hc:SideMenuItem.Icon>
-                    </hc:SideMenuItem>
-                    <hc:SideMenuItem Header="1.2 整体量化评估" Tag="整体量化评估">
-                        <hc:SideMenuItem.Icon>
-                            <Image
-                                Width="24"
-                                Height="24"
-                                Source="/Resources/Images/LiangHuaPingGu.png" />
-                        </hc:SideMenuItem.Icon>
-                    </hc:SideMenuItem>
-                    <hc:SideMenuItem Header="1.3 风险分析" Tag="风险分析">
-                        <hc:SideMenuItem.Icon>
-                            <Image
-                                Width="24"
-                                Height="24"
-                                Source="/Resources/Images/FengXian.png" />
-                        </hc:SideMenuItem.Icon>
-                    </hc:SideMenuItem>
-                    <hc:SideMenuItem Header="1.4 测评基本情况" Tag="测评基本情况">
-                        <hc:SideMenuItem.Icon>
-                            <Image
-                                Width="24"
-                                Height="24"
-                                Source="/Resources/Images/Table.png" />
-                        </hc:SideMenuItem.Icon>
-                    </hc:SideMenuItem>
-                </hc:SideMenuItem>
+                </hc:TabItem>
+                <hc:TabItem Header="预览">
+                    <StackPanel x:Name="CengMinFenXi">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="指标对象：" />
+                            <TextBlock Text="{Binding TestObject, UpdateSourceTrigger=PropertyChanged}" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock
+                                MaxWidth="250"
+                                Text="指标要求："
+                                TextWrapping="Wrap" />
+                            <TextBlock
+                                MaxWidth="120"
+                                Text="{Binding ZhiBiaoYaoQiu}"
+                                TextWrapping="Wrap" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="指标权重：" />
+                            <TextBlock Text="{Binding ZhiBiaoQuanZhong}" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="指标分数：" />
+                            <TextBlock Text="{Binding Score}" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="层面：" />
+                            <TextBlock Text="{Binding CengMian}" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="层面分数：" />
+                            <TextBlock Text="{Binding CengMianScore}" />
 
-                <hc:SideMenuItem Header="2 物理与环境" Tag="物理与环境">
-                    <hc:SideMenuItem.Icon>
-                        <Image
-                            Width="24"
-                            Height="24"
-                            Source="/Resources/Images/JiFang.png" />
-                    </hc:SideMenuItem.Icon>
-                    <hc:SideMenuItem Header="2.1 身份鉴别" Tag="WuLi-身份鉴别">
-                        <hc:SideMenuItem.Icon>
-                            <Image
-                                Width="24"
-                                Height="24"
-                                Source="/Resources/Images/Item.png" />
-                        </hc:SideMenuItem.Icon>
-                    </hc:SideMenuItem>
-                    <hc:SideMenuItem Header="2.2 电子门禁记录数据存储完整性" Tag="WuLi-电子门禁记录数据存储完整性">
-                        <hc:SideMenuItem.Icon>
-                            <Image
-                                Width="24"
-                                Height="24"
-                                Source="/Resources/Images/Item.png" />
-                        </hc:SideMenuItem.Icon>
-                    </hc:SideMenuItem>
-                    <hc:SideMenuItem Header="2.3 视频监控记录数据存储完整性" Tag="WuLi-视频监控记录数据存储完整性">
-                        <hc:SideMenuItem.Icon>
-                            <Image
-                                Width="24"
-                                Height="24"
-                                Source="/Resources/Images/Item.png" />
-                        </hc:SideMenuItem.Icon>
-                    </hc:SideMenuItem>
-                </hc:SideMenuItem>
-                <hc:SideMenuItem Header="3 网络与通信">
-                    <hc:SideMenuItem.Icon>
-                        <Image
-                            Width="24"
-                            Height="24"
-                            Source="/Resources/Images/WangLuo.png" />
-                    </hc:SideMenuItem.Icon>
-                    <hc:SideMenuItem Header="3.1 身份鉴别" Tag="WangLuo-身份鉴别">
-                        <hc:SideMenuItem.Icon>
-                            <Image
-                                Width="24"
-                                Height="24"
-                                Source="/Resources/Images/Item.png" />
-                        </hc:SideMenuItem.Icon>
-                    </hc:SideMenuItem>
-                    <hc:SideMenuItem Header="3.2 通信数据完整性" Tag="WangLuo-通信数据完整性">
-                        <hc:SideMenuItem.Icon>
-                            <Image
-                                Width="24"
-                                Height="24"
-                                Source="/Resources/Images/Item.png" />
-                        </hc:SideMenuItem.Icon>
-                    </hc:SideMenuItem>
-                    <hc:SideMenuItem Header="3.3 通信过程中重要数据的机密性" Tag="WangLuo-通信过程中重要数据的机密性">
-                        <hc:SideMenuItem.Icon>
-                            <Image
-                                Width="24"
-                                Height="24"
-                                Source="/Resources/Images/Item.png" />
-                        </hc:SideMenuItem.Icon>
-                    </hc:SideMenuItem>
-                    <hc:SideMenuItem Header="3.4 网络边界访问控制信息的完整性" Tag="WangLuo-网络边界访问控制信息的完整性">
-                        <hc:SideMenuItem.Icon>
-                            <Image
-                                Width="24"
-                                Height="24"
-                                Source="/Resources/Images/Item.png" />
-                        </hc:SideMenuItem.Icon>
-                    </hc:SideMenuItem>
-                    <hc:SideMenuItem Header="3.5 安全接入认证" Tag="WangLuo-安全接入认证">
-                        <hc:SideMenuItem.Icon>
-                            <Image
-                                Width="24"
-                                Height="24"
-                                Source="/Resources/Images/Item.png" />
-                        </hc:SideMenuItem.Icon>
-                    </hc:SideMenuItem>
-                </hc:SideMenuItem>
-                <hc:SideMenuItem Header="4 设备与计算">
-                    <hc:SideMenuItem.Icon>
-                        <Image
-                            Width="24"
-                            Height="24"
-                            Source="/Resources/Images/SheBei.png" />
-                    </hc:SideMenuItem.Icon>
-                    <hc:SideMenuItem Header="4.1 身份鉴别" Tag="SheBei-身份鉴别">
-                        <hc:SideMenuItem.Icon>
-                            <Image
-                                Width="24"
-                                Height="24"
-                                Source="/Resources/Images/Item.png" />
-                        </hc:SideMenuItem.Icon>
-                    </hc:SideMenuItem>
-                    <hc:SideMenuItem Header="4.2 远程管理通道安全" Tag="SheBei-远程管理通道安全">
-                        <hc:SideMenuItem.Icon>
-                            <Image
-                                Width="24"
-                                Height="24"
-                                Source="/Resources/Images/Item.png" />
-                        </hc:SideMenuItem.Icon>
-                    </hc:SideMenuItem>
-                    <hc:SideMenuItem Header="4.3 系统资源访问控制信息完整性" Tag="SheBei-系统资源访问控制信息完整性">
-                        <hc:SideMenuItem.Icon>
-                            <Image
-                                Width="24"
-                                Height="24"
-                                Source="/Resources/Images/Item.png" />
-                        </hc:SideMenuItem.Icon>
-                    </hc:SideMenuItem>
-                    <hc:SideMenuItem Header="4.4 重要资源安全标记的完整性" Tag="SheBei-重要信息资源安全标记的完整性">
-                        <hc:SideMenuItem.Icon>
-                            <Image
-                                Width="24"
-                                Height="24"
-                                Source="/Resources/Images/Item.png" />
-                        </hc:SideMenuItem.Icon>
-                    </hc:SideMenuItem>
-                    <hc:SideMenuItem Header="4.5 日志记录完整性" Tag="SheBei-日志记录完整性">
-                        <hc:SideMenuItem.Icon>
-                            <Image
-                                Width="24"
-                                Height="24"
-                                Source="/Resources/Images/Item.png" />
-                        </hc:SideMenuItem.Icon>
-                    </hc:SideMenuItem>
-                    <hc:SideMenuItem Header="4.6 重要可执行程序完整性、重要可执行程序来源真实性" Tag="SheBei-重要可执行程序完整性、重要可执行程序来源真实性">
-                        <hc:SideMenuItem.Icon>
-                            <Image
-                                Width="24"
-                                Height="24"
-                                Source="/Resources/Images/Item.png" />
-                        </hc:SideMenuItem.Icon>
-                    </hc:SideMenuItem>
-                </hc:SideMenuItem>
-                <hc:SideMenuItem Header="5 应用与数据">
-                    <hc:SideMenuItem.Icon>
-                        <Image
-                            Width="24"
-                            Height="24"
-                            Source="/Resources/Images/App.png" />
-                    </hc:SideMenuItem.Icon>
-                    <hc:SideMenuItem Header="5.1 身份鉴别" Tag="YingYong-身份鉴别">
-                        <hc:SideMenuItem.Icon>
-                            <Image
-                                Width="24"
-                                Height="24"
-                                Source="/Resources/Images/Item.png" />
-                        </hc:SideMenuItem.Icon>
-                    </hc:SideMenuItem>
-                    <hc:SideMenuItem Header="5.2 访问控制信息完整性" Tag="YingYong-访问控制信息完整性">
-                        <hc:SideMenuItem.Icon>
-                            <Image
-                                Width="24"
-                                Height="24"
-                                Source="/Resources/Images/Item.png" />
-                        </hc:SideMenuItem.Icon>
-                    </hc:SideMenuItem>
-                    <hc:SideMenuItem Header="5.3 重要信息资源标记的完整性" Tag="YingYong-重要信息资源安全标记的完整性">
-                        <hc:SideMenuItem.Icon>
-                            <Image
-                                Width="24"
-                                Height="24"
-                                Source="/Resources/Images/Item.png" />
-                        </hc:SideMenuItem.Icon>
-                    </hc:SideMenuItem>
-                    <hc:SideMenuItem Header="5.4 重要数据传输机密性" Tag="YingYong-重要数据传输机密性">
-                        <hc:SideMenuItem.Icon>
-                            <Image
-                                Width="24"
-                                Height="24"
-                                Source="/Resources/Images/Item.png" />
-                        </hc:SideMenuItem.Icon>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
 
-                    </hc:SideMenuItem>
-                    <hc:SideMenuItem Header="5.5 重要数据存储机密性" Tag="YingYong-重要数据存储机密性">
-                        <hc:SideMenuItem.Icon>
-                            <Image
-                                Width="24"
-                                Height="24"
-                                Source="/Resources/Images/Item.png" />
-                        </hc:SideMenuItem.Icon>
-                    </hc:SideMenuItem>
-                    <hc:SideMenuItem Header="5.6 重要数据传输完整性" Tag="YingYong-重要数据传输完整性">
-                        <hc:SideMenuItem.Icon>
-                            <Image
-                                Width="24"
-                                Height="24"
-                                Source="/Resources/Images/Item.png" />
-                        </hc:SideMenuItem.Icon>
-                    </hc:SideMenuItem>
-                    <hc:SideMenuItem Header="5.7 重要数据存储完整性" Tag="YingYong-重要数据存储完整性">
-                        <hc:SideMenuItem.Icon>
-                            <Image
-                                Width="24"
-                                Height="24"
-                                Source="/Resources/Images/Item.png" />
-                        </hc:SideMenuItem.Icon>
-                    </hc:SideMenuItem>
-                    <hc:SideMenuItem Header="5.8 不可否认性" Tag="YingYong-不可否认性">
-                        <hc:SideMenuItem.Icon>
-                            <Image
-                                Width="24"
-                                Height="24"
-                                Source="/Resources/Images/Item.png" />
-                        </hc:SideMenuItem.Icon>
-                    </hc:SideMenuItem>
-                </hc:SideMenuItem>
+                            <TextBlock Text="层面权重：" />
+                            <TextBlock Text="{Binding CengMianQuanZhong}" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
 
-                <hc:SideMenuItem Header="6 管理制度" Tag="GuanLi">
-                    <hc:SideMenuItem.Icon>
-                        <Image
-                            Width="24"
-                            Height="24"
-                            Source="/Resources/Images/GuanLi.png" />
-                    </hc:SideMenuItem.Icon>
-                    <hc:SideMenuItem Header="6.1 具备密码应用安全管理制度" Tag="GuanLi-具备密码应用安全管理制度">
-                        <hc:SideMenuItem.Icon>
-                            <Image
-                                Width="24"
-                                Height="24"
-                                Source="/Resources/Images/Item.png" />
-                        </hc:SideMenuItem.Icon>
-                    </hc:SideMenuItem>
-                    <hc:SideMenuItem Header="6.2 密钥管理规则" Tag="GuanLi-密钥管理规则">
-                        <hc:SideMenuItem.Icon>
-                            <Image
-                                Width="24"
-                                Height="24"
-                                Source="/Resources/Images/Item.png" />
-                        </hc:SideMenuItem.Icon>
-                    </hc:SideMenuItem>
-                    <hc:SideMenuItem Header="6.3 建立操作规程" Tag="GuanLi-建立操作规程">
-                        <hc:SideMenuItem.Icon>
-                            <Image
-                                Width="24"
-                                Height="24"
-                                Source="/Resources/Images/Item.png" />
-                        </hc:SideMenuItem.Icon>
-                    </hc:SideMenuItem>
-                    <hc:SideMenuItem Header="6.4 定期修订安全管理制度" Tag="GuanLi-定期修订安全管理制度">
-                        <hc:SideMenuItem.Icon>
-                            <Image
-                                Width="24"
-                                Height="24"
-                                Source="/Resources/Images/Item.png" />
-                        </hc:SideMenuItem.Icon>
-                    </hc:SideMenuItem>
-                    <hc:SideMenuItem Header="6.5 明确管理制度发布流程" Tag="GuanLi-明确管理制度发布流程">
-                        <hc:SideMenuItem.Icon>
-                            <Image
-                                Width="24"
-                                Height="24"
-                                Source="/Resources/Images/Item.png" />
-                        </hc:SideMenuItem.Icon>
-                    </hc:SideMenuItem>
-                    <hc:SideMenuItem Header="6.6 制度执行过程记录留存" Tag="GuanLi-制度执行过程记录留存">
-                        <hc:SideMenuItem.Icon>
-                            <Image
-                                Width="24"
-                                Height="24"
-                                Source="/Resources/Images/Item.png" />
-                        </hc:SideMenuItem.Icon>
-                    </hc:SideMenuItem>
-                </hc:SideMenuItem>
-                <hc:SideMenuItem Header="7 人员管理" Tag="RenYuan">
-                    <hc:SideMenuItem.Icon>
-                        <Image
-                            Width="24"
-                            Height="24"
-                            Source="/Resources/Images/RenYuan.png" />
-                    </hc:SideMenuItem.Icon>
-                    <hc:SideMenuItem Header="7.1 了解并遵守密码相关法律法规和密码管理制度" Tag="RenYuan-了解并遵守密码相关法律法规和密码管理制度">
-                        <hc:SideMenuItem.Icon>
-                            <Image
-                                Width="24"
-                                Height="24"
-                                Source="/Resources/Images/Item.png" />
-                        </hc:SideMenuItem.Icon>
-                    </hc:SideMenuItem>
-                    <hc:SideMenuItem Header="7.2 建立密码应用岗位责任制度" Tag="RenYuan-建立密码应用岗位责任制度">
-                        <hc:SideMenuItem.Icon>
-                            <Image
-                                Width="24"
-                                Height="24"
-                                Source="/Resources/Images/Item.png" />
-                        </hc:SideMenuItem.Icon>
-                    </hc:SideMenuItem>
-                    <hc:SideMenuItem Header="7.3 建立上岗人员培训制度" Tag="RenYuan-建立上岗人员培训制度">
-                        <hc:SideMenuItem.Icon>
-                            <Image
-                                Width="24"
-                                Height="24"
-                                Source="/Resources/Images/Item.png" />
-                        </hc:SideMenuItem.Icon>
-                    </hc:SideMenuItem>
-                    <hc:SideMenuItem Header="7.4 定期进行安全岗位人员考核" Tag="RenYuan-定期进行安全岗位人员考核">
-                        <hc:SideMenuItem.Icon>
-                            <Image
-                                Width="24"
-                                Height="24"
-                                Source="/Resources/Images/Item.png" />
-                        </hc:SideMenuItem.Icon>
-                    </hc:SideMenuItem>
-                    <hc:SideMenuItem Header="7.5 建立关键岗位人员保密制度和调离制度" Tag="RenYuan-建立关键岗位人员保密制度和调离制度">
-                        <hc:SideMenuItem.Icon>
-                            <Image
-                                Width="24"
-                                Height="24"
-                                Source="/Resources/Images/Item.png" />
-                        </hc:SideMenuItem.Icon>
-                    </hc:SideMenuItem>
-                </hc:SideMenuItem>
-                <hc:SideMenuItem Header="8 建设运行" Tag="JianShe">
-                    <hc:SideMenuItem.Icon>
-                        <Image
-                            Width="24"
-                            Height="24"
-                            Source="/Resources/Images/JianShe.png" />
-                    </hc:SideMenuItem.Icon>
-                    <hc:SideMenuItem Header="8.1 制定密码应用方案" Tag="JianShe-制定密码应用方案">
-                        <hc:SideMenuItem.Icon>
-                            <Image
-                                Width="24"
-                                Height="24"
-                                Source="/Resources/Images/Item.png" />
-                        </hc:SideMenuItem.Icon>
-                    </hc:SideMenuItem>
-                    <hc:SideMenuItem Header="8.2 制定密钥安全管理策略" Tag="JianShe-制定密钥安全管理策略">
-                        <hc:SideMenuItem.Icon>
-                            <Image
-                                Width="24"
-                                Height="24"
-                                Source="/Resources/Images/Item.png" />
-                        </hc:SideMenuItem.Icon>
-                    </hc:SideMenuItem>
-                    <hc:SideMenuItem Header="8.3 制定实施方案" Tag="JianShe-制定实施方案">
-                        <hc:SideMenuItem.Icon>
-                            <Image
-                                Width="24"
-                                Height="24"
-                                Source="/Resources/Images/Item.png" />
-                        </hc:SideMenuItem.Icon>
-                    </hc:SideMenuItem>
-                    <hc:SideMenuItem Header="8.4 投入运行前进行密码应用安全性评估" Tag="JianShe-投入运行前进行密码应用安全性评估">
-                        <hc:SideMenuItem.Icon>
-                            <Image
-                                Width="24"
-                                Height="24"
-                                Source="/Resources/Images/Item.png" />
-                        </hc:SideMenuItem.Icon>
-                    </hc:SideMenuItem>
-                    <hc:SideMenuItem Header="8.5 定期开展密码应用安全性评估及攻防对抗演习" Tag="JianShe-定期开展密码应用安全性评估及攻防对抗演习">
-                        <hc:SideMenuItem.Icon>
-                            <Image
-                                Width="24"
-                                Height="24"
-                                Source="/Resources/Images/Item.png" />
-                        </hc:SideMenuItem.Icon>
-                    </hc:SideMenuItem>
+                            <TextBlock Text="层面换算分数：" />
+                            <TextBlock Text="{Binding CengMianHuanSuanScore}" />
+                        </StackPanel>
 
-                </hc:SideMenuItem>
-                <hc:SideMenuItem Header="9 应急处置" Tag="YingJi">
-                    <hc:SideMenuItem.Icon>
-                        <Image
-                            Width="24"
-                            Height="24"
-                            Source="/Resources/Images/YingJi.png" />
-                    </hc:SideMenuItem.Icon>
+                    </StackPanel>
+                </hc:TabItem>
+            </hc:TabControl>
 
-                    <hc:SideMenuItem Header="9.1 应急策略" Tag="YingJi-应急策略">
-                        <hc:SideMenuItem.Icon>
-                            <Image
-                                Width="24"
-                                Height="24"
-                                Source="/Resources/Images/Item.png" />
-                        </hc:SideMenuItem.Icon>
-                    </hc:SideMenuItem>
-                    <hc:SideMenuItem Header="9.2 事件处置" Tag="YingJi-事件处置">
-                        <hc:SideMenuItem.Icon>
-                            <Image
-                                Width="24"
-                                Height="24"
-                                Source="/Resources/Images/Item.png" />
-                        </hc:SideMenuItem.Icon>
-                    </hc:SideMenuItem>
-                    <hc:SideMenuItem Header="9.2 向有关主管部门上报处置情况" Tag="YingJi-向有关主管部门上报处置情况">
-                        <hc:SideMenuItem.Icon>
-                            <Image
-                                Width="24"
-                                Height="24"
-                                Source="/Resources/Images/Item.png" />
-                        </hc:SideMenuItem.Icon>
-                    </hc:SideMenuItem>
-                </hc:SideMenuItem>
-            </hc:SideMenu>
+
+
+            <StackPanel DockPanel.Dock="Bottom">
+                <hc:TabControl
+                    x:Name="TabControlUI"
+                    Height="200"
+                    DockPanel.Dock="Bottom">
+                    <hc:TabItem Header="测评现状">
+                        <StackPanel>
+                            <TextBlock Text="{Binding SelectedItem.TestObjectName, ElementName=DataGridUI}" />
+                            <hc:TextBox
+                                Height="100"
+                                VerticalContentAlignment="Top"
+                                FontSize="16"
+                                Text="{Binding SelectedItem.Description, ElementName=DataGridUI, UpdateSourceTrigger=PropertyChanged}"
+                                TextWrapping="WrapWithOverflow" />
+                        </StackPanel>
+                    </hc:TabItem>
+                    <hc:TabItem Header="问题描述">
+                        <hc:TextBox
+                            Height="128"
+                            VerticalContentAlignment="Top"
+                            FontSize="16"
+                            Text="{Binding SelectedItem.Question, ElementName=DataGridUI, UpdateSourceTrigger=PropertyChanged}" />
+
+                    </hc:TabItem>
+                    <hc:TabItem Header="风险缓解">
+                        <RichTextBox
+                            Height="128"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="16" />
+
+                    </hc:TabItem>
+                    <hc:TabItem Header="整改建议">
+                        <hc:TextBox
+                            Height="128"
+                            VerticalContentAlignment="Top"
+                            FontSize="16"
+                            Text="{Binding SelectedItem.Suggest, ElementName=DataGridUI, UpdateSourceTrigger=PropertyChanged}" />
+
+                    </hc:TabItem>
+                    <hc:TabItem Header="模拟整改">
+                        <RichTextBox
+                            Height="128"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="16" />
+
+                    </hc:TabItem>
+                </hc:TabControl>
+
+            </StackPanel>
+
+
+
+            <StackPanel CanVerticallyScroll="True">
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30" />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
+                    <DataGrid
+                        x:Name="DataGridUI"
+                        Grid.Row="1"
+                        AutoGenerateColumns="False"
+                        HeadersVisibility="All"
+                        RowHeaderWidth="60"
+                        ScrollViewer.VerticalScrollBarVisibility="Visible"
+                        SelectedCellsChanged="DataGridUI_SelectedCellsChanged"
+                        SelectionMode="Single"
+                        Unloaded="DataGrid_Unloaded">
+                        <DataGrid.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Command="commands:RecordEntryCommands.Add" Header="增加" />
+                                <MenuItem Command="commands:RecordEntryCommands.BulkAdd" Header="批量增加" />
+
+                                <MenuItem
+                                    x:Name="MenuItem_delete"
+                                    Command="commands:RecordEntryCommands.Delete"
+                                    CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.SelectedItem}"
+                                    Header="删除" />
+                                <MenuItem
+                                    x:Name="MenuItem_delete2"
+                                    Command="commands:RecordEntryCommands.BulkDelete"
+                                    CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.SelectedItem}"
+                                    Header="按名删除" />
+                            </ContextMenu>
+                        </DataGrid.ContextMenu>
+
+                        <DataGrid.RowHeaderTemplate>
+                            <DataTemplate />
+                        </DataGrid.RowHeaderTemplate>
+                        <DataGrid.Columns>
+
+
+                            <DataGridTextColumn
+                                Width="200"
+                                Binding="{Binding TestObjectName, UpdateSourceTrigger=PropertyChanged}"
+                                Header="测评对象" />
+
+                            <DataGridCheckBoxColumn
+                                Width="40"
+                                Binding="{Binding D, UpdateSourceTrigger=PropertyChanged}"
+                                Header="D" />
+                            <DataGridCheckBoxColumn
+                                Width="40"
+                                Binding="{Binding A, UpdateSourceTrigger=PropertyChanged}"
+                                Header="A" />
+                            <DataGridCheckBoxColumn
+                                Width="40"
+                                Binding="{Binding K, UpdateSourceTrigger=PropertyChanged}"
+                                Header="K" />
+                            <DataGridCheckBoxColumn
+                                Width="40"
+                                Binding="{Binding NK, UpdateSourceTrigger=PropertyChanged}"
+                                Header="NK" />
+                            <DataGridComboBoxColumn
+                                Width="60"
+                                Header="RA"
+                                ItemsSource="{Binding Source={StaticResource AlgorithmicStrengthEnumKey}}"
+                                SelectedItemBinding="{Binding RA, UpdateSourceTrigger=PropertyChanged}" />
+                            <DataGridComboBoxColumn
+                                Width="60"
+                                Header="RK"
+                                ItemsSource="{Binding Source={StaticResource ModuleLevelsEnumKey}}"
+                                SelectedItemBinding="{Binding RK, UpdateSourceTrigger=PropertyChanged}" />
+
+                            <DataGridCheckBoxColumn
+                                Width="80"
+                                Binding="{Binding EnabledAutomatic, UpdateSourceTrigger=PropertyChanged}"
+                                Header="自动算分" />
+                            <DataGridTextColumn
+                                Width="80"
+                                Binding="{Binding Score, UpdateSourceTrigger=PropertyChanged}"
+                                Header="分数" />
+                            <DataGridComboBoxColumn
+                                Width="80"
+                                Header="风险"
+                                ItemsSource="{Binding Source={StaticResource ExposuresEnumKey}}"
+                                SelectedItemBinding="{Binding Exposures, UpdateSourceTrigger=PropertyChanged}">
+                                <DataGridComboBoxColumn.ElementStyle>
+                                    <Style TargetType="ComboBox">
+                                        <Setter Property="TextElement.Foreground" Value="{Binding Exposures, Converter={StaticResource ExposuresColorConverter}}" />
+                                    </Style>
+                                </DataGridComboBoxColumn.ElementStyle>
+                            </DataGridComboBoxColumn>
+
+
+                            <DataGridComboBoxColumn
+                                Width="80"
+                                Header="结论"
+                                ItemsSource="{Binding Source={StaticResource TestStatusEnumKey}}"
+                                SelectedItemBinding="{Binding TestStatus, UpdateSourceTrigger=PropertyChanged}">
+                                <DataGridComboBoxColumn.ElementStyle>
+                                    <Style TargetType="ComboBox">
+                                        <Setter Property="TextElement.Foreground" Value="{Binding TestStatus, Converter={StaticResource TestStatusColorConverter}}" />
+                                    </Style>
+                                </DataGridComboBoxColumn.ElementStyle>
+                            </DataGridComboBoxColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                </Grid>
+                <CustomUserControl:TotalsControl x:Name="TotalsControlUI" Visibility="Collapsed" />
+
+            </StackPanel>
+
         </DockPanel>
-        <hc:TabControl
-            Width="250"
-            DockPanel.Dock="Right"
-            TabItemWidth="50">
-            <hc:TabItem Header="属性">
-                <hc:PropertyGrid
-                    x:Name="PropertyGridUI"
-                    Grid.Row="1"
-                    SelectedObject="{Binding SelectedItem, ElementName=DataGridUI, UpdateSourceTrigger=PropertyChanged}" />
-
-            </hc:TabItem>
-            <hc:TabItem Header="预览">
-                <StackPanel x:Name="CengMinFenXi">
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="指标对象：" />
-                        <TextBlock Text="{Binding TestObject, UpdateSourceTrigger=PropertyChanged}" />
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock
-                            MaxWidth="250"
-                            Text="指标要求："
-                            TextWrapping="Wrap" />
-                        <TextBlock
-                            MaxWidth="120"
-                            Text="{Binding ZhiBiaoYaoQiu}"
-                            TextWrapping="Wrap" />
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="指标权重：" />
-                        <TextBlock Text="{Binding ZhiBiaoQuanZhong}" />
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="指标分数：" />
-                        <TextBlock Text="{Binding Score}" />
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="层面：" />
-                        <TextBlock Text="{Binding CengMian}" />
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="层面分数：" />
-                        <TextBlock Text="{Binding CengMianScore}" />
-
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-
-                        <TextBlock Text="层面权重：" />
-                        <TextBlock Text="{Binding CengMianQuanZhong}" />
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-
-                        <TextBlock Text="层面换算分数：" />
-                        <TextBlock Text="{Binding CengMianHuanSuanScore}" />
-                    </StackPanel>
-
-                </StackPanel>
-            </hc:TabItem>
-        </hc:TabControl>
-
-
-
-
-        <hc:TabControl
-            x:Name="TabControlUI"
-            Height="200"
-            DockPanel.Dock="Bottom">
-            <hc:TabItem Header="测评现状">
-                <StackPanel>
-                    <TextBlock Text="{Binding SelectedItem.TestObjectName, ElementName=DataGridUI}" />
-                    <hc:TextBox
-                        Height="100"
-                        VerticalContentAlignment="Top"
-                        FontSize="16"
-                        Text="{Binding SelectedItem.Description, ElementName=DataGridUI, UpdateSourceTrigger=PropertyChanged}"
-                        TextWrapping="WrapWithOverflow" />
-                </StackPanel>
-            </hc:TabItem>
-            <hc:TabItem Header="问题描述">
-                <hc:TextBox
-                    Height="128"
-                    VerticalContentAlignment="Top"
-                    FontSize="16"
-                    Text="{Binding SelectedItem.Question, ElementName=DataGridUI, UpdateSourceTrigger=PropertyChanged}" />
-
-            </hc:TabItem>
-            <hc:TabItem Header="风险缓解">
-                <RichTextBox
-                    Height="128"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    FontSize="16" />
-
-            </hc:TabItem>
-            <hc:TabItem Header="整改建议">
-                <hc:TextBox
-                    Height="128"
-                    VerticalContentAlignment="Top"
-                    FontSize="16"
-                    Text="{Binding SelectedItem.Suggest, ElementName=DataGridUI, UpdateSourceTrigger=PropertyChanged}" />
-
-            </hc:TabItem>
-            <hc:TabItem Header="模拟整改">
-                <RichTextBox
-                    Height="128"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    FontSize="16" />
-
-            </hc:TabItem>
-
-
-        </hc:TabControl>
-
-
-        <StackPanel CanVerticallyScroll="True">
-
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="30" />
-                    <RowDefinition />
-                </Grid.RowDefinitions>
-
-                <DataGrid
-                    x:Name="DataGridUI"
-                    Grid.Row="1"
-                    AutoGenerateColumns="False"
-                    HeadersVisibility="All"
-                    RowHeaderWidth="60"
-                    ScrollViewer.VerticalScrollBarVisibility="Visible"
-                    SelectedCellsChanged="DataGridUI_SelectedCellsChanged"
-                    SelectionMode="Single"
-                    Unloaded="DataGrid_Unloaded">
-                    <DataGrid.ContextMenu>
-                        <ContextMenu>
-                            <MenuItem Command="commands:RecordEntryCommands.Add" Header="增加" />
-                            <MenuItem Command="commands:RecordEntryCommands.BulkAdd" Header="批量增加" />
-
-                            <MenuItem
-                                x:Name="MenuItem_delete"
-                                Command="commands:RecordEntryCommands.Delete"
-                                CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.SelectedItem}"
-                                Header="删除" />
-                            <MenuItem
-                                x:Name="MenuItem_delete2"
-                                Command="commands:RecordEntryCommands.BulkDelete"
-                                CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.SelectedItem}"
-                                Header="按名删除" />
-                        </ContextMenu>
-                    </DataGrid.ContextMenu>
-
-                    <DataGrid.RowHeaderTemplate>
-                        <DataTemplate />
-                    </DataGrid.RowHeaderTemplate>
-                    <DataGrid.Columns>
-
-
-                        <DataGridTextColumn
-                            Width="200"
-                            Binding="{Binding TestObjectName, UpdateSourceTrigger=PropertyChanged}"
-                            Header="测评对象" />
-
-                        <DataGridCheckBoxColumn
-                            Width="40"
-                            Binding="{Binding D, UpdateSourceTrigger=PropertyChanged}"
-                            Header="D" />
-                        <DataGridCheckBoxColumn
-                            Width="40"
-                            Binding="{Binding A, UpdateSourceTrigger=PropertyChanged}"
-                            Header="A" />
-                        <DataGridCheckBoxColumn
-                            Width="40"
-                            Binding="{Binding K, UpdateSourceTrigger=PropertyChanged}"
-                            Header="K" />
-                        <DataGridCheckBoxColumn
-                            Width="40"
-                            Binding="{Binding NK, UpdateSourceTrigger=PropertyChanged}"
-                            Header="NK" />
-                        <DataGridComboBoxColumn
-                            Width="60"
-                            Header="RA"
-                            ItemsSource="{Binding Source={StaticResource AlgorithmicStrengthEnumKey}}"
-                            SelectedItemBinding="{Binding RA, UpdateSourceTrigger=PropertyChanged}" />
-                        <DataGridComboBoxColumn
-                            Width="60"
-                            Header="RK"
-                            ItemsSource="{Binding Source={StaticResource ModuleLevelsEnumKey}}"
-                            SelectedItemBinding="{Binding RK, UpdateSourceTrigger=PropertyChanged}" />
-
-                        <DataGridCheckBoxColumn
-                            Width="80"
-                            Binding="{Binding EnabledAutomatic, UpdateSourceTrigger=PropertyChanged}"
-                            Header="自动算分" />
-                        <DataGridTextColumn
-                            Width="80"
-                            Binding="{Binding Score, UpdateSourceTrigger=PropertyChanged}"
-                            Header="分数" />
-                        <DataGridComboBoxColumn
-                            Width="80"
-                            Header="风险"
-                            ItemsSource="{Binding Source={StaticResource ExposuresEnumKey}}"
-                            SelectedItemBinding="{Binding Exposures, UpdateSourceTrigger=PropertyChanged}">
-                            <DataGridComboBoxColumn.ElementStyle>
-                                <Style TargetType="ComboBox">
-                                    <Setter Property="TextElement.Foreground" Value="{Binding Exposures, Converter={StaticResource ExposuresColorConverter}}" />
-                                </Style>
-                            </DataGridComboBoxColumn.ElementStyle>
-                        </DataGridComboBoxColumn>
-
-
-                        <DataGridComboBoxColumn
-                            Width="80"
-                            Header="结论"
-                            ItemsSource="{Binding Source={StaticResource TestStatusEnumKey}}"
-                            SelectedItemBinding="{Binding TestStatus, UpdateSourceTrigger=PropertyChanged}">
-                            <DataGridComboBoxColumn.ElementStyle>
-                                <Style TargetType="ComboBox">
-                                    <Setter Property="TextElement.Foreground" Value="{Binding TestStatus, Converter={StaticResource TestStatusColorConverter}}" />
-                                </Style>
-                            </DataGridComboBoxColumn.ElementStyle>
-                        </DataGridComboBoxColumn>
-                    </DataGrid.Columns>
-                </DataGrid>
-
-            </Grid>
-            <CustomUserControl:TotalsControl x:Name="TotalsControlUI" Visibility="Collapsed" />
-
+        <StackPanel Grid.Row="1">
+            <Menu Margin="10,0,0,0" Background="Transparent">
+                <MenuItem
+                    Height="29"
+                    Header="云安全大脑"
+                    ToolTip="依托云安全大脑的大数据、人工智能、云计算、IoT智能感知、区块链、多方安全计算、糖醋里脊、可乐鸡翅等新技术，MPCal变得更加聪明，不仅可以智能识别多种安全场景，而且显著提升了漏洞分析、风险分析、密码算法分析等功能的检测和处理能力。">
+                    <MenuItem.Icon>
+                        <Image Source="/Resources/Images/MyCloud.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem
+                    Height="29"
+                    Header="风险特征库 Ver0.1"
+                    ToolTip="风险特征库是一款先进的数据分析和风险管理工具，通过集成大数据、人工智能和机器学习技术，帮助企业全面识别、评估和管理各种潜在风险。它不仅能为您提供实时的风险洞察，还能预测未来的风险趋势">
+                    <MenuItem.Icon>
+                        <Image Source="/Resources/Images/MaoZi.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem
+                    Height="29"
+                    Header="启发式引擎 Ver0.1"
+                    ToolTip="启发式引擎利用先进的机器学习算法，自动化分析和评估系统中的安全漏洞和风险。">
+                    <MenuItem.Icon>
+                        <Image Source="/Resources/Images/ML.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem
+                    Height="29"
+                    Header="DAK分析引擎 Ver0.1"
+                    ToolTip="特征分析引擎通过利用大数据分析技术，全面扫描和分析企业数据，提取关键特征，计算DAK分数。">
+                    <MenuItem.Icon>
+                        <Image Source="/Resources/Images/XingWeiKu.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+            </Menu>
         </StackPanel>
+    </Grid>
 
-    </DockPanel>
+
+
 
 </hc:Window>
