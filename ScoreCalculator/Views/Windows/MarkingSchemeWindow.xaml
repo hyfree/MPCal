@@ -576,57 +576,6 @@
 
 
 
-            <StackPanel DockPanel.Dock="Bottom">
-                <hc:TabControl
-                    x:Name="TabControlUI"
-                    Height="200"
-                    DockPanel.Dock="Bottom">
-                    <hc:TabItem Header="测评现状">
-                        <StackPanel>
-                            <TextBlock Text="{Binding SelectedItem.TestObjectName, ElementName=DataGridUI}" />
-                            <hc:TextBox
-                                Height="100"
-                                VerticalContentAlignment="Top"
-                                FontSize="16"
-                                Text="{Binding SelectedItem.Description, ElementName=DataGridUI, UpdateSourceTrigger=PropertyChanged}"
-                                TextWrapping="WrapWithOverflow" />
-                        </StackPanel>
-                    </hc:TabItem>
-                    <hc:TabItem Header="问题描述">
-                        <hc:TextBox
-                            Height="128"
-                            VerticalContentAlignment="Top"
-                            FontSize="16"
-                            Text="{Binding SelectedItem.Question, ElementName=DataGridUI, UpdateSourceTrigger=PropertyChanged}" />
-
-                    </hc:TabItem>
-                    <hc:TabItem Header="风险缓解">
-                        <RichTextBox
-                            Height="128"
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            FontSize="16" />
-
-                    </hc:TabItem>
-                    <hc:TabItem Header="整改建议">
-                        <hc:TextBox
-                            Height="128"
-                            VerticalContentAlignment="Top"
-                            FontSize="16"
-                            Text="{Binding SelectedItem.Suggest, ElementName=DataGridUI, UpdateSourceTrigger=PropertyChanged}" />
-
-                    </hc:TabItem>
-                    <hc:TabItem Header="模拟整改">
-                        <RichTextBox
-                            Height="128"
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            FontSize="16" />
-
-                    </hc:TabItem>
-                </hc:TabControl>
-
-            </StackPanel>
 
 
 
@@ -757,6 +706,30 @@
                                                 VerticalAlignment="Center"
                                                 FontSize="12"
                                                 Foreground="MidnightBlue"
+                                                Text="测评结论: " />
+                                            <TextBlock
+                                                VerticalAlignment="Center"
+                                                FontSize="12"
+                                                Foreground="{Binding TestStatus, Converter={StaticResource TestStatusColorConverter}}"
+                                                Text="{Binding TestStatus, Converter={StaticResource TestStatusConverter}, UpdateSourceTrigger=PropertyChanged}" />
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock
+                                                VerticalAlignment="Center"
+                                                FontSize="12"
+                                                Foreground="MidnightBlue"
+                                                Text="风险分析: " />
+                                            <TextBlock
+                                                VerticalAlignment="Center"
+                                                FontSize="12"
+                                                Foreground="{Binding Exposures, Converter={StaticResource ExposuresColorConverter}}"
+                                                Text="{Binding Exposures, Converter={StaticResource ExposuresConverter}, UpdateSourceTrigger=PropertyChanged}" />
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock
+                                                VerticalAlignment="Center"
+                                                FontSize="12"
+                                                Foreground="MidnightBlue"
                                                 Text="测评现状: " />
                                             <TextBlock
                                                 VerticalAlignment="Center"
@@ -764,6 +737,7 @@
                                                 Foreground="MidnightBlue"
                                                 Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}" />
                                         </StackPanel>
+
                                         <StackPanel Orientation="Horizontal">
                                             <TextBlock
                                                 VerticalAlignment="Center"
@@ -775,6 +749,18 @@
                                                 FontSize="12"
                                                 Foreground="MidnightBlue"
                                                 Text="{Binding Question, UpdateSourceTrigger=PropertyChanged}" />
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock
+                                                VerticalAlignment="Center"
+                                                FontSize="12"
+                                                Foreground="MidnightBlue"
+                                                Text="风险缓解: " />
+                                            <TextBlock
+                                                VerticalAlignment="Center"
+                                                FontSize="12"
+                                                Foreground="MidnightBlue"
+                                                Text="{Binding Suggest, UpdateSourceTrigger=PropertyChanged}" />
                                         </StackPanel>
                                         <StackPanel Orientation="Horizontal">
                                             <TextBlock
@@ -804,8 +790,9 @@
             <Menu Margin="10,0,0,0" Background="Transparent">
                 <MenuItem
                     Height="29"
-                    Header="云安全大脑"
-                    ToolTip="依托云安全大脑的大数据、人工智能、云计算、IoT智能感知、区块链、多方安全计算、糖醋里脊、可乐鸡翅等新技术，MPCal变得更加聪明，不仅可以智能识别多种安全场景，而且显著提升了漏洞分析、风险分析、密码算法分析等功能的检测和处理能力。">
+                    Header="密评云安全大脑"
+                    Tag="阿巴阿巴阿巴"
+                    ToolTip="已连接密评云安全大脑，显著提升风险分析、漏洞分析、风险缓解等功能的检测和处理能力。">
                     <MenuItem.Icon>
                         <Image Source="/Resources/Images/MyCloud.png" />
                     </MenuItem.Icon>
@@ -821,7 +808,8 @@
                 <MenuItem
                     Height="29"
                     Header="启发式引擎 Ver0.1"
-                    ToolTip="启发式引擎利用先进的机器学习算法，自动化分析和评估系统中的安全漏洞和风险。">
+                    Tag="待实现"
+                    ToolTip="启发式引擎利用先进的机器学习算法，自动化分析系统风险和评估系统现状。">
                     <MenuItem.Icon>
                         <Image Source="/Resources/Images/ML.png" />
                     </MenuItem.Icon>
@@ -829,9 +817,18 @@
                 <MenuItem
                     Height="29"
                     Header="DAK分析引擎 Ver0.1"
-                    ToolTip="特征分析引擎通过利用大数据分析技术，全面扫描和分析企业数据，提取关键特征，计算DAK分数。">
+                    ToolTip="DAK分析引擎通过利用大数据分析技术，全面扫描和分析密评证据，提取关键特征，计算DAK分值。">
                     <MenuItem.Icon>
                         <Image Source="/Resources/Images/XingWeiKu.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem
+                    Height="29"
+                    Header="密评小助手 Ver0.1"
+                    Tag="待实现，接入文心一言服务或者其他大模型服务"
+                    ToolTip="密评小助手采用遥遥领先的神经网络技术，具备多模态AI分析能力，提供语言大模型服务">
+                    <MenuItem.Icon>
+                        <Image Source="/Resources/Images/AI.png" />
                     </MenuItem.Icon>
                 </MenuItem>
             </Menu>

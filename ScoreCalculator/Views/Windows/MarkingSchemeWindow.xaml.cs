@@ -17,6 +17,7 @@ using ScoreCalculator.Views.Commands;
 using ScoreCalculator.Views.CustomUserControl;
 using ScoreCalculator.Views.CustomUserControl.MyDialog;
 using ScoreCalculator.Views.Extensions;
+using ScoreCalculator.Views.Windows;
 
 using SixLabors.Fonts.Tables.AdvancedTypographic;
 
@@ -201,6 +202,17 @@ namespace ScoreCalculator
                 Growl.Success("导出成功");
 
             });
+            this.AddCommandBindings(new CommandBinding(RecordEntryCommands.EditDetails), (sender, e) => {
+
+                RecordEntryEntity data = e.Parameter as RecordEntryEntity;
+                if (data != null)
+                {
+                    EditDetailsWindow editDetailsWindow = new EditDetailsWindow(data);
+
+                    editDetailsWindow.ShowDialog();
+                }
+                Growl.Success("编辑成功");
+            });
         }
       
        
@@ -377,29 +389,32 @@ namespace ScoreCalculator
 
         private void DataGridUI_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            var dg = sender as DataGrid;
-            Point aP = e.GetPosition(dg);
+            //var dg = sender as DataGrid;
+            //Point aP = e.GetPosition(dg);
 
-            IInputElement obj = dg.InputHitTest(aP);
-            DependencyObject target = obj as DependencyObject;
+            //IInputElement obj = dg.InputHitTest(aP);
+            //DependencyObject target = obj as DependencyObject;
 
-            while (target != null)
-            {
-                if (target is DataGridRow)
-                {
-                    break;
-                }
-                target = VisualTreeHelper.GetParent(target.FindVisualTreeRoot());
-            }
+            //while (target != null)
+            //{
+            //    if (target is DataGridRow)
+            //    {
+            //        break;
+            //    }
+            //    target = VisualTreeHelper.GetParent(target.FindVisualTreeRoot());
+            //}
 
-            if (target == null)
-            {
-                return;
-            }
+            //if (target == null)
+            //{
+            //    return;
+            //}
          
-            var row=target as DataGridRow;
-            var data=row.DataContext as RecordEntryEntity;
-            Growl.Success(data.TestObjectName);
+            //var row=target as DataGridRow;
+            //var data=row.DataContext as RecordEntryEntity;
+            //EditDetailsWindow editDetailsWindow = new EditDetailsWindow(data);
+          
+            //editDetailsWindow.ShowDialog();
+          
             //if (row.GetIndex() >= 0)
             //{
             //    // get row data
