@@ -16,6 +16,7 @@ using ScoreCalculator.Utils.Word;
 using ScoreCalculator.Views.Commands;
 using ScoreCalculator.Views.CustomUserControl;
 using ScoreCalculator.Views.CustomUserControl.MyDialog;
+using ScoreCalculator.Views.Extensions;
 
 using SixLabors.Fonts.Tables.AdvancedTypographic;
 
@@ -371,6 +372,42 @@ namespace ScoreCalculator
         {
             this.tableOfScores.UpdateScore();
             RefreshView();
+
+        }
+
+        private void DataGridUI_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var dg = sender as DataGrid;
+            Point aP = e.GetPosition(dg);
+
+            IInputElement obj = dg.InputHitTest(aP);
+            DependencyObject target = obj as DependencyObject;
+
+            while (target != null)
+            {
+                if (target is DataGridRow)
+                {
+                    break;
+                }
+                target = VisualTreeHelper.GetParent(target.FindVisualTreeRoot());
+            }
+
+            if (target == null)
+            {
+                return;
+            }
+         
+            var row=target as DataGridRow;
+            var data=row.DataContext as RecordEntryEntity;
+            Growl.Success(data.TestObjectName);
+            //if (row.GetIndex() >= 0)
+            //{
+            //    // get row data
+            //}
+            //else
+            //{
+            //    return;
+            //}
 
         }
     }

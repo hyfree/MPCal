@@ -643,6 +643,7 @@
                         Grid.Row="1"
                         AutoGenerateColumns="False"
                         HeadersVisibility="All"
+                        MouseDoubleClick="DataGridUI_MouseDoubleClick"
                         RowDetailsVisibilityMode="Visible"
                         RowHeaderWidth="60"
                         ScrollViewer.VerticalScrollBarVisibility="Visible"
@@ -651,6 +652,11 @@
                         Unloaded="DataGrid_Unloaded">
                         <DataGrid.ContextMenu>
                             <ContextMenu>
+                                <MenuItem
+                                    x:Name="MenuItem_EditDetails"
+                                    Command="commands:RecordEntryCommands.EditDetails"
+                                    CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.SelectedItem}"
+                                    Header="编辑" />
                                 <MenuItem Command="commands:RecordEntryCommands.Add" Header="增加" />
                                 <MenuItem Command="commands:RecordEntryCommands.BulkAdd" Header="批量增加" />
 
@@ -724,6 +730,7 @@
                                     </Style>
                                 </DataGridComboBoxColumn.ElementStyle>
                             </DataGridComboBoxColumn>
+
 
 
                             <DataGridComboBoxColumn

@@ -16,11 +16,13 @@ namespace ScoreCalculator.Views.Commands
             AddTestObject = new RoutedUICommand("AddTestObject", "AddTestObject", typeof(TestObjectCommands));
             BatchAddTestObject = new RoutedUICommand("BatchAddTestObject", "BatchAddTestObject", typeof(TestObjectCommands));
             DeleteTestObject = new RoutedUICommand("DeleteTestObject", "DeleteTestObject", typeof(TestObjectCommands));
+            EditDetails = new RoutedUICommand("EditDetails", "EditDetails", typeof(TestObjectCommands));
 
         }
         public static RoutedUICommand AddTestObject { get; }
         public static RoutedUICommand BatchAddTestObject { get; }
         public static RoutedUICommand DeleteTestObject { get; }
+        public static RoutedUICommand EditDetails { get; }
 
 
     }

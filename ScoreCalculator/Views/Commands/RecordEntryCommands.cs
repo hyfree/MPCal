@@ -19,6 +19,7 @@ namespace ScoreCalculator.Views.Commands
             BulkDelete = new RoutedUICommand("BulkDelete", "BulkDelete", typeof(CustomCommands));
             Add = new RoutedUICommand("Add", "Add", typeof(CustomCommands));
             BulkAdd = new RoutedUICommand("BulkAdd", "BulkAdd", typeof(CustomCommands));
+            EditDetails = new RoutedUICommand("EditDetails", "EditDetails", typeof(CustomCommands));
 
         }
 
@@ -26,7 +27,7 @@ namespace ScoreCalculator.Views.Commands
         public static RoutedUICommand BulkAdd { get; }
         public static RoutedUICommand Delete { get; }
         public static RoutedUICommand BulkDelete { get; }
-
+        public static RoutedUICommand EditDetails { get; }
 
     }
 }

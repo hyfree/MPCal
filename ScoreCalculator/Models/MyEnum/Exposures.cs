@@ -14,19 +14,48 @@ namespace ScoreCalculator.Models.MyEnum
         /// <summary>
         /// 高风险
         /// </summary>
-        High=0, 
+        [Description("高")]
+        High = 0,
         /// <summary>
         /// 中风险
         /// </summary>
-        Medium=1,
+        [Description("中")]
+        Medium =1,
         /// <summary>
         /// 低风险
         /// </summary>
-        Low=2,
+        [Description("低")]
+        Low =2,
         /// <summary>
         /// 无风险
         /// </summary>
-        None=3
+        [Description("无")]
+        None =3
+    }
+    public class ExposuresObjectDataProvider
+    {
+        public List<string> GetValues()
+        {
+
+            var values=Enum.GetValues(typeof(Exposures));   
+            List<string> result=new List<string>();
+            foreach (Exposures item in values)
+            {
+                result.Add(item.GetEnumString());
+
+            }
+            return result;
+        }
+    }
+    [AttributeUsage(AttributeTargets.All)]
+    public class DescriptionAttribute : Attribute
+    {
+        public string description;
+
+        public DescriptionAttribute(string desc)
+        {
+            description = desc;
+        }
     }
     public static class ExposuresExtensionMethods
     {
