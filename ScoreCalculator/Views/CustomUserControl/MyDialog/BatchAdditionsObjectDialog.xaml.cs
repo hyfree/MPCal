@@ -91,7 +91,7 @@ namespace ScoreCalculator.Views.CustomUserControl.MyDialog
             }
             if (this.yingyong_ShenFenJianBie.IsChecked.Value)
             {
-                markingSchemeWindow.tableOfScores.Add(RecordEntryEntity.CreateByZhiBiao(name, markingSchemeWindow.GetSystemInfo().Id, Models.MyEnum.SecurityDimensionEnum.YingYong, "YingYong-身份鉴别"));
+                markingSchemeWindow.tableOfScores.Add(RecordEntryEntity.CreateByZhiBiao(name, markingSchemeWindow.GetSystemInfo().Id, Models.MyEnum.SecurityDimensionEnum.YingYong, "身份鉴别"));
             }
 
             if (this.yingyong_ChuanShuJiMiXing.IsChecked.Value)
