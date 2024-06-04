@@ -115,6 +115,7 @@ namespace ScoreCalculator
 
             //data= CalculationTableData.ReadAllData(systemInfoEntity.GetSystemLevel());
             this.CengMinFenXi.DataContext=dataViewModel;
+          
             //var arry= sQLLite3Context.TagTable.Where(b => b.TagId == 1).ToArray();
             // var arry2= sQLLite3Context.TagTable.Where(b => b.Tag == "1").ToArray();
             // NPOIUtils.test();
@@ -123,11 +124,12 @@ namespace ScoreCalculator
         private void InitDataBinding()
         {
 
-            tableOfScores=new TableOfScores(this.systemInfoEntity);
-            tableOfScores.LoadData(this.systemInfoEntity.GetSystemLevel());
+            this.tableOfScores=new TableOfScores(this.systemInfoEntity);
+            this.tableOfScores.LoadData(this.systemInfoEntity.GetSystemLevel());
             var list = new RecordEntryServices().Query(systemInfoEntity.Id);
-            tableOfScores.LoadRecordEntryEntitys(list);
-            tableOfScores.UpdateScore();
+            this.tableOfScores.LoadRecordEntryEntitys(list);
+            this.tableOfScores.UpdateScore();
+            this.JiSuanBiao.DataContext = tableOfScores;
             //this.DataGridUI.ItemsSource= this.RecordEntryEntityList;
             Growl.Success("加载项目完成");
         }

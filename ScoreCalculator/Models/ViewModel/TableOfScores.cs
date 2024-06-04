@@ -119,7 +119,62 @@ namespace ScoreCalculator.Models.ViewModel
                 var ct = this.Data[sc];
                 ct.UpdateScore(this.SystemInfoEntity.GetSystemLevel());
             }
+
             //计算总分
+            double result1=0d;
+            double sum_quan1=0d;
+            double sum_quan_all=0d;
+            var list1=new List<SecurityDimensionEnum>();
+            list1.Add(SecurityDimensionEnum.WuLi);
+            list1.Add(SecurityDimensionEnum.SheBei);
+            list1.Add(SecurityDimensionEnum.WangLuo );
+            list1.Add(SecurityDimensionEnum.YingYong);
+            foreach (var item in list1)
+            {
+                if (this.Data[item].TestStatus != TestStatus.NA)
+                {
+                    result1 += this.Data[item].CengMianQuanZhong * this.Data[item].Score;
+                    sum_quan1 += this.Data[item].CengMianQuanZhong;
+                }
+                sum_quan_all += this.Data[item].CengMianQuanZhong;
+
+            }
+            if (result1!=0)
+            {
+                result1 = result1 / sum_quan1;
+            }
+
+            result1*= sum_quan_all;
+
+            double result2=0d;
+            double sum_quan2 =0d;
+            double sum_quan2_all =0d;
+            var list2=new List<SecurityDimensionEnum>();
+            list2.Add(SecurityDimensionEnum.GuanLi);
+            list2.Add(SecurityDimensionEnum.RenYuan);
+            list2.Add(SecurityDimensionEnum.JianShe);
+            list2.Add(SecurityDimensionEnum.YingJi);
+
+            foreach (var item in list2)
+            {
+                if (this.Data[item].TestStatus != TestStatus.NA)
+                {
+                    result2 += this.Data[item].CengMianQuanZhong * this.Data[item].Score;
+                    sum_quan2 += this.Data[item].CengMianQuanZhong;
+                }
+                sum_quan2_all += this.Data[item].CengMianQuanZhong;
+            }
+            if (result2!=0)
+            {
+
+                result2 = result2 / sum_quan2;
+            }
+            result2*= sum_quan2_all;
+
+            var sum=result1+result2;
+            this.Score = sum;
+
+
         }
         public int GetCounterByTestStatus(TestStatus testStatus)
         {

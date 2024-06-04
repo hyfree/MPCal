@@ -190,6 +190,9 @@
     <None Update="Data\Level3\CalculationTable\YingYong.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Data\Word\IssuesList.docx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="Data\Word\商用密码应用安全性评估问题确认单.docx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

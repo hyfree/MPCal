@@ -527,50 +527,57 @@
 
                 </hc:TabItem>
                 <hc:TabItem Header="预览">
-                    <StackPanel x:Name="CengMinFenXi">
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="指标对象：" />
-                            <TextBlock Text="{Binding TestObject, UpdateSourceTrigger=PropertyChanged}" />
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock
-                                MaxWidth="250"
-                                Text="指标要求："
-                                TextWrapping="Wrap" />
-                            <TextBlock
-                                MaxWidth="120"
-                                Text="{Binding ZhiBiaoYaoQiu}"
-                                TextWrapping="Wrap" />
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="指标权重：" />
-                            <TextBlock Text="{Binding ZhiBiaoQuanZhong}" />
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="指标分数：" />
-                            <TextBlock Text="{Binding Score}" />
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="层面：" />
-                            <TextBlock Text="{Binding CengMian}" />
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="层面分数：" />
-                            <TextBlock Text="{Binding CengMianScore}" />
+                    <StackPanel>
+                        <StackPanel x:Name="CengMinFenXi">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="指标对象：" />
+                                <TextBlock Text="{Binding TestObject, UpdateSourceTrigger=PropertyChanged}" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock
+                                    MaxWidth="250"
+                                    Text="指标要求："
+                                    TextWrapping="Wrap" />
+                                <TextBlock
+                                    MaxWidth="120"
+                                    Text="{Binding ZhiBiaoYaoQiu}"
+                                    TextWrapping="Wrap" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="指标权重：" />
+                                <TextBlock Text="{Binding ZhiBiaoQuanZhong}" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="指标分数：" />
+                                <TextBlock Text="{Binding Score}" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="层面：" />
+                                <TextBlock Text="{Binding CengMian}" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="层面分数：" />
+                                <TextBlock Text="{Binding CengMianScore}" />
 
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
 
-                            <TextBlock Text="层面权重：" />
-                            <TextBlock Text="{Binding CengMianQuanZhong}" />
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="层面权重：" />
+                                <TextBlock Text="{Binding CengMianQuanZhong}" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
 
-                            <TextBlock Text="层面换算分数：" />
-                            <TextBlock Text="{Binding CengMianHuanSuanScore}" />
+                                <TextBlock Text="层面换算分数：" />
+                                <TextBlock Text="{Binding CengMianHuanSuanScore}" />
+                            </StackPanel>
                         </StackPanel>
+                        <StackPanel x:Name="JiSuanBiao">
 
+                            <TextBlock Text="系统总分：" />
+                            <TextBlock Text="{Binding Score, UpdateSourceTrigger=PropertyChanged}" />
+                        </StackPanel>
                     </StackPanel>
+
                 </hc:TabItem>
             </hc:TabControl>
 

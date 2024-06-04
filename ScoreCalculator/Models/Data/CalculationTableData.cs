@@ -34,6 +34,8 @@ namespace ScoreCalculator.Models.Data
         /// </summary>
         public double LostScore { get; set; }
 
+        public TestStatus TestStatus { get; set; }
+
 
         public static CalculationTableData ReadData(SecurityDimensionEnum securityDimensionEnum,SystemLevel level)
         {
@@ -93,6 +95,34 @@ namespace ScoreCalculator.Models.Data
             }
             //计算本层面分数
             CalculateScore();
+
+            var any=this.Rules.Any(b=>b.TestStatus!=TestStatus.NA);
+            if (!any)
+            {
+                this.TestStatus = TestStatus.NA;
+            }
+            else
+            {
+                var full = this.Rules.Count(b => b.TestStatus == TestStatus.FULL);
+                var part = this.Rules.Count(b => b.TestStatus == TestStatus.PART);
+                var not = this.Rules.Count(b => b.TestStatus == TestStatus.NOT);
+                if (full > 0 && part == 0 && not == 0)
+                {
+                    this.TestStatus = TestStatus.FULL;
+                }
+                if (not > 0)
+                {
+                    this.TestStatus = TestStatus.NOT;
+
+                }
+                else
+                {
+                    this.TestStatus = TestStatus.PART;
+                }
+            }
+         
+
+
         }
         /// <summary>
         /// 计算加权平均数
@@ -126,7 +156,11 @@ namespace ScoreCalculator.Models.Data
             this.HuanSuanScore = sumproduct * CengMianQuanZhong;
             this.LostScore=this.CengMianQuanZhong-Score;
         }
-
+        /// <summary>
+        /// 计算项目数量
+        /// </summary>
+        /// <param name="testStatus"></param>
+        /// <returns></returns>
         public int GetCounterByTestStatus(TestStatus testStatus)
         {
             int counter = 0;
@@ -136,6 +170,11 @@ namespace ScoreCalculator.Models.Data
             }
             return counter;
         }
+        /// <summary>
+        /// 计算风险数量
+        /// </summary>
+        /// <param name="exposures"></param>
+        /// <returns></returns>
         public int GetCounterByExposures(Exposures exposures)
         {
             int counter = 0;
