@@ -111,6 +111,33 @@ namespace ScoreCalculator.Views.CustomUserControl.MyDialog
             {
                 markingSchemeWindow.tableOfScores.Add(RecordEntryEntity.CreateByZhiBiao(name, markingSchemeWindow.GetSystemInfo().Id, Models.MyEnum.SecurityDimensionEnum.YingYong, "重要数据存储完整性"));
             }
+            if (this.zhiDuMian.IsChecked.Value)
+            {
+                markingSchemeWindow.tableOfScores.Add(RecordEntryEntity.CreateByZhiBiao(name, markingSchemeWindow.GetSystemInfo().Id, Models.MyEnum.SecurityDimensionEnum.GuanLi, "具备密码应用安全管理制度"));
+                markingSchemeWindow.tableOfScores.Add(RecordEntryEntity.CreateByZhiBiao(name, markingSchemeWindow.GetSystemInfo().Id, Models.MyEnum.SecurityDimensionEnum.GuanLi, "密钥管理规则"));
+                markingSchemeWindow.tableOfScores.Add(RecordEntryEntity.CreateByZhiBiao(name, markingSchemeWindow.GetSystemInfo().Id, Models.MyEnum.SecurityDimensionEnum.GuanLi, "建立操作规程"));
+                markingSchemeWindow.tableOfScores.Add(RecordEntryEntity.CreateByZhiBiao(name, markingSchemeWindow.GetSystemInfo().Id, Models.MyEnum.SecurityDimensionEnum.GuanLi, "定期修订安全管理制度"));
+                markingSchemeWindow.tableOfScores.Add(RecordEntryEntity.CreateByZhiBiao(name, markingSchemeWindow.GetSystemInfo().Id, Models.MyEnum.SecurityDimensionEnum.GuanLi, "明确管理制度发布流程"));
+                markingSchemeWindow.tableOfScores.Add(RecordEntryEntity.CreateByZhiBiao(name, markingSchemeWindow.GetSystemInfo().Id, Models.MyEnum.SecurityDimensionEnum.GuanLi, "制度执行过程记录留存"));
+
+                markingSchemeWindow.tableOfScores.Add(RecordEntryEntity.CreateByZhiBiao(name, markingSchemeWindow.GetSystemInfo().Id, Models.MyEnum.SecurityDimensionEnum.RenYuan, "了解并遵守密码相关法律法规和密码管理制度"));
+                markingSchemeWindow.tableOfScores.Add(RecordEntryEntity.CreateByZhiBiao(name, markingSchemeWindow.GetSystemInfo().Id, Models.MyEnum.SecurityDimensionEnum.RenYuan, "建立密码应用岗位责任制度"));
+                markingSchemeWindow.tableOfScores.Add(RecordEntryEntity.CreateByZhiBiao(name, markingSchemeWindow.GetSystemInfo().Id, Models.MyEnum.SecurityDimensionEnum.RenYuan, "建立上岗人员培训制度"));
+                markingSchemeWindow.tableOfScores.Add(RecordEntryEntity.CreateByZhiBiao(name, markingSchemeWindow.GetSystemInfo().Id, Models.MyEnum.SecurityDimensionEnum.RenYuan, "定期进行安全岗位人员考核"));
+                markingSchemeWindow.tableOfScores.Add(RecordEntryEntity.CreateByZhiBiao(name, markingSchemeWindow.GetSystemInfo().Id, Models.MyEnum.SecurityDimensionEnum.RenYuan, "建立关键岗位人员保密制度和调离制度"));
+
+
+                markingSchemeWindow.tableOfScores.Add(RecordEntryEntity.CreateByZhiBiao(name, markingSchemeWindow.GetSystemInfo().Id, Models.MyEnum.SecurityDimensionEnum.JianShe, "制定密码应用方案"));
+                markingSchemeWindow.tableOfScores.Add(RecordEntryEntity.CreateByZhiBiao(name, markingSchemeWindow.GetSystemInfo().Id, Models.MyEnum.SecurityDimensionEnum.JianShe, "制定密钥安全管理策略"));
+                markingSchemeWindow.tableOfScores.Add(RecordEntryEntity.CreateByZhiBiao(name, markingSchemeWindow.GetSystemInfo().Id, Models.MyEnum.SecurityDimensionEnum.JianShe, "制定实施方案"));
+                markingSchemeWindow.tableOfScores.Add(RecordEntryEntity.CreateByZhiBiao(name, markingSchemeWindow.GetSystemInfo().Id, Models.MyEnum.SecurityDimensionEnum.JianShe, "投入运行前进行密码应用安全性评估"));
+                markingSchemeWindow.tableOfScores.Add(RecordEntryEntity.CreateByZhiBiao(name, markingSchemeWindow.GetSystemInfo().Id, Models.MyEnum.SecurityDimensionEnum.JianShe, "定期开展密码应用安全性评估及攻防对抗演习"));
+
+
+                markingSchemeWindow.tableOfScores.Add(RecordEntryEntity.CreateByZhiBiao(name, markingSchemeWindow.GetSystemInfo().Id, Models.MyEnum.SecurityDimensionEnum.YingJi, "应急策略"));
+                markingSchemeWindow.tableOfScores.Add(RecordEntryEntity.CreateByZhiBiao(name, markingSchemeWindow.GetSystemInfo().Id, Models.MyEnum.SecurityDimensionEnum.YingJi, "事件处置"));
+                markingSchemeWindow.tableOfScores.Add(RecordEntryEntity.CreateByZhiBiao(name, markingSchemeWindow.GetSystemInfo().Id, Models.MyEnum.SecurityDimensionEnum.YingJi, "向有关主管部门上报处置情况"));
+            }
 
             this.markingSchemeWindow.tableOfScores.UpdateScore();
             this.markingSchemeWindow.RefreshView();
