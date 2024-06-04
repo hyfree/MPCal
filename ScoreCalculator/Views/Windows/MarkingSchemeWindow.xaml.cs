@@ -360,7 +360,7 @@ namespace ScoreCalculator
                     this.dataViewModel.CengMianScore = cengmian.Score;
                     this.dataViewModel.CengMianHuanSuanScore = cengmian.Score* cengmian.CengMianQuanZhong;
                     this.dataViewModel.CengMianQuanZhong = cengmian.CengMianQuanZhong;
-                    this.dataViewModel.CengMian = this.selectTag;
+                    this.dataViewModel.CengMian = sc.ToString();
 
                 }
                
