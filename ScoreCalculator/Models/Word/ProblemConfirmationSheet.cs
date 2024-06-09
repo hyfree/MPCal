@@ -2,6 +2,7 @@
 using NPOI.OpenXmlFormats.Wordprocessing;
 using NPOI.XWPF.UserModel;
 
+using ScoreCalculator.Models.Data;
 using ScoreCalculator.Models.MyEnum;
 using ScoreCalculator.Models.ViewModel;
 using ScoreCalculator.Utils.Word;
@@ -20,7 +21,8 @@ namespace ScoreCalculator.Models.Word
     {
         public void Export(TableOfScores tableOfScores,string pathCopy)
         {
-            var path = "Data\\Word\\IssuesList.docx";
+            var config=MyConfig.GetMyConfig();
+            var path = Path.Combine(config.BaseTemplateDir+ "IssuesList.docx");
             //var pathCopy = "D:\\WangXianQiang\\Work\\12Project\\04密评报告工具\\template\\商用密码应用安全性评估问题确认单Copy.docx";
             if (File.Exists(pathCopy))
             {
