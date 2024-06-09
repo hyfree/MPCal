@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="批量增加"
     Width="400"
-    Height="800"
+    Height="900"
     mc:Ignorable="d">
     <Grid Margin="5">
         <Grid.RowDefinitions>
@@ -41,20 +41,51 @@
             <CheckBox x:Name="wuli_ShiPinJianKongJiLu" Tag="WuLi-视频监控记录数据存储完整性">机房—视频监控记录</CheckBox>
         </StackPanel>
         <StackPanel Grid.Row="2" Margin="0,5,0,0">
+            <ComboBox Width="200" HorizontalAlignment="Left">
+                <ComboBoxItem Content="HTTP通道" />
+                <ComboBoxItem Content="TCP通道" />
+                <ComboBoxItem Content="软国际TLS" />
+                <ComboBoxItem Content="软国密TLS" />
+                <ComboBoxItem Content="双向TLS" />
+                <ComboBoxItem Content="硬国际TLS" />
+                <ComboBoxItem Content="硬国密TLS" />
+                <ComboBoxItem Content="国密IPsec" />
+                <ComboBoxItem Content="国际IPsec" />
+                <ComboBoxItem Content="SSH" />
+            </ComboBox>
             <CheckBox x:Name="wangluo_SheFenJianBie" Tag="WangLuo-身份鉴别">网络层—身份鉴别</CheckBox>
             <CheckBox x:Name="wangluo_WangZhengXing" Tag="WangLuo-通信数据完整性">网络层—通信数据完整性</CheckBox>
             <CheckBox x:Name="wangluo_JiMiXing" Tag="WangLuo-通信过程中重要数据的机密性">网络层—通信过程中重要数据的机密性</CheckBox>
             <CheckBox x:Name="wangluo_FangWenKongZhi" Tag="WangLuo-网络边界访问控制信息的完整性">网络层—网络边界访问控制信息的完整性</CheckBox>
         </StackPanel>
         <StackPanel Grid.Row="3" Margin="0,5,0,0">
+            <ComboBox Width="200" HorizontalAlignment="Left">
+                <ComboBoxItem Content="通用服务器" />
+                <ComboBoxItem Content="数据库管理系统" />
+                <ComboBoxItem Content="SSLVPN安全网关" />
+                <ComboBoxItem Content="服务器密码机" />
+                <ComboBoxItem Content="金融数据加密机" />
+                <ComboBoxItem Content="签名验签服务器" />
+                <ComboBoxItem Content="时间戳服务器" />
+            </ComboBox>
             <CheckBox x:Name="shebei_ShenFenJianBie" Tag="SheBei-身份鉴别">设备—身份鉴别</CheckBox>
             <CheckBox x:Name="shebei_YuanChengGuanLiTongDao">设备—远程管理通道</CheckBox>
             <CheckBox x:Name="shebei_FangWenKongZhi">设备—系统资源访问控制信息完整性</CheckBox>
             <CheckBox x:Name="shebei_RiZhi">设备—日志记录完整性</CheckBox>
             <CheckBox x:Name="shebei_ZhongYaoKeZhiXingChengXu">设备—重要可执行程序完整性、重要可执行程序来源真实性</CheckBox>
-
         </StackPanel>
+
+
+
         <StackPanel Grid.Row="4" Margin="0,5,0,0">
+
+
+            <ComboBox Width="200" HorizontalAlignment="Left">
+                <ComboBoxItem Content="身份鉴别数据" />
+                <ComboBoxItem Content="重要业务数据" />
+                <ComboBoxItem Content="日志数据" />
+            </ComboBox>
+
             <CheckBox x:Name="yingyong_ShenFenJianBie">应用—身份鉴别</CheckBox>
             <CheckBox x:Name="yingyong_ChuanShuJiMiXing">应用—传输机密性</CheckBox>
             <CheckBox x:Name="yingyong_ChuanShuWanZhengXIng">应用—传输完整性</CheckBox>
