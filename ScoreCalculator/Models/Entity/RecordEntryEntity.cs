@@ -35,6 +35,15 @@ namespace ScoreCalculator.Models.Entity
         /// </summary>
         public string ZhiBiao { get; set; }
 
+
+        /// <summary>
+        /// 特征
+        /// </summary>
+        public string Feature { get;set; }
+        /// <summary>
+        /// 备注，批注
+        /// </summary>
+        public string Remark { get;set; }
         /// <summary>
         /// 索引
         /// </summary>

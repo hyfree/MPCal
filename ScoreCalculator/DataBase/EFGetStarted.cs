@@ -28,6 +28,11 @@ namespace ScoreCalculator.DataBase
 
         public DbSet<SystemInfoEntity> SystemInfoEntity { get; set; }
         public DbSet<RecordEntryEntity> RecordEntryEntity { get; set; }
+        public DbSet<KnowledgeEntity> KnowledgeEntity { get; set; }
+
+
+
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
