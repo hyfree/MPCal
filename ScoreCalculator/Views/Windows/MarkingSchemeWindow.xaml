@@ -711,8 +711,10 @@
                                     Padding="10"
                                     Background="BlanchedAlmond"
                                     BorderThickness="0">
-                                    <StackPanel Orientation="Vertical">
+                                    <StackPanel HorizontalAlignment="Left">
+
                                         <StackPanel Orientation="Horizontal">
+
                                             <TextBlock
                                                 VerticalAlignment="Center"
                                                 FontSize="12"

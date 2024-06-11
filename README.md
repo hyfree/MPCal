@@ -40,8 +40,6 @@
 
 MPCal 是一个使用C#和WPF框架开发的商用密码应用安全性测评工具。
 
-
-
 - [x] 依据《商用密码应用安全性评估量化评估规则（2023）》第3版开发
 
 - [ ] 商用密码应用安全性评估分数计算（仅支持3级别）
@@ -69,7 +67,6 @@ MPCal 是一个使用C#和WPF框架开发的商用密码应用安全性测评工
 下载和安装.net8 sdk
 
 https://dotnet.microsoft.com/zh-cn/download/dotnet/8.0
-
 
 ###### 开发前的配置要求
 
@@ -118,7 +115,7 @@ filetree
 
 ### 使用到的框架
 
--  [HandyControl](https://github.com/HandyOrg/HandyControl)
+- [HandyControl](https://github.com/HandyOrg/HandyControl)
 - [NPOI]([GitHub - dotnetcore/NPOI)
 
 ### 贡献者
@@ -147,11 +144,12 @@ filetree
 
 该项目签署了GPL v3授权许可，详情请参阅 [LICENSE.txt](https://github.com/hyfree/MPScoreCalculator/blob/master/LICENSE)
 
-### 鸣谢
+### 特别鸣谢(不分先后)
 
-- [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-- [Img Shields](https://shields.io)
-- [Choose an Open Source License](https://choosealicense.com)
-- [GitHub Pages](https://pages.github.com)
-- [Animate.css](https://daneden.github.io/animate.css)
-- [xxxxxxxxxxxxxx](https://connoratherton.com/loaders)
+- [pes-community: 密码应用安全性评估检验检测系统-社区版 Apache License 2.0](https://gitee.com/nercis/pes-community)
+- [快乐猪](https://www.bilibili.com/video/BV1qr421w7We/)
+- [GitHub - zjkl19/AutoRegularInspection: 常规定检报告自动生成 MIT License](https://github.com/zjkl19/AutoRegularInspection)
+- [GitHub - tonyqus/npoi: a .NET library that can read/write Office formats without Microsoft Office installed. No COM+, no interop.](https://github.com/tonyqus/npoi)
+- [GitHub - qqizai/AutomaticReportGeneration: 根据word文档样式，自动生成报告，含word、PDF格式](https://github.com/qqizai/AutomaticReportGeneration)
+- https://github.com/HandyOrg/HandyControl
+- [【密评简易算分器】密评工具之一-CSDN博客](https://blog.csdn.net/baikeley74/article/details/126315703)

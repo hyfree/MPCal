@@ -60,13 +60,12 @@
         </StackPanel>
         <StackPanel Grid.Row="3" Margin="0,5,0,0">
             <ComboBox Width="200" HorizontalAlignment="Left">
-                <ComboBoxItem Content="通用服务器" />
+                <ComboBoxItem Content="Windows" />
+                <ComboBoxItem Content="Linux" />
                 <ComboBoxItem Content="数据库管理系统" />
                 <ComboBoxItem Content="SSLVPN安全网关" />
-                <ComboBoxItem Content="服务器密码机" />
-                <ComboBoxItem Content="金融数据加密机" />
-                <ComboBoxItem Content="签名验签服务器" />
-                <ComboBoxItem Content="时间戳服务器" />
+                <ComboBoxItem Content="密码机" />
+
             </ComboBox>
             <CheckBox x:Name="shebei_ShenFenJianBie" Tag="SheBei-身份鉴别">设备—身份鉴别</CheckBox>
             <CheckBox x:Name="shebei_YuanChengGuanLiTongDao">设备—远程管理通道</CheckBox>
