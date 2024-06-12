@@ -19,6 +19,7 @@ namespace ScoreCalculator.Views.Commands
             ReloadProjectData = new RoutedUICommand("ReloadProjectData", "ReloadProjectData", typeof(ProjectCommands));
             EditingSystemInformation = new RoutedUICommand("EditingSystemInformation", "EditingSystemInformation", typeof(ProjectCommands));
             OpenMarkingScheme = new RoutedUICommand("OpenMarkingScheme", "OpenMarkingScheme", typeof(ProjectCommands));
+            OpenKnowledgeManagerWindow = new RoutedUICommand("OpenKnowledgeManagerWindow", "OpenKnowledgeManagerWindow", typeof(ProjectCommands));
             DeleteProjectData = new RoutedUICommand("DeleteProjectData", "DeleteProjectData", typeof(ProjectCommands));
             CreatProjectData = new RoutedUICommand("CreatProjectData", "CreatProjectData", typeof(ProjectCommands));
             SingleComputation = new RoutedUICommand("SingleComputation", "SingleComputation", typeof(ProjectCommands));
@@ -47,6 +48,7 @@ namespace ScoreCalculator.Views.Commands
         /// 激活打分表
         /// </summary>
         public static RoutedUICommand OpenMarkingScheme { get; }
+        public static RoutedUICommand OpenKnowledgeManagerWindow { get; }
         public static RoutedUICommand ExportProblemConfirmationSheet { get; }
 
 

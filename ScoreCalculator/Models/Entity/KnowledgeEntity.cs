@@ -11,7 +11,13 @@ namespace ScoreCalculator.Models.Entity
 
     public class KnowledgeEntity
     {
+        
         public long Id { get; set; }
+
+        /// <summary>
+        /// 标题
+        /// </summary>
+        public string Title { get; set; }
         /// <summary>
         /// 所属安全层面
         /// </summary>
@@ -20,6 +26,7 @@ namespace ScoreCalculator.Models.Entity
         /// <summary>
         /// 特征
         /// </summary>
+        /// 
         public string Feature { get;set; }
         /// <summary>
         /// 指标

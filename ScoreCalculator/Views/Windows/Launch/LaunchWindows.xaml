@@ -29,7 +29,7 @@
             <MenuItem Header="项目资料管理" />
             <MenuItem Header="流转单管理" />
             <MenuItem Header="模板管理" />
-            <MenuItem Header="知识库" />
+            <MenuItem Command="commands:ProjectCommands.OpenKnowledgeManagerWindow" Header="知识库" />
 
             <MenuItem Header="系统设置">
                 <MenuItem Header="个性化" />

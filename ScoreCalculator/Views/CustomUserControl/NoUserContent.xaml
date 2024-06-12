@@ -46,7 +46,7 @@
                 <MenuItem.Icon>
                     <Image Source="/Resources/Images/KnowledgeBase.png" />
                 </MenuItem.Icon>
-                <MenuItem Header="查询界面" />
+                <MenuItem Command="commands:ProjectCommands.OpenKnowledgeManagerWindow" Header="打开" />
 
             </MenuItem>
             <MenuItem Height="29" Header="助手">

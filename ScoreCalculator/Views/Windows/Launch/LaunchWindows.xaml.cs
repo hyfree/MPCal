@@ -50,6 +50,9 @@ namespace ScoreCalculator.Views.Windows.Launch
             this.CommandBindings.Add(deleteProjectCommnad);
 
             this.AddCommandBindings(new CommandBinding(ProjectCommands.CreatProjectData), CreatProjectCommnad_Executed);
+            this.AddCommandBindings(new CommandBinding(ProjectCommands.OpenKnowledgeManagerWindow), (c, e) => { 
+                new KnowledgeManagerWindow().Show();
+                });
         }
 
  
