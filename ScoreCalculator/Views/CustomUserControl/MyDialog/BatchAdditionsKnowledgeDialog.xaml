@@ -1,0 +1,142 @@
+﻿<Window
+    x:Class="ScoreCalculator.Views.CustomUserControl.MyDialog.BatchAdditionsKnowledgeDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:core="clr-namespace:System;assembly=mscorlib"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:ScoreCalculator.Views.CustomUserControl.MyDialog"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:myenum="clr-namespace:ScoreCalculator.Models.MyEnum"
+    Title="批量增加"
+    Width="400"
+    Height="500"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <ObjectDataProvider
+            x:Key="SecurityDimensionEnumKey"
+            MethodName="GetValues"
+            ObjectType="{x:Type core:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type Type="myenum:SecurityDimensionEnum" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <ObjectDataProvider
+            x:Key="TestStatusKey"
+            MethodName="GetValues"
+            ObjectType="{x:Type core:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type Type="myenum:TestStatus" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Window.Resources>
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <StackPanel
+            Grid.Row="0"
+            VerticalAlignment="Center"
+            Orientation="Horizontal">
+            <TextBlock
+                x:Name="MyNameTextBlock"
+                VerticalAlignment="Center"
+                TextAlignment="Center">
+                标题
+            </TextBlock>
+            <TextBox
+                x:Name="MyNameTextBox"
+                Width="150"
+                Height="20"
+                Margin="5,0,0,0" />
+        </StackPanel>
+        <StackPanel
+            Grid.Row="1"
+            VerticalAlignment="Center"
+            Orientation="Horizontal">
+            <TextBlock VerticalAlignment="Center" TextAlignment="Center">
+                所述安全层面
+            </TextBlock>
+            <ComboBox
+                Width="150"
+                Height="20"
+                ItemsSource="{Binding Source={StaticResource SecurityDimensionEnumKey}}" />
+        </StackPanel>
+        <StackPanel
+            Grid.Row="2"
+            VerticalAlignment="Center"
+            Orientation="Horizontal">
+            <TextBlock VerticalAlignment="Center" TextAlignment="Center">
+                所述指标
+            </TextBlock>
+            <TextBox
+                Width="150"
+                Height="20"
+                Margin="5,0,0,0" />
+        </StackPanel>
+        <StackPanel
+            Grid.Row="3"
+            VerticalAlignment="Center"
+            Orientation="Horizontal">
+            <TextBlock VerticalAlignment="Center" TextAlignment="Center">
+                Feature（对象属性）
+            </TextBlock>
+            <TextBox
+                Width="150"
+                Height="20"
+                Margin="5,0,0,0" />
+        </StackPanel>
+
+        <StackPanel
+            Grid.Row="4"
+            VerticalAlignment="Center"
+            Orientation="Horizontal">
+            <TextBlock VerticalAlignment="Center" TextAlignment="Center">
+                Tag
+            </TextBlock>
+            <TextBox
+                Width="150"
+                Height="20"
+                Margin="5,0,0,0" />
+        </StackPanel>
+        <StackPanel
+            Grid.Row="5"
+            VerticalAlignment="Center"
+            Orientation="Horizontal">
+            <TextBlock VerticalAlignment="Center" TextAlignment="Center">
+                测试状态
+            </TextBlock>
+            <ComboBox
+                Width="150"
+                Height="20"
+                ItemsSource="{Binding Source={StaticResource TestStatusKey}}" />
+
+        </StackPanel>
+        <StackPanel
+            Grid.Row="6"
+            VerticalAlignment="Center"
+            Orientation="Horizontal">
+            <TextBlock VerticalAlignment="Center" TextAlignment="Center">
+                知识内容
+            </TextBlock>
+            <TextBox
+                Width="250"
+                Height="200"
+                Margin="5,0,0,0"
+                VerticalContentAlignment="Top"
+                AcceptsReturn="True"
+                MinLines="20"
+                TextWrapping="Wrap" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="7">
+            <Button Click="Button_Click">确认</Button>
+        </StackPanel>
+    </Grid>
+</Window>

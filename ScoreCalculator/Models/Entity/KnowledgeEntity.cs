@@ -24,7 +24,7 @@ namespace ScoreCalculator.Models.Entity
         public SecurityDimensionEnum SecurityDimensionEnum { get; set; }
 
         /// <summary>
-        /// 特征
+        /// 特征(协议或对象类型)
         /// </summary>
         /// 
         public string Feature { get;set; }
@@ -44,7 +44,7 @@ namespace ScoreCalculator.Models.Entity
         public TestStatus TestStatus { get;set; }
 
         /// <summary>
-        /// 内容
+        /// 知识库内容
         /// </summary>
         public string Content { get;set; }
 

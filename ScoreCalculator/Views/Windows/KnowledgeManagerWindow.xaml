@@ -12,7 +12,7 @@
     <DockPanel>
         <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
             <Menu Background="LightSkyBlue">
-                <MenuItem Header="增加" />
+                <MenuItem Click="Add_Click" Header="增加" />
                 <MenuItem Header="删除" />
                 <MenuItem Header="修改" />
 
@@ -23,6 +23,14 @@
                 <ComboBoxItem Content="设备" />
                 <ComboBoxItem Content="网络" />
                 <ComboBoxItem Content="应用" />
+                <ComboBoxItem />
+            </ComboBox>
+            <TextBlock VerticalAlignment="Center">对象属性</TextBlock>
+            <ComboBox Width="200">
+                <ComboBoxItem Content="XX" />
+                <ComboBoxItem Content="XX" />
+                <ComboBoxItem Content="XX" />
+                <ComboBoxItem Content="XX" />
                 <ComboBoxItem />
             </ComboBox>
         </StackPanel>
@@ -57,7 +65,7 @@
                 <DataGridTextColumn
                     Width="100"
                     Binding="{Binding TestObjectName}"
-                    Header="特征" />
+                    Header="对象属性" />
                 <DataGridTextColumn
                     Width="100"
                     Binding="{Binding Provinces}"

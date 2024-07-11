@@ -41,7 +41,10 @@
             <CheckBox x:Name="wuli_ShiPinJianKongJiLu" Tag="WuLi-视频监控记录数据存储完整性">机房—视频监控记录</CheckBox>
         </StackPanel>
         <StackPanel Grid.Row="2" Margin="0,5,0,0">
-            <ComboBox Width="200" HorizontalAlignment="Left">
+            <ComboBox
+                x:Name="wangLuoType"
+                Width="200"
+                HorizontalAlignment="Left">
                 <ComboBoxItem Content="HTTP通道" />
                 <ComboBoxItem Content="TCP通道" />
                 <ComboBoxItem Content="软国际TLS" />
@@ -52,6 +55,7 @@
                 <ComboBoxItem Content="国密IPsec" />
                 <ComboBoxItem Content="国际IPsec" />
                 <ComboBoxItem Content="SSH" />
+                <ComboBoxItem Content="其他" />
             </ComboBox>
             <CheckBox x:Name="wangluo_SheFenJianBie" Tag="WangLuo-身份鉴别">网络层—身份鉴别</CheckBox>
             <CheckBox x:Name="wangluo_WangZhengXing" Tag="WangLuo-通信数据完整性">网络层—通信数据完整性</CheckBox>
@@ -59,13 +63,16 @@
             <CheckBox x:Name="wangluo_FangWenKongZhi" Tag="WangLuo-网络边界访问控制信息的完整性">网络层—网络边界访问控制信息的完整性</CheckBox>
         </StackPanel>
         <StackPanel Grid.Row="3" Margin="0,5,0,0">
-            <ComboBox Width="200" HorizontalAlignment="Left">
+            <ComboBox
+                x:Name="shebeiType"
+                Width="200"
+                HorizontalAlignment="Left">
                 <ComboBoxItem Content="Windows" />
                 <ComboBoxItem Content="Linux" />
                 <ComboBoxItem Content="数据库管理系统" />
                 <ComboBoxItem Content="SSLVPN安全网关" />
-                <ComboBoxItem Content="密码机" />
-
+                <ComboBoxItem Content="整机类密码设备" />
+                <ComboBoxItem Content="其他" />
             </ComboBox>
             <CheckBox x:Name="shebei_ShenFenJianBie" Tag="SheBei-身份鉴别">设备—身份鉴别</CheckBox>
             <CheckBox x:Name="shebei_YuanChengGuanLiTongDao">设备—远程管理通道</CheckBox>
@@ -83,6 +90,7 @@
                 <ComboBoxItem Content="身份鉴别数据" />
                 <ComboBoxItem Content="重要业务数据" />
                 <ComboBoxItem Content="日志数据" />
+                <ComboBoxItem Content="其他" />
             </ComboBox>
 
             <CheckBox x:Name="yingyong_ShenFenJianBie">应用—身份鉴别</CheckBox>

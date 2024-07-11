@@ -1,4 +1,4 @@
-﻿using ScoreCalculator.Views.CustomUserControl.MyDialog;
+﻿using ScoreCalculator.Models.Entity;
 
 using System;
 using System.Collections.Generic;
@@ -14,22 +14,26 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace ScoreCalculator.Views.Windows
+namespace ScoreCalculator.Views.CustomUserControl.MyDialog
 {
     /// <summary>
-    /// KnowledgeManagerWindow.xaml 的交互逻辑
+    /// BatchAdditionsObjectDialog.xaml 的交互逻辑
     /// </summary>
-    public partial class KnowledgeManagerWindow : Window
+    public partial class BatchAdditionsKnowledgeDialog : Window
     {
-        public KnowledgeManagerWindow()
+     
+        public BatchAdditionsKnowledgeDialog()
         {
             InitializeComponent();
+            
         }
 
-        private void Add_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var dig = new BatchAdditionsKnowledgeDialog();
-            dig.ShowDialog();
+
+
+            
+
         }
     }
 }

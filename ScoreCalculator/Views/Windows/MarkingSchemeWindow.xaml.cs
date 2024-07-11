@@ -248,7 +248,7 @@ namespace ScoreCalculator
         private void BatchAdditionsCommad_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             var batchAdditionsObjectDialog = new BatchAdditionsObjectDialog(this);
-            batchAdditionsObjectDialog.ShowDialog();
+            batchAdditionsObjectDialog.Show();
         }
 
         /// <summary>
