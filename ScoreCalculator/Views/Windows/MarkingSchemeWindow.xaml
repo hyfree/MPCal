@@ -844,6 +844,16 @@
                         <Image Source="/Resources/Images/AI.png" />
                     </MenuItem.Icon>
                 </MenuItem>
+                <MenuItem
+                    x:Name="VersionText"
+                    Height="29"
+                    Header="分支版本：base"
+                    Tag="待实现，接入文心一言服务或者其他大模型服务"
+                    ToolTip="通过分支版本实现副本修改功能">
+                    <MenuItem.Icon>
+                        <Image Source="/Resources/Images/book.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
             </Menu>
         </StackPanel>
     </Grid>

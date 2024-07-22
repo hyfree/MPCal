@@ -58,7 +58,8 @@ namespace ScoreCalculator
         private SystemInfoEntity systemInfoEntity;
 
         private ZhiBiaoItem SelectZhiBiaoItem;
-   
+
+        public string Version="base";
         /// <summary>
         /// 界面显示数据
         /// </summary>
@@ -126,7 +127,7 @@ namespace ScoreCalculator
 
             this.tableOfScores=new TableOfScores(this.systemInfoEntity);
             this.tableOfScores.LoadData(this.systemInfoEntity.GetSystemLevel());
-            var list = new RecordEntryServices().Query(systemInfoEntity.Id);
+            var list = new RecordEntryServices().Query(systemInfoEntity.Id,"base");
             this.tableOfScores.LoadRecordEntryEntitys(list);
             this.tableOfScores.UpdateScore();
             this.JiSuanBiao.DataContext = tableOfScores;
@@ -234,7 +235,7 @@ namespace ScoreCalculator
 
         private void SaveProjectCommand_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            this.tableOfScores.SaveData();
+            this.tableOfScores.SaveData(this.Version);
             Growl.Success("保存成功");
         }
 
@@ -260,7 +261,7 @@ namespace ScoreCalculator
         {
             var securityDimensionEnum = GetSelectSecurityDimensionEnum();
             var zhibiaoStr = this.GetZhiBiaoStr();
-            var record = RecordEntryEntity.CreateByZhiBiao(systemInfoEntity.Id, securityDimensionEnum.Value, zhibiaoStr);
+            var record = RecordEntryEntity.CreateByZhiBiao(systemInfoEntity.Id, securityDimensionEnum.Value, zhibiaoStr,this.Version);
             this.tableOfScores.Add(record);
         }
 
@@ -329,7 +330,6 @@ namespace ScoreCalculator
                             this.dataViewModel.ZhiBiaoYaoQiu = zhibiaoItem.ZhiBiaoYaoQiu;
                             this.dataViewModel.ZhiBiaoQuanZhong = zhibiaoItem.ZhiBiaoQuanZhong;
                             this.dataViewModel.Score = zhibiaoItem.Score;
-                           
                         }
                         else
                         {

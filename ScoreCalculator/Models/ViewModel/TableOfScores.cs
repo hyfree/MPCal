@@ -69,7 +69,7 @@ namespace ScoreCalculator.Models.ViewModel
             rule.RecordEntryEntitys.Remove(recordEntryEntity);
 
             RecordEntryServices recordEntryServices = new RecordEntryServices();
-            if (recordEntryServices.Any(recordEntryEntity.Id))
+            if (recordEntryServices.Any(recordEntryEntity.Id, recordEntryEntity.Version))
             {
                 recordEntryServices.Delete(recordEntryEntity.Id);
             }
@@ -91,9 +91,9 @@ namespace ScoreCalculator.Models.ViewModel
                 }
             }
             RecordEntryServices recordEntryServices = new RecordEntryServices();
-            if (recordEntryServices.AnyName(recordEntryEntity.TestObjectName))
+            if (recordEntryServices.AnyName(recordEntryEntity.TestObjectName, recordEntryEntity.Version))
             {
-                recordEntryServices.DeleteBulk(this.SystemInfoEntity.Id, recordEntryEntity.TestObjectName);
+                recordEntryServices.DeleteBulk(this.SystemInfoEntity.Id, recordEntryEntity.TestObjectName, recordEntryEntity.Version);
             }
         }
 
@@ -195,7 +195,7 @@ namespace ScoreCalculator.Models.ViewModel
             return counter;
         }
 
-        public void SaveData()
+        public void SaveData(string version)
         {
             var list=new List<RecordEntryEntity>();
             foreach (var sc in Data.Keys) 
@@ -211,7 +211,7 @@ namespace ScoreCalculator.Models.ViewModel
             }
 
             RecordEntryServices recordEntryServices = new RecordEntryServices();
-            recordEntryServices.MergingOfData(list, this.SystemInfoEntity.Id);
+            recordEntryServices.MergingOfData(list, this.SystemInfoEntity.Id, version);
         }
     }
 }

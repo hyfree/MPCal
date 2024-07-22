@@ -44,11 +44,11 @@ namespace ScoreCalculator.Models.Entity
         /// <summary>
         /// 特征
         /// </summary>
-        public string Feature { get;set; }
+        public string Feature { get; set; } = "";
         /// <summary>
         /// 备注，批注
         /// </summary>
-        public string Remark { get;set; }
+        public string Remark { get; set; } = "";
         /// <summary>
         /// 索引
         /// </summary>
@@ -278,7 +278,7 @@ namespace ScoreCalculator.Models.Entity
         
         }
 
-        public static RecordEntryEntity CreateByZhiBiao(long projectId,SecurityDimensionEnum securityDimensionEnum,string zhiBiao)
+        public static RecordEntryEntity CreateByZhiBiao(long projectId,SecurityDimensionEnum securityDimensionEnum,string zhiBiao,string version)
         {
             var id = SnowFlakeNetService.FactoryGeInstance().NextId();
            
@@ -289,10 +289,11 @@ namespace ScoreCalculator.Models.Entity
                 TestObjectName = "被测对象名称",
                 SecurityDimension = securityDimensionEnum,
                 ZhiBiao = zhiBiao,
-                Index = id.ToHex()
+                Index = id.ToHex(),
+                Version = version
             };
         }
-        public static RecordEntryEntity CreateByZhiBiao(string Name,long projectId, SecurityDimensionEnum securityDimensionEnum, string zhiBiao)
+        public static RecordEntryEntity CreateByZhiBiao(string Name,long projectId, SecurityDimensionEnum securityDimensionEnum, string zhiBiao,string version)
         {
             var id = SnowFlakeNetService.FactoryGeInstance().NextId();
 
@@ -303,7 +304,8 @@ namespace ScoreCalculator.Models.Entity
                 TestObjectName = Name,
                 SecurityDimension = securityDimensionEnum,
                 ZhiBiao = zhiBiao,
-                Index = id.ToHex()
+                Index = id.ToHex(),
+                Version = version
             };
         }
 

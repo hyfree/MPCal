@@ -26,6 +26,7 @@
     <None Remove="Resources\Images\about.png" />
     <None Remove="Resources\Images\add.png" />
     <None Remove="Resources\Images\AI.png" />
+    <None Remove="Resources\Images\book.png" />
     <None Remove="Resources\Images\Cloud.png" />
     <None Remove="Resources\Images\data.png" />
     <None Remove="Resources\Images\delete.png" />
@@ -75,6 +76,7 @@
   <ItemGroup>
     <Content Include="Resources\Icons\calculators.ico" />
     <Resource Include="Resources\Images\AI.png" />
+    <Resource Include="Resources\Images\book.png" />
     <Resource Include="Resources\Images\KnowledgeBase.png" />
   </ItemGroup>
 
