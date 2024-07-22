@@ -14,7 +14,7 @@
     <Window.Resources>
         <Style x:Key="btn" TargetType="Button">
             <Style.Setters>
-                <Setter Property="Width" Value="300" />
+                <Setter Property="Width" Value="150" />
                 <Setter Property="Height" Value="25" />
                 <Setter Property="Margin" Value="10,5,10,0" />
             </Style.Setters>
@@ -45,7 +45,7 @@
         <Grid>
             <Grid.ColumnDefinitions>
 
-                <ColumnDefinition Width="400" />
+                <ColumnDefinition Width="200" />
                 <ColumnDefinition Width="auto" />
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
@@ -55,27 +55,27 @@
                         HorizontalAlignment="Center"
                         Style="{StaticResource TextBlockSubTitle}"
                         Text="项目名称" />
-                    <hc:SearchBar Width="300" Margin="0,0,0,0" />
+                    <hc:SearchBar Width="150" Margin="0,0,0,0" />
                     <TextBlock
                         HorizontalAlignment="Center"
                         Style="{StaticResource TextBlockSubTitle}"
                         Text="被测单位" />
-                    <hc:SearchBar Width="300" Margin="0,0,0,0" />
+                    <hc:SearchBar Width="150" Margin="0,0,0,0" />
                     <TextBlock
                         HorizontalAlignment="Center"
                         Style="{StaticResource TextBlockSubTitle}"
                         Text="测评年度" />
-                    <hc:SearchBar Width="300" Margin="0,0,0,0" />
+                    <hc:SearchBar Width="150" Margin="0,0,0,0" />
                     <TextBlock
                         HorizontalAlignment="Center"
                         Style="{StaticResource TextBlockSubTitle}"
                         Text="所属省份" />
-                    <hc:SearchBar Width="300" Margin="0,0,0,0" />
+                    <hc:SearchBar Width="150" Margin="0,0,0,0" />
                     <TextBlock
                         HorizontalAlignment="Center"
                         Style="{StaticResource TextBlockSubTitle}"
                         Text="所属地区" />
-                    <hc:SearchBar Width="300" Margin="0,0,0,0" />
+                    <hc:SearchBar Width="150" Margin="0,0,0,0" />
 
                     <Button
                         Click="OnRefresh"
@@ -118,25 +118,11 @@
 
                             <MenuItem Header="系统信息维护">
                                 <MenuItem
-                                    x:Name="WuLiHuanJing"
-                                    Command="commands:ProjectCommands.OpenMarkingScheme"
+                                    x:Name="SubSystemManager"
+                                    Command="commands:ProjectCommands.OpenSubSystemManagerWindow"
                                     CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.SelectedItem}"
-                                    Header="物理环境" />
-                                <MenuItem
-                                    x:Name="WangLuoTongXun"
-                                    Command="commands:ProjectCommands.OpenMarkingScheme"
-                                    CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.SelectedItem}"
-                                    Header="网络和通信" />
-                                <MenuItem
-                                    x:Name="SheBeiJiSuan"
-                                    Command="commands:ProjectCommands.OpenMarkingScheme"
-                                    CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.SelectedItem}"
-                                    Header="设备和计算" />
-                                <MenuItem
-                                    x:Name="YingYongShuJu"
-                                    Command="commands:ProjectCommands.OpenMarkingScheme"
-                                    CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.SelectedItem}"
-                                    Header="应用和数据" />
+                                    Header="子系统管理" />
+
                                 <MenuItem
                                     x:Name="CePingZhunBei"
                                     Command="commands:ProjectCommands.OpenMarkingScheme"
@@ -147,7 +133,7 @@
                                 x:Name="OpenMarkingScheme"
                                 Command="commands:ProjectCommands.OpenMarkingScheme"
                                 CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.SelectedItem}"
-                                Header="打分" />
+                                Header="汇总打分" />
                             <MenuItem
                                 x:Name="CreatSystem"
                                 Command="commands:ProjectCommands.CreatProjectData"

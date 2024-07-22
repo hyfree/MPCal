@@ -4,6 +4,7 @@ using ScoreCalculator.Models.Entity;
 using ScoreCalculator.Models.ViewModel;
 using ScoreCalculator.Services;
 using ScoreCalculator.Views.Commands;
+using ScoreCalculator.Views.Windows.SubSystemManager;
 
 using System;
 using System.Collections.Generic;
@@ -53,6 +54,10 @@ namespace ScoreCalculator.Views.Windows.Launch
             this.AddCommandBindings(new CommandBinding(ProjectCommands.OpenKnowledgeManagerWindow), (c, e) => { 
                 new KnowledgeManagerWindow().Show();
                 });
+            this.AddCommandBindings(new CommandBinding(ProjectCommands.OpenSubSystemManagerWindow), (c, e) => { 
+            
+                new SubSystemManagerWindow().Show();
+            });
         }
 
  

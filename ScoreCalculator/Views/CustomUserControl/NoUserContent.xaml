@@ -16,13 +16,22 @@
                 <MenuItem.Icon>
                     <Image Source="/Resources/Images/project.png" />
                 </MenuItem.Icon>
-                <MenuItem Header="打开项目" />
-                <MenuItem Header="关闭项目" />
+
                 <MenuItem Command="commands:ProjectCommands.ReloadProjectData" Header="重载项目" />
                 <MenuItem Command="commands:ProjectCommands.SaveProjectData" Header="保存项目" />
-                <MenuItem Header="新建项目" />
-                <MenuItem Header="导入项目" />
-                <MenuItem Header="导出项目" />
+                <Separator />
+
+
+                <MenuItem Header="版本管理">
+                    <MenuItem.Icon>
+                        <Image Source="/Resources/Images/project.png" />
+                    </MenuItem.Icon>
+                    <MenuItem Header="浏览" />
+                    <MenuItem Header="切换" />
+                    <MenuItem Header="新建" />
+                    <MenuItem Header="删除" />
+
+                </MenuItem>
 
             </MenuItem>
             <MenuItem Height="29" Header="数据">
