@@ -49,6 +49,7 @@ namespace ScoreCalculator
     {
        
         public TableOfScores tableOfScores;
+        public SideMenuItem selectItem;
 
         /// <summary>
         /// 选择标签值  SheBei-远程管理通道安全
@@ -302,7 +303,7 @@ namespace ScoreCalculator
         /// <param name="e"></param>
         private void SideMenu_SelectionChanged(object sender, HandyControl.Data.FunctionEventArgs<object> e)
         {
-            var selectItem = e.Info as SideMenuItem;
+            this.selectItem = e.Info as SideMenuItem;
             if (selectItem == null || selectItem.Tag == null)
             {
                 return;
@@ -433,6 +434,38 @@ namespace ScoreCalculator
             //{
             //    return;
             //}
+
+        }
+
+        private void addTestObj(object sender, RoutedEventArgs e)
+        {
+            var parentMenuItem = selectItem;
+            var item = new SideMenuItem();
+            InputTextDialog inputTextDialog = new InputTextDialog("名称",null);
+            var resut = inputTextDialog.ShowDialog();
+            if (resut!=null&&resut.Value)
+            {
+                item.Header =  inputTextDialog.value;
+                parentMenuItem.Items.Add(item);
+            }
+           
+
+        }
+        private void editTestObj(object sender, RoutedEventArgs e)
+        {
+            var parentMenuItem = selectItem;
+           
+            InputTextDialog inputTextDialog = new InputTextDialog("名称", parentMenuItem.Header.ToString());
+            var resut = inputTextDialog.ShowDialog();
+            if (resut != null && resut.Value)
+            {
+                parentMenuItem.Header = inputTextDialog.value;
+                
+            }
+        }  
+        
+        private void delTestObj(object sender, RoutedEventArgs e)
+        {
 
         }
     }
