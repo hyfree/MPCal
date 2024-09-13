@@ -16,30 +16,30 @@ namespace ScoreCalculator.Services
         SQLLite3Context SQLLite3Context { get; set; }
         public SystemInfoService()
         {
-            SQLLite3Context= SQLLite3Context.Gen();
-            }
+            SQLLite3Context= SQLLite3Context.Instance();
+        }
         //在数据库中添加一个系统
         public void Add(SystemInfoEntity systemEntity)
         {
-            SQLLite3Context.SystemInfoEntity.Add(systemEntity);
+            SQLLite3Context.SubSystemInfoEntity.Add(systemEntity);
             SQLLite3Context.SaveChanges();
         }
         //在数据库中删除一个系统
         public void Delete(SystemInfoEntity systemEntity)
         {
-            SQLLite3Context.SystemInfoEntity.Remove(systemEntity);
+            SQLLite3Context.SubSystemInfoEntity.Remove(systemEntity);
             SQLLite3Context.SaveChanges();
         }
         //在数据库中更新一个系统
         public void Update(SystemInfoEntity systemEntity)
         {
-            SQLLite3Context.SystemInfoEntity.Update(systemEntity);
+            SQLLite3Context.SubSystemInfoEntity.Update(systemEntity);
             SQLLite3Context.SaveChanges();
         }
         //判断数据库中是否有数据
         public bool IsEmpty()
         {
-            return SQLLite3Context.SystemInfoEntity.Count() == 0;
+            return SQLLite3Context.SubSystemInfoEntity.Count() == 0;
         }
         //在数据库中查询所有系统
         public List<SystemInfoEntity> QueryAll()
@@ -49,19 +49,19 @@ namespace ScoreCalculator.Services
                 return new List<SystemInfoEntity>();
 
             }
-            return SQLLite3Context.SystemInfoEntity.ToList();
+            return SQLLite3Context.SubSystemInfoEntity.ToList();
         }
         //在数据库中查询一个系统
 
         public SystemInfoEntity QueryOne(int id)
         {
-            return SQLLite3Context.SystemInfoEntity.Find(id);
+            return SQLLite3Context.SubSystemInfoEntity.Find(id);
         }
         //返回特定year的系统
       
         public List<SystemInfoEntity> QueryByYear(int year)
         {
-            return SQLLite3Context.SystemInfoEntity.Where(s => s.Year == year).ToList();
+            return SQLLite3Context.SubSystemInfoEntity.Where(s => s.Year == year).ToList();
         }
         //a是一个字节数组，使用aes算法加密，返回加密后的字节数组
     

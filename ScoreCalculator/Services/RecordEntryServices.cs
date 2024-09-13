@@ -16,7 +16,7 @@ namespace ScoreCalculator.Services
         SQLLite3Context SQLLite3Context { get; set; }
         public RecordEntryServices()
         {
-            SQLLite3Context = SQLLite3Context.Gen();
+            SQLLite3Context = SQLLite3Context.Instance();
         }
         //在数据库中添加一个记录
         public void Add(RecordEntryEntity recordEntryEntity)

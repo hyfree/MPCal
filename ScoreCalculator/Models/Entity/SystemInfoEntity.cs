@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace ScoreCalculator.Models.Entity
 {
     /// <summary>
-    /// 系统信息
+    /// 子系统信息
     /// </summary>
     public class SystemInfoEntity
     {
@@ -18,6 +18,14 @@ namespace ScoreCalculator.Models.Entity
         /// 被测系统名称
         /// </summary>
         public string Name { get; set; }
+        /// <summary>
+        /// 是否子系统
+        /// </summary>
+        public bool IsSubsystem{ get; set; }
+        /// <summary>
+        /// 父系统名称
+        /// </summary>
+        public long ParentSystem { get; set; }
         /// <summary>
         /// 系统简介
         /// </summary>

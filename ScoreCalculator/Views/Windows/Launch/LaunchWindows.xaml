@@ -40,6 +40,19 @@
 
             </MenuItem>
 
+            <MenuItem Header="开发">
+                <MenuItem Header="数据库">
+                    <MenuItem Click="CheckDatabaseExists" Header="检查" />
+                    <MenuItem Click="EnsureDeletedAsync" Header="销毁" />
+                    <MenuItem Click="EnsureCreatedAsync" Header="初始化" />
+
+                </MenuItem>
+                <MenuItem Header="工具">
+                    <MenuItem Click="CreateExampleData" Header="生成示例数据" />
+                </MenuItem>
+
+            </MenuItem>
+
         </Menu>
 
         <Grid>

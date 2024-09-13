@@ -1,5 +1,6 @@
 ﻿using HandyControl.Controls;
 
+using ScoreCalculator.DataBase;
 using ScoreCalculator.Models.Entity;
 using ScoreCalculator.Models.ViewModel;
 using ScoreCalculator.Services;
@@ -33,6 +34,15 @@ namespace ScoreCalculator.Views.Windows.Launch
         {
             InitializeComponent();
             InitCommandBindings();
+            using (var db=SQLLite3Context.Instance())
+            {
+                if (!db.IsExists())
+                {
+                    db.Database.EnsureCreated();
+
+                }
+
+            }
            LoadAllData();
         }
 
@@ -130,6 +140,61 @@ namespace ScoreCalculator.Views.Windows.Launch
         {
             AboutWindow aboutWindow=new AboutWindow();
             aboutWindow.Show();
+        }
+
+        private async void EnsureCreatedAsync(object sender, RoutedEventArgs e)
+        {
+            using (var sqlite= SQLLite3Context.Instance())
+            {
+              await  sqlite.Database.EnsureCreatedAsync();
+            }
+            Growl.Success("初始化成功！");
+        }
+        private async void EnsureDeletedAsync(object sender, RoutedEventArgs e)
+        {
+            using (var sqlite = SQLLite3Context.Instance())
+            {
+
+                await sqlite.Database.EnsureDeletedAsync();
+            }
+            Growl.Success("销毁成功！");
+        }
+        private async void CheckDatabaseExists(object sender, RoutedEventArgs e)
+        {
+            using (var sqlite = SQLLite3Context.Instance())
+            {
+                var isExist= sqlite.IsExists();
+                if (isExist)
+                {
+                    Growl.Success("数据库存在状态！");
+                }
+                else
+                {
+                    Growl.Error("数据库销毁状态！");
+                }
+            }
+           
+        }
+        /// <summary>
+        /// 创建示例数据
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CreateExampleData(object sender,RoutedEventArgs e)
+        {
+            //1.创建一个SystemEntity对象
+            SystemInfoEntity systemEntity = new SystemInfoEntity();
+            systemEntity.Name = "示例系统";
+            systemEntity.Description = "示例系统信息";
+            systemEntity.Provinces = "山东";
+            systemEntity.City = "城市";
+            systemEntity.Year = 2024    ;
+            systemEntity.Level = 3;
+            //2.将SystemEntity对象保存到数据库
+            SystemInfoService systemService = new SystemInfoService();
+            systemService.Add(systemEntity);
+            this.Refresh();
+
         }
     }
 }

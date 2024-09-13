@@ -26,6 +26,13 @@ namespace ScoreCalculator.Models.Entity
         /// </summary>
         public long ProjectId { get; set; }
 
+       
+        /// <summary>
+        /// 系统id
+        /// </summary>
+        public long SystemId { get; set; }
+
+
         /// <summary>
         /// 版本
         /// </summary>
