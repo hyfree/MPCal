@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 namespace ScoreCalculator.Models.Entity
 {
     /// <summary>
-    /// 
+    /// 测评记录
     /// </summary>
     public class RecordEntryEntity:ViewModelBase
     {

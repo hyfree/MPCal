@@ -1,4 +1,5 @@
 ﻿using ScoreCalculator.Models.Entity;
+using ScoreCalculator.Models.MyEnum;
 using ScoreCalculator.Services;
 using ScoreCalculator.Views.Windows.Launch;
 
@@ -40,16 +41,16 @@ namespace ScoreCalculator.Views.Windows
             int level = int.Parse(this.Level.Text);
             //将数据保存到数据库
             //1.创建一个SystemEntity对象
-            SystemInfoEntity systemEntity = new SystemInfoEntity();
-            systemEntity.Name = name;
-            systemEntity.Description = description;
-            systemEntity.Provinces = provinces;
-            systemEntity.City = city;
-            systemEntity.Year = year;
-            systemEntity.Level = level;
+            ProjectEntity project = new ProjectEntity();
+            project.Name = name;
+            project.Description = description;
+            project.Provinces = provinces;
+            project.City = city;
+            project.Year = year;
+            project.Level = (SystemLevel)level;
             //2.将SystemEntity对象保存到数据库
-            SystemInfoService systemService = new SystemInfoService();
-            systemService.Add(systemEntity);
+            ProjectService projectService = new ProjectService();
+            projectService.Add(project);
             LaunchWindows.Refresh();
 
 

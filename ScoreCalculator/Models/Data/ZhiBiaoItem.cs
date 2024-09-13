@@ -61,7 +61,6 @@ namespace ScoreCalculator.Models.Data
             foreach (var item in RecordEntryEntitys)
             {
                 item.UpDate(level);
-
             }
             if (this.RecordEntryEntitys.Any())
             {
@@ -76,7 +75,6 @@ namespace ScoreCalculator.Models.Data
             JiSuanFengXian();
             //计算测评状态
             JiSuanZhuangTai();
-
 
         }
 
@@ -149,7 +147,9 @@ namespace ScoreCalculator.Models.Data
             }
 
         }
-
+        /// <summary>
+        /// 计算状态
+        /// </summary>
         public void JiSuanZhuangTai()
         {
 

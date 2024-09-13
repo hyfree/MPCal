@@ -29,7 +29,7 @@ namespace ScoreCalculator.Models.Word.TestPlan
             placeHolderDictionary.Add("{项目编号}", "XX");
 
 
-            placeHolderDictionary.Add("{系统名称}", tableOfScores.SystemInfoEntity.Name);
+            placeHolderDictionary.Add("{系统名称}", tableOfScores.ProjectEntity.Name);
             placeHolderDictionary.Add("{综合得分}", "29.5");
 
             placeHolderDictionary.Add("{评估结论}", "不符合");

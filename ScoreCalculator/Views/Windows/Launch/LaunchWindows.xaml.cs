@@ -29,7 +29,7 @@ namespace ScoreCalculator.Views.Windows.Launch
     /// </summary>
     public partial class LaunchWindows 
     {
-        public ObservableCollection<SystemInfoEntity> SystemInfoEntityList;//管理制度
+        public ObservableCollection<ProjectEntity> projectList;//管理制度
         public LaunchWindows()
         {
             InitializeComponent();
@@ -68,6 +68,15 @@ namespace ScoreCalculator.Views.Windows.Launch
             
                 new SubSystemManagerWindow().Show();
             });
+            this.AddCommandBindings(new CommandBinding(ProjectCommands.OpenQuickTalkWindow), (c, e) => {
+                var project = e.Parameter as ProjectEntity;
+                if (project != null)
+                {
+                    QuickTalkWindow windows = new QuickTalkWindow(project);
+                    windows.Show();
+                }
+
+            });
         }
 
  
@@ -94,16 +103,18 @@ namespace ScoreCalculator.Views.Windows.Launch
             this.Refresh();
 
         }
-
+        /// <summary>
+        /// 打开汇总打分计算器
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnOpenMarkingScheme(object sender, ExecutedRoutedEventArgs e)
         {
-           var project=e.Parameter as SystemInfoEntity;
+           var project=e.Parameter as ProjectEntity;
             if (project != null)
             {
-               
                 MarkingSchemeWindow markingSchemeWindow = new MarkingSchemeWindow(project);
                 markingSchemeWindow.Show();
-
             }
 
         }
@@ -123,15 +134,15 @@ namespace ScoreCalculator.Views.Windows.Launch
 
         private void LoadAllData()
         {
-            SystemInfoService systemInfoService = new SystemInfoService();
-            var list = systemInfoService.QueryAll();
-            SystemInfoEntityList = new ObservableCollection<SystemInfoEntity>(systemInfoService.QueryAll());
-            SystemInfoEntityList.Clear();
+            ProjectService projectService = new ProjectService();
+            var list = projectService.QueryAll();
+            projectList = new ObservableCollection<ProjectEntity>(projectService.QueryAll());
+            projectList.Clear();
             foreach (var item in list)
             {
-                SystemInfoEntityList.Add(item);
+                projectList.Add(item);
             }
-            DataGridUI.ItemsSource = SystemInfoEntityList;
+            DataGridUI.ItemsSource = projectList;
 
             HandyControl.Controls.Growl.Success("加载项目集合完成");
         }
@@ -183,17 +194,9 @@ namespace ScoreCalculator.Views.Windows.Launch
         private void CreateExampleData(object sender,RoutedEventArgs e)
         {
             //1.创建一个SystemEntity对象
-            SystemInfoEntity systemEntity = new SystemInfoEntity();
-            systemEntity.Name = "示例系统";
-            systemEntity.Description = "示例系统信息";
-            systemEntity.Provinces = "山东";
-            systemEntity.City = "城市";
-            systemEntity.Year = 2024    ;
-            systemEntity.Level = 3;
-            //2.将SystemEntity对象保存到数据库
-            SystemInfoService systemService = new SystemInfoService();
-            systemService.Add(systemEntity);
-            this.Refresh();
+           ProjectService projectService = new ProjectService();
+           projectService.AddTestData();
+           this.Refresh();
 
         }
     }

@@ -45,19 +45,10 @@ namespace ScoreCalculator
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MarkingSchemeWindow: IOPWindows
+    public partial class QuickTalkWindow : IOPWindows
     {
-        public MarkingSchemeWindow(ProjectEntity projectEntity)
-        {
-            this.projectEntity = projectEntity;
-            InitializeComponent();
-        }
-
+       
         public TableOfScores tableOfScores;
-        public TableOfScores GetTableOfScores()
-        {
-            return tableOfScores;
-        }
 
         /// <summary>
         /// 选择标签值  SheBei-远程管理通道安全
@@ -69,11 +60,13 @@ namespace ScoreCalculator
         private ZhiBiaoItem SelectZhiBiaoItem;
 
         public string Version="base";
-
-
         public string GetVersion()
         {
             return Version;
+        }
+        public TableOfScores GetTableOfScores()
+        {
+            return tableOfScores;
         }
         /// <summary>
         /// 界面显示数据
@@ -115,7 +108,11 @@ namespace ScoreCalculator
         {
             return projectEntity;
         }
-   
+        public QuickTalkWindow(ProjectEntity projectEntity)
+        {
+            this.projectEntity = projectEntity;
+            InitializeComponent();
+        }
 
         private void Window_Initialized(object sender, EventArgs e)
         {

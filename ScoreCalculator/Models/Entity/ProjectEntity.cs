@@ -8,29 +8,15 @@ using System.Threading.Tasks;
 
 namespace ScoreCalculator.Models.Entity
 {
-    /// <summary>
-    /// 系统信息
-    /// </summary>
-    public class SystemInfoEntity
+    public class ProjectEntity
     {
         public long Id { get; set; }
-
         /// <summary>
-        /// 项目id
-        /// </summary>
-        public long ProjectId { get; set; }
-        /// <summary>
-        /// 被测系统名称
+        /// 项目名称
         /// </summary>
         public string Name { get; set; }
-        /// <summary>
-        /// 是否子系统
-        /// </summary>
-        public bool IsSubsystem{ get; set; }
-        /// <summary>
-        /// 父系统名称
-        /// </summary>
-        public long ParentSystem { get; set; }
+
+
         /// <summary>
         /// 系统简介
         /// </summary>
@@ -59,13 +45,10 @@ namespace ScoreCalculator.Models.Entity
         /// 得分
         /// </summary>
         public double Score { get; set; }
-
         /// <summary>
-        /// 测试记录
+        /// 包含的系统
         /// </summary>
-        public List<RecordEntryEntity> Records { get; set; }
-
-  
+        public List<SystemInfoEntity> SystemInfo { get; set; }
 
     }
 }

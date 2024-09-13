@@ -1,5 +1,7 @@
 ﻿using ScoreCalculator.DataBase;
 using ScoreCalculator.Models.Entity;
+using ScoreCalculator.Models.MyEnum;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,25 +23,40 @@ namespace ScoreCalculator.Services
         //在数据库中添加一个系统
         public void Add(SystemInfoEntity systemEntity)
         {
-            SQLLite3Context.SubSystemInfoEntity.Add(systemEntity);
+            SQLLite3Context.SystemInfoEntity.Add(systemEntity);
             SQLLite3Context.SaveChanges();
+        }
+
+        public void AddTestData()
+        {
+
+            SystemInfoEntity systemEntity = new SystemInfoEntity();
+            systemEntity.Name = "示例系统";
+            systemEntity.Description = "示例系统信息";
+            systemEntity.Provinces = "山东";
+            systemEntity.City = "城市";
+            systemEntity.Year = 2024;
+            systemEntity.Level = SystemLevel.Level3;
+            //2.将SystemEntity对象保存到数据库
+            
+            this.Add(systemEntity);
         }
         //在数据库中删除一个系统
         public void Delete(SystemInfoEntity systemEntity)
         {
-            SQLLite3Context.SubSystemInfoEntity.Remove(systemEntity);
+            SQLLite3Context.SystemInfoEntity.Remove(systemEntity);
             SQLLite3Context.SaveChanges();
         }
         //在数据库中更新一个系统
         public void Update(SystemInfoEntity systemEntity)
         {
-            SQLLite3Context.SubSystemInfoEntity.Update(systemEntity);
+            SQLLite3Context.SystemInfoEntity.Update(systemEntity);
             SQLLite3Context.SaveChanges();
         }
         //判断数据库中是否有数据
         public bool IsEmpty()
         {
-            return SQLLite3Context.SubSystemInfoEntity.Count() == 0;
+            return SQLLite3Context.SystemInfoEntity.Count() == 0;
         }
         //在数据库中查询所有系统
         public List<SystemInfoEntity> QueryAll()
@@ -49,24 +66,20 @@ namespace ScoreCalculator.Services
                 return new List<SystemInfoEntity>();
 
             }
-            return SQLLite3Context.SubSystemInfoEntity.ToList();
+            return SQLLite3Context.SystemInfoEntity.ToList();
         }
         //在数据库中查询一个系统
 
         public SystemInfoEntity QueryOne(int id)
         {
-            return SQLLite3Context.SubSystemInfoEntity.Find(id);
+            return SQLLite3Context.SystemInfoEntity.Find(id);
         }
         //返回特定year的系统
       
         public List<SystemInfoEntity> QueryByYear(int year)
         {
-            return SQLLite3Context.SubSystemInfoEntity.Where(s => s.Year == year).ToList();
+            return SQLLite3Context.SystemInfoEntity.Where(s => s.Year == year).ToList();
         }
-        //a是一个字节数组，使用aes算法加密，返回加密后的字节数组
-    
-
-
         
     }
 }

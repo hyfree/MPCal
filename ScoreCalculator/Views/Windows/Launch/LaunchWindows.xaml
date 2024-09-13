@@ -129,6 +129,17 @@
                     <DataGrid.ContextMenu>
                         <ContextMenu>
 
+
+                            <MenuItem
+                                x:Name="OpenQuickTalkWindow"
+                                Command="commands:ProjectCommands.OpenQuickTalkWindow"
+                                CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.SelectedItem}"
+                                Header="快速访谈" />
+                            <MenuItem
+                                x:Name="OpenMarkingScheme"
+                                Command="commands:ProjectCommands.OpenMarkingScheme"
+                                CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.SelectedItem}"
+                                Header="汇总打分" />
                             <MenuItem Header="系统信息维护">
                                 <MenuItem
                                     x:Name="SubSystemManager"
@@ -142,11 +153,6 @@
                                     CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.SelectedItem}"
                                     Header="测评准备" />
                             </MenuItem>
-                            <MenuItem
-                                x:Name="OpenMarkingScheme"
-                                Command="commands:ProjectCommands.OpenMarkingScheme"
-                                CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.SelectedItem}"
-                                Header="汇总打分" />
                             <MenuItem
                                 x:Name="CreatSystem"
                                 Command="commands:ProjectCommands.CreatProjectData"

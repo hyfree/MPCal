@@ -32,9 +32,10 @@ namespace ScoreCalculator.DataBase
         }
 
 
-        public DbSet<SystemInfoEntity> SubSystemInfoEntity { get; set; }
+        public DbSet<SystemInfoEntity> SystemInfoEntity { get; set; }
         public DbSet<RecordEntryEntity> RecordEntryEntity { get; set; }
         public DbSet<KnowledgeEntity> KnowledgeEntity { get; set; }
+        public DbSet<ProjectEntity> ProjectEntities { get; set; }
 
 
 

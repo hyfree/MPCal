@@ -20,15 +20,15 @@ namespace ScoreCalculator.Views.Windows.Launch
         /// </summary>
         public void Refresh()
         {
-            SystemInfoService systemInfoService = new SystemInfoService();
-            var list = systemInfoService.QueryAll();
-            SystemInfoEntityList = new ObservableCollection<SystemInfoEntity>(systemInfoService.QueryAll());
-            SystemInfoEntityList.Clear();
+            ProjectService rojectService = new ProjectService();
+            var list = rojectService.QueryAll();
+            projectList = new ObservableCollection<ProjectEntity>(rojectService.QueryAll());
+            projectList.Clear();
             foreach (var item in list)
             {
-                SystemInfoEntityList.Add(item);
+                projectList.Add(item);
             }
-            DataGridUI.ItemsSource = SystemInfoEntityList;
+            DataGridUI.ItemsSource = projectList;
 
             HandyControl.Controls.Growl.Success("加载项目集合完成");
 

@@ -14,7 +14,7 @@ namespace ScoreCalculator.Models.ViewModel
     public class TableOfScores:ViewModelBase
     {
        public Dictionary<SecurityDimensionEnum, CalculationTableData> Data { get; set; }
-       public SystemInfoEntity SystemInfoEntity { get; set; }
+       public ProjectEntity ProjectEntity { get; set; }
 
         public double _Score;
 
@@ -32,9 +32,9 @@ namespace ScoreCalculator.Models.ViewModel
 
 
 
-        public TableOfScores(SystemInfoEntity systemInfoEntity) 
+        public TableOfScores(ProjectEntity systemInfoEntity) 
         {
-            this.SystemInfoEntity = systemInfoEntity;
+            this.ProjectEntity = systemInfoEntity;
         }
         public void LoadData(SystemLevel systemLevel)
         {
@@ -93,7 +93,7 @@ namespace ScoreCalculator.Models.ViewModel
             RecordEntryServices recordEntryServices = new RecordEntryServices();
             if (recordEntryServices.AnyName(recordEntryEntity.TestObjectName, recordEntryEntity.Version))
             {
-                recordEntryServices.DeleteBulk(this.SystemInfoEntity.Id, recordEntryEntity.TestObjectName, recordEntryEntity.Version);
+                recordEntryServices.DeleteBulk(this.ProjectEntity.Id, recordEntryEntity.TestObjectName, recordEntryEntity.Version);
             }
         }
 
@@ -117,7 +117,7 @@ namespace ScoreCalculator.Models.ViewModel
         {
             foreach (var sc in Data.Keys) {
                 var ct = this.Data[sc];
-                ct.UpdateScore(this.SystemInfoEntity.GetSystemLevel());
+                ct.UpdateScore(this.ProjectEntity.Level);
             }
 
             //计算总分
@@ -211,7 +211,7 @@ namespace ScoreCalculator.Models.ViewModel
             }
 
             RecordEntryServices recordEntryServices = new RecordEntryServices();
-            recordEntryServices.MergingOfData(list, this.SystemInfoEntity.Id, version);
+            recordEntryServices.MergingOfData(list, this.ProjectEntity.Id, version);
         }
     }
 }
