@@ -16,8 +16,11 @@ using ScoreCalculator.Utils.Word;
 using ScoreCalculator.Views.Commands;
 using ScoreCalculator.Views.CustomUserControl;
 using ScoreCalculator.Views.CustomUserControl.MyDialog;
+using ScoreCalculator.Views.CustomUserControl.MySideMenu;
+using ScoreCalculator.Views.ExtendedMethods;
 using ScoreCalculator.Views.Extensions;
 using ScoreCalculator.Views.Windows;
+using ScoreCalculator.Views.Windows.QuickTalk.Pages;
 
 using SixLabors.Fonts.Tables.AdvancedTypographic;
 
@@ -28,6 +31,7 @@ using System.ComponentModel;
 using System.Diagnostics.Metrics;
 using System.IO;
 using System.Linq;
+using System.Net.Cache;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -35,7 +39,6 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -129,6 +132,8 @@ namespace ScoreCalculator
             //var arry= sQLLite3Context.TagTable.Where(b => b.TagId == 1).ToArray();
             // var arry2= sQLLite3Context.TagTable.Where(b => b.Tag == "1").ToArray();
             // NPOIUtils.test();
+            this.frmMain.Navigate(new WuLiHuanJingPage());
+
         }
 
         private void InitDataBinding()
@@ -303,7 +308,18 @@ namespace ScoreCalculator
         /// <param name="e"></param>
         private void SideMenu_SelectionChanged(object sender, HandyControl.Data.FunctionEventArgs<object> e)
         {
-            this.selectItem = e.Info as SideMenuItem;
+            if (e.Info.GetType()==typeof(MySIdeMenuItemNode))
+            {
+                this.selectItem = (e.Info as MySIdeMenuItemNode).ParentSideMenuItem;
+            }
+            else
+            {
+                this.selectItem = e.Info as SideMenuItem;
+            }
+           
+
+
+
             if (selectItem == null || selectItem.Tag == null)
             {
                 return;
@@ -400,6 +416,8 @@ namespace ScoreCalculator
 
         private void DataGridUI_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            // this.selectItem = sender as SideMenuItem;
+            // this.selectItem = sender as SideMenuItem;
             //var dg = sender as DataGrid;
             //Point aP = e.GetPosition(dg);
 
@@ -439,15 +457,26 @@ namespace ScoreCalculator
 
         private void addTestObj(object sender, RoutedEventArgs e)
         {
-            var parentMenuItem = selectItem;
-            var item = new SideMenuItem();
-            InputTextDialog inputTextDialog = new InputTextDialog("名称",null);
-            var resut = inputTextDialog.ShowDialog();
-            if (resut!=null&&resut.Value)
+           
+            var  target=  ContextMenuService.GetPlacementTarget(LogicalTreeHelper.GetParent(sender as MenuItem)) as SideMenu;
+
+            if (this.selectItem != null)
             {
-                item.Header =  inputTextDialog.value;
-                parentMenuItem.Items.Add(item);
+                var parentMenuItem = target;
+                var item = new MySIdeMenuItemNode();
+                InputTextDialog inputTextDialog = new InputTextDialog("名称", null);
+                var resut = inputTextDialog.ShowDialog();
+                if (resut != null && resut.Value)
+                {
+                    item.Header = inputTextDialog.value;
+                    item.SetIcon("/Resources/Images/Item.png", 24, 24);
+                    item.Tag="";
+                    item.ParentSideMenuItem=this.selectItem;
+                    this.selectItem.Items.Add(item);
+                }
+
             }
+          
            
 
         }
@@ -467,6 +496,12 @@ namespace ScoreCalculator
         private void delTestObj(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void mySideMenu_PreviewMouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+           // this.selectItem=sender as SideMenuItem;
+          
         }
     }
 }

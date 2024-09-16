@@ -74,7 +74,9 @@
                     Margin="8"
                     BorderThickness="1"
                     DockPanel.Dock="Left"
-                    ExpandMode="Freedom"
+                    ExpandMode="Accordion"
+                    MouseRightButtonDown="DataGridUI_MouseDoubleClick"
+                    PreviewMouseRightButtonDown="mySideMenu_PreviewMouseRightButtonDown"
                     SelectionChanged="SideMenu_SelectionChanged">
                     <hc:SideMenu.ContextMenu>
                         <ContextMenu>
@@ -130,6 +132,7 @@
                     </hc:SideMenuItem>
 
                     <hc:SideMenuItem Header="2 物理与环境" Tag="物理与环境">
+
                         <hc:SideMenuItem.Icon>
                             <Image
                                 Width="24"
@@ -490,7 +493,7 @@
                         SelectedCellsChanged="DataGridUI_SelectedCellsChanged"
                         SelectionMode="Single"
                         Unloaded="DataGrid_Unloaded"
-                        Visibility="Hidden">
+                        Visibility="Collapsed">
                         <DataGrid.ContextMenu>
                             <ContextMenu>
                                 <MenuItem
@@ -674,7 +677,10 @@
                         </DataGrid.RowDetailsTemplate>
                     </DataGrid>
 
-                    <Frame Name="frmMain" NavigationUIVisibility="Hidden" />
+                    <Frame
+                        Name="frmMain"
+                        Grid.Row="1"
+                        NavigationUIVisibility="Hidden" />
                 </Grid>
                 <CustomUserControl:TotalsControl x:Name="TotalsControlUI" Visibility="Collapsed" />
 

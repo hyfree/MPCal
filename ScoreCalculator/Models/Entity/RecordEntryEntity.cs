@@ -62,7 +62,7 @@ namespace ScoreCalculator.Models.Entity
 
         public string? Index { get; set; }="";
         /// <summary>
-        /// 测试对象名称
+        /// 测试对象名称（这里的名称必须在一个系统内是唯一的）
         /// </summary>
   
         public string? TestObjectName { get; set; }

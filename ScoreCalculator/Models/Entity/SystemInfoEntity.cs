@@ -65,7 +65,7 @@ namespace ScoreCalculator.Models.Entity
         /// </summary>
         public List<RecordEntryEntity> Records { get; set; }
 
-  
+
 
     }
 }

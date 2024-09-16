@@ -9,6 +9,53 @@
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
+    <StackPanel>
+        <ScrollViewer VerticalScrollBarVisibility="Visible">
+            <StackPanel>
+                <GroupBox Header="身份鉴别">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock
+                            Width="100"
+                            Text="现状和问题"
+                            TextAlignment="Left" />
+                        <TextBox
+                            Width="800"
+                            Height="200"
+                            VerticalContentAlignment="Top"
+                            FontSize="16" />
+                    </StackPanel>
 
-    <Grid />
+                </GroupBox>
+                <GroupBox BorderBrush="AntiqueWhite" Header="电子门禁记录数据存储完整性">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock
+                            Width="100"
+                            Text="现状和问题"
+                            TextAlignment="Left" />
+                        <TextBox
+                            Width="800"
+                            Height="200"
+                            VerticalContentAlignment="Top"
+                            FontSize="16" />
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox Header="视频监控记录数据存储完整性">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock
+                            Width="100"
+                            Text="现状和问题"
+                            TextAlignment="Left" />
+                        <TextBox
+                            Width="800"
+                            Height="200"
+                            VerticalContentAlignment="Top"
+                            FontSize="16" />
+                    </StackPanel>
+                </GroupBox>
+            </StackPanel>
+        </ScrollViewer>
+
+    </StackPanel>
+
+
 </Page>

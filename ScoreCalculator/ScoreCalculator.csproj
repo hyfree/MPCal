@@ -12,9 +12,13 @@
 
   <ItemGroup>
     <Compile Remove="Data\Template\**" />
+    <Compile Remove="Migrations\**" />
     <EmbeddedResource Remove="Data\Template\**" />
+    <EmbeddedResource Remove="Migrations\**" />
     <None Remove="Data\Template\**" />
+    <None Remove="Migrations\**" />
     <Page Remove="Data\Template\**" />
+    <Page Remove="Migrations\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -206,7 +210,6 @@
 
   <ItemGroup>
     <Folder Include="Data\Level3\ChaJuFenXi\" />
-    <Folder Include="Migrations\" />
   </ItemGroup>
 
 </Project>
