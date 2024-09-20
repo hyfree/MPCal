@@ -11,9 +11,9 @@ namespace ScoreCalculator.Models.Entity
     /// <summary>
     /// 系统信息
     /// </summary>
-    public class SystemInfoEntity
+    public class SystemInfoEntity: BaseEntity
     {
-        public long Id { get; set; }
+        
 
         /// <summary>
         /// 项目id
