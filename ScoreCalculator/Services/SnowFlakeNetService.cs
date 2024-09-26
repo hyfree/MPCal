@@ -19,17 +19,17 @@ namespace ScoreCalculator.Services
         public SnowFlakeNetService( )
         {
            
-            if (worker == null)
-            {
-                worker = new IdWorker(1,1);
-            }
+            //if (worker == null)
+            //{
+            //    worker = new IdWorker(1,1);
+            //}
         }
         public static IDistributedIdGenerator FactoryGeInstance()
         {
             IDistributedIdGenerator snowFlake = new SnowFlakeNetService();
             return snowFlake;
         }
-        public IdWorker GeInstance()
+        public IdWorker Instance()
         {
             if (worker==null)
             {
@@ -38,9 +38,7 @@ namespace ScoreCalculator.Services
                     if (worker==null)
                     {
                         worker = new IdWorker(1,1);
-
                     }
-
                 }
 
             }
@@ -53,8 +51,8 @@ namespace ScoreCalculator.Services
         /// <returns></returns>
         public long NextId()
         {
-            Thread.Sleep(1);
-            return GeInstance().NextId();
+            Thread.Sleep(100);
+            return Instance().NextId();
         }
         /// <summary>
         /// 生成全局唯一的hex字符串

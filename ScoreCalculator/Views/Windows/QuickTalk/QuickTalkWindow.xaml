@@ -477,7 +477,8 @@
 
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
+                        <!--<RowDefinition Height="30" />-->
+                        <RowDefinition />
                         <RowDefinition />
                     </Grid.RowDefinitions>
 
@@ -677,10 +678,7 @@
                         </DataGrid.RowDetailsTemplate>
                     </DataGrid>
 
-                    <Frame
-                        Name="frmMain"
-                        Grid.Row="1"
-                        NavigationUIVisibility="Hidden" />
+                    <Frame Name="frmMain" Grid.Row="2" />
                 </Grid>
                 <CustomUserControl:TotalsControl x:Name="TotalsControlUI" Visibility="Collapsed" />
 

@@ -43,6 +43,17 @@ namespace ScoreCalculator.Models.Entity
         public SecurityDimensionEnum SecurityDimension { get; set; }
 
         /// <summary>
+        /// 所属子系统名称
+        /// </summary>
+        public string _SubSystemName;
+
+        public string? SubSystemName
+        {
+            get { return _SubSystemName; }
+            set { SetProperty(ref _SubSystemName, value); }
+        }
+
+        /// <summary>
         /// 测评指标
         /// </summary>
         public string ZhiBiao { get; set; }
@@ -65,7 +76,13 @@ namespace ScoreCalculator.Models.Entity
         /// 测试对象名称（这里的名称必须在一个系统内是唯一的）
         /// </summary>
   
-        public string? TestObjectName { get; set; }
+        private string? _TestObjectName ;
+
+        public string? TestObjectName
+        {
+            get { return _TestObjectName; }
+            set { SetProperty(ref _TestObjectName, value); }
+        }
         /// <summary>
         /// 指标要求
         /// </summary>
@@ -92,13 +109,29 @@ namespace ScoreCalculator.Models.Entity
         public bool? EnabledAutomatic { get; set; }=true;
 
 
+       
+        [Category("B评分情况")]
+        public bool D
+        {
+            get { return _D; }
+            set { SetProperty(ref _D, value); }
+        }
+        private bool _D;
 
         [Category("B评分情况")]
-        public bool D { get; set; }
+        public bool A
+        {
+            get { return _A; }
+            set { SetProperty(ref _A, value); }
+        }
+        private bool _A ;
         [Category("B评分情况")]
-        public bool A { get; set; }
-        [Category("B评分情况")]
-        public bool K { get; set; }
+        public bool K
+        {
+            get { return _K; }
+            set { SetProperty(ref _K, value); }
+        }
+        private bool _K ;
         /// <summary>
         /// 密钥管理弥补
         /// </summary>
@@ -294,6 +327,7 @@ namespace ScoreCalculator.Models.Entity
                 Id = id,
                 ProjectId = projectId,
                 TestObjectName = "被测对象名称",
+                SubSystemName="子系统",
                 SecurityDimension = securityDimensionEnum,
                 ZhiBiao = zhiBiao,
                 Index = id.ToHex(),

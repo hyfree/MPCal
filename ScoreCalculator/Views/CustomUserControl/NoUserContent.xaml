@@ -50,6 +50,12 @@
                 <MenuItem Command="commands:TestObjectCommands.BatchAddTestObject" Header="批量新增" />
                 <MenuItem Header="删除" />
                 <MenuItem Header="关联" />
+                <MenuItem Command="commands:TestObjectCommands.BatchAddTestWuLiObject" Header="增加机房测评对象" />
+                <MenuItem Command="commands:TestObjectCommands.BatchAddTestSheBeiObject" Header="增加设备测评对象" />
+                <MenuItem Command="commands:TestObjectCommands.BatchAddTestWangLuoObject" Header="增加网络测评对象" />
+                <MenuItem Command="commands:TestObjectCommands.BatchAddTestYingYongObject" Header="增加应用测评对象" />
+
+
             </MenuItem>
             <MenuItem Height="29" Header="知识库">
                 <MenuItem.Icon>

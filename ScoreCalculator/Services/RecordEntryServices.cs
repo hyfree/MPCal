@@ -55,9 +55,10 @@ namespace ScoreCalculator.Services
             {
                 
                //根据id判断记录是否存在，如果存在就更新，不存在就添加
-                if (SQLLite3Context.RecordEntryEntity.Any(r=>r.Id== recordEntryEntity.Id && r.Version.Equals(recordEntryEntity.Version)))
+                if (SQLLite3Context.RecordEntryEntity.Any(r=>r.Id== recordEntryEntity.Id ))
                 {
-                    SQLLite3Context.RecordEntryEntity.Update(recordEntryEntity);
+                    Delete(recordEntryEntity.Id);
+                    SQLLite3Context.RecordEntryEntity.Add(recordEntryEntity);
                 }
                 else
                 {

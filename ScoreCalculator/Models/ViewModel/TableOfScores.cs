@@ -84,7 +84,7 @@ namespace ScoreCalculator.Models.ViewModel
             foreach (var sc in Data.Keys) { 
                 var ct=Data[sc];
                 foreach (var rule in ct.Rules) {
-                    if (rule.RecordEntryEntitys.Any(b=>b.Id==recordEntryEntity.Id))
+                    if (rule.RecordEntryEntitys.Any(b=>b.TestObjectName==recordEntryEntity.TestObjectName))
                     {
                         rule.RecordEntryEntitys.Remove(recordEntryEntity);
                     }

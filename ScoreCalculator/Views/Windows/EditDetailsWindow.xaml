@@ -12,10 +12,27 @@
     Initialized="Window_Initialized"
     mc:Ignorable="d">
     <Grid>
-        <hc:TabControl x:Name="TabControlUI" DockPanel.Dock="Bottom">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Margin="10">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Width="200" Text="子系统名称" />
+                <TextBox Width="400" Text="{Binding SubSystemName, UpdateSourceTrigger=PropertyChanged}" />
+            </StackPanel>
+            <StackPanel Margin="0,5,0,0" Orientation="Horizontal">
+                <TextBlock Width="200" Text="测评对象" />
+                <TextBox Width="400" Text="{Binding TestObjectName, UpdateSourceTrigger=PropertyChanged}" />
+            </StackPanel>
+
+        </StackPanel>
+        <hc:TabControl
+            x:Name="TabControlUI"
+            Grid.Row="1"
+            DockPanel.Dock="Bottom">
             <hc:TabItem Header="测评现状">
                 <StackPanel>
-
                     <hc:TextBox
                         Height="200"
                         VerticalContentAlignment="Top"
@@ -26,7 +43,7 @@
             </hc:TabItem>
             <hc:TabItem Header="问题描述">
                 <hc:TextBox
-                    Height="128"
+                    Height="200"
                     VerticalContentAlignment="Top"
                     FontSize="16"
                     Text="{Binding Question, UpdateSourceTrigger=PropertyChanged}"
@@ -35,7 +52,7 @@
             </hc:TabItem>
             <hc:TabItem Header="风险缓解">
                 <RichTextBox
-                    Height="128"
+                    Height="200"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     FontSize="16" />
@@ -51,7 +68,7 @@
             </hc:TabItem>
             <hc:TabItem Header="模拟整改">
                 <RichTextBox
-                    Height="128"
+                    Height="200"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     FontSize="16" />

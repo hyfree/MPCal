@@ -36,6 +36,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -164,6 +165,27 @@ namespace ScoreCalculator
             batchAdditionsCommad.Executed += BatchAdditionsCommad_Executed; ;
             this.CommandBindings.Add(batchAdditionsCommad);
 
+            this.AddCommandBindings(new CommandBinding(TestObjectCommands.BatchAddTestWuLiObject), (sender, e) => {
+                var batchAdditionsObjectDialog = new BatchAdditionsObjectDialog(this);
+                batchAdditionsObjectDialog.SetWuLi();
+                batchAdditionsObjectDialog.Show();
+            });
+            this.AddCommandBindings(new CommandBinding(TestObjectCommands.BatchAddTestSheBeiObject), (sender, e) => {
+                var batchAdditionsObjectDialog = new BatchAdditionsObjectDialog(this);
+                batchAdditionsObjectDialog.SetSheBei();
+                batchAdditionsObjectDialog.Show();
+            });
+            this.AddCommandBindings(new CommandBinding(TestObjectCommands.BatchAddTestWangLuoObject), (sender, e) => {
+                var batchAdditionsObjectDialog = new BatchAdditionsObjectDialog(this);
+                batchAdditionsObjectDialog.SetWangLuo();
+                batchAdditionsObjectDialog.Show();
+            });
+            this.AddCommandBindings(new CommandBinding(TestObjectCommands.BatchAddTestYingYongObject), (sender, e) => {
+                var batchAdditionsObjectDialog = new BatchAdditionsObjectDialog(this);
+                batchAdditionsObjectDialog.SetYingYong();
+                batchAdditionsObjectDialog.Show();
+            });
+
             var saveProjectCommand = new CommandBinding(ProjectCommands.SaveProjectData);
             saveProjectCommand.Executed += SaveProjectCommand_Executed;
             this.CommandBindings.Add(saveProjectCommand);
@@ -201,6 +223,44 @@ namespace ScoreCalculator
                     Growl.Success("批量删除测试对象");
                 }
                
+            });
+
+            this.AddCommandBindings(new CommandBinding(RecordEntryCommands.D), (sender, e) =>
+            {
+                RecordEntryEntity item = this.DataGridUI.SelectedItem as RecordEntryEntity;
+                if (item != null)
+                {
+                    item.D=true;
+                    item.A = false;
+                    item.K = false;
+                    RefreshView();
+                    //CommitView();
+                }
+            });
+
+            this.AddCommandBindings(new CommandBinding(RecordEntryCommands.DA), (sender, e) =>
+            {
+                RecordEntryEntity item = this.DataGridUI.SelectedItem as RecordEntryEntity;
+                if (item != null)
+                {
+                    item.D = true;
+                    item.A = true;
+                    item.K=false;
+                    RefreshView();
+                   // CommitView();
+                }
+            });
+            this.AddCommandBindings(new CommandBinding(RecordEntryCommands.DAK), (sender, e) =>
+            {
+                RecordEntryEntity item = this.DataGridUI.SelectedItem as RecordEntryEntity;
+                if (item != null)
+                {
+                    item.D = true;
+                    item.A = true;
+                    item.K = true;
+                    RefreshView();
+                   // CommitView();
+                }
             });
 
             this.AddCommandBindings(new CommandBinding(ProjectCommands.ExportProblemConfirmationSheet), (sender, e) =>
@@ -382,6 +442,11 @@ namespace ScoreCalculator
             //this.DataGridUI.CommitEdit(DataGridEditingUnit.Row, true);
 
         }
+        public void CommitView()
+        {
+            this.DataGridUI.CommitEdit();
+            this.DataGridUI.CommitEdit(DataGridEditingUnit.Row, true);
+        }
 
         private void DataGrid_Unloaded(object sender, RoutedEventArgs e)
         {
@@ -402,6 +467,21 @@ namespace ScoreCalculator
 
         private void DataGridUI_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            var item=this.DataGridUI.SelectedItem as RecordEntryEntity;
+            if (item!=null)
+            {
+                EditDetailsWindow editDetailsWindow = new EditDetailsWindow(item);
+                editDetailsWindow.ShowDialog();
+            }
+            else
+            {
+                var securityDimensionEnum = GetSelectSecurityDimensionEnum();
+                var zhibiaoStr = this.GetZhiBiaoStr();
+                var record = RecordEntryEntity.CreateByZhiBiao(projectEntity.Id, securityDimensionEnum.Value, zhibiaoStr, this.Version);
+                this.tableOfScores.Add(record);
+            }
+           
+
             //var dg = sender as DataGrid;
             //Point aP = e.GetPosition(dg);
 
@@ -421,13 +501,13 @@ namespace ScoreCalculator
             //{
             //    return;
             //}
-         
+
             //var row=target as DataGridRow;
             //var data=row.DataContext as RecordEntryEntity;
             //EditDetailsWindow editDetailsWindow = new EditDetailsWindow(data);
-          
+
             //editDetailsWindow.ShowDialog();
-          
+
             //if (row.GetIndex() >= 0)
             //{
             //    // get row data

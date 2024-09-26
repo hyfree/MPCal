@@ -29,6 +29,40 @@ namespace ScoreCalculator.Views.CustomUserControl.MyDialog
             this.markingSchemeWindow = markingSchemeWindow;
         }
 
+        public void SetWuLi()
+        {
+            this.wuli_SheFenJianBie.IsChecked = true;
+            this.wuli_DianZiMenJinJiLu.IsChecked = true;
+            this.wuli_ShiPinJianKongJiLu.IsChecked=true;
+        }
+        public void SetWangLuo()
+        {
+            this.wangluo_SheFenJianBie.IsChecked=true;
+            this.wangluo_WangZhengXing.IsChecked=true;
+            this.wangluo_JiMiXing.IsChecked=true;
+            this.wangluo_FangWenKongZhi.IsChecked=true;
+        }
+
+        public void SetYingYong()
+        {
+            this.yingyong_ShenFenJianBie.IsChecked=true ;
+            this.yingyong_ChuanShuJiMiXing.IsChecked=true ;
+            this.yingyong_ChuanShuWanZhengXIng.IsChecked=true ;
+            this.yingyong_CunChuJiMiXing.IsChecked=true ;
+            this.yingyong_CunChuWanZhengXing.IsChecked=true ;
+        }
+
+        public void SetSheBei()
+        {
+            this.shebei_ShenFenJianBie.IsChecked=true;
+            this.shebei_YuanChengGuanLiTongDao.IsChecked=true;
+            this.shebei_FangWenKongZhi.IsChecked=true;
+            this.shebei_RiZhi.IsChecked=true;
+            this.shebei_ZhongYaoKeZhiXingChengXu.IsChecked=true;
+           
+
+        }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             var name=this.MyNameTextBox.Text;
@@ -69,6 +103,8 @@ namespace ScoreCalculator.Views.CustomUserControl.MyDialog
             {
                 markingSchemeWindow.GetTableOfScores().Add(RecordEntryEntity.CreateByZhiBiao(name, markingSchemeWindow.GetProjecInfo().Id, Models.MyEnum.SecurityDimensionEnum.WangLuo, "网络边界访问控制信息的完整性", version));
             }
+
+
             if (this.shebei_ShenFenJianBie.IsChecked.Value)
             {
 

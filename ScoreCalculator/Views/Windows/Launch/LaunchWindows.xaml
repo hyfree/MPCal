@@ -117,9 +117,13 @@
                 </StackPanel>
             </Grid>
             <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
                 <DataGrid
                     x:Name="DataGridUI"
-                    Grid.Row="1"
+                    Grid.Row="0"
                     AutoGenerateColumns="False"
                     HeadersVisibility="All"
                     IsReadOnly="True"
@@ -216,6 +220,14 @@
 
                     </DataGrid.Columns>
                 </DataGrid>
+                <StackPanel Grid.Row="1" HorizontalAlignment="Left">
+                    <Image
+                        Height="200"
+                        Source="/Resources/Images/panda.jpeg"
+                        Stretch="Uniform" />
+                    <TextBlock Text="我是花花" />
+                </StackPanel>
+
             </Grid>
         </Grid>
     </DockPanel>

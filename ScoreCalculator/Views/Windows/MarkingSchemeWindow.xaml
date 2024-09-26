@@ -585,11 +585,6 @@
                 </hc:TabItem>
             </hc:TabControl>
 
-
-
-
-
-
             <StackPanel CanVerticallyScroll="True">
 
                 <Grid>
@@ -606,6 +601,7 @@
                         MouseDoubleClick="DataGridUI_MouseDoubleClick"
                         RowDetailsVisibilityMode="Visible"
                         RowHeaderWidth="60"
+                        ScrollViewer.HorizontalScrollBarVisibility="Visible"
                         ScrollViewer.VerticalScrollBarVisibility="Visible"
                         SelectedCellsChanged="DataGridUI_SelectedCellsChanged"
                         SelectionMode="Single"
@@ -617,8 +613,13 @@
                                     Command="commands:RecordEntryCommands.EditDetails"
                                     CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.SelectedItem}"
                                     Header="编辑" />
+                                <MenuItem Command="commands:RecordEntryCommands.D" Header="D" />
+                                <MenuItem Command="commands:RecordEntryCommands.DA" Header="DA" />
+                                <MenuItem Command="commands:RecordEntryCommands.DAK" Header="DAK" />
+                                <MenuItem Command="commands:RecordEntryCommands.Add" Header="增加" />
                                 <MenuItem Command="commands:RecordEntryCommands.Add" Header="增加" />
                                 <MenuItem Command="commands:RecordEntryCommands.BulkAdd" Header="批量增加" />
+
 
                                 <MenuItem
                                     x:Name="MenuItem_delete"
@@ -638,12 +639,14 @@
                         </DataGrid.RowHeaderTemplate>
                         <DataGrid.Columns>
 
-
+                            <DataGridTextColumn
+                                Width="200"
+                                Binding="{Binding SubSystemName, UpdateSourceTrigger=PropertyChanged}"
+                                Header="子系统名称" />
                             <DataGridTextColumn
                                 Width="200"
                                 Binding="{Binding TestObjectName, UpdateSourceTrigger=PropertyChanged}"
                                 Header="测评对象" />
-
                             <DataGridCheckBoxColumn
                                 Width="40"
                                 Binding="{Binding D, UpdateSourceTrigger=PropertyChanged}"
@@ -812,7 +815,7 @@
                 </MenuItem>
                 <MenuItem
                     Height="29"
-                    Header="风险特征库 Ver0.1"
+                    Header="风险特征库 V0.1"
                     ToolTip="风险特征库是一款先进的数据分析和风险管理工具，通过集成大数据、人工智能和机器学习技术，帮助企业全面识别、评估和管理各种潜在风险。它不仅能为您提供实时的风险洞察，还能预测未来的风险趋势">
                     <MenuItem.Icon>
                         <Image Source="/Resources/Images/MaoZi.png" />
@@ -820,7 +823,7 @@
                 </MenuItem>
                 <MenuItem
                     Height="29"
-                    Header="启发式引擎 Ver0.1"
+                    Header="启发式引擎 V0.1"
                     Tag="待实现"
                     ToolTip="启发式引擎利用先进的机器学习算法，自动化分析系统风险和评估系统现状。">
                     <MenuItem.Icon>
@@ -829,7 +832,7 @@
                 </MenuItem>
                 <MenuItem
                     Height="29"
-                    Header="DAK分析引擎 Ver0.1"
+                    Header="DAK分析引擎 V0.1"
                     ToolTip="DAK分析引擎通过利用大数据分析技术，全面扫描和分析密评证据，提取关键特征，计算DAK分值。">
                     <MenuItem.Icon>
                         <Image Source="/Resources/Images/XingWeiKu.png" />
@@ -837,7 +840,7 @@
                 </MenuItem>
                 <MenuItem
                     Height="29"
-                    Header="密评小助手 Ver0.1"
+                    Header="密评小助手 V0.1"
                     Tag="待实现，接入文心一言服务或者其他大模型服务"
                     ToolTip="密评小助手采用遥遥领先的神经网络技术，具备多模态AI分析能力，提供语言大模型服务">
                     <MenuItem.Icon>
@@ -847,9 +850,9 @@
                 <MenuItem
                     x:Name="VersionText"
                     Height="29"
-                    Header="分支版本：base"
+                    Header="软件版本：v0.0.1"
                     Tag="待实现，接入文心一言服务或者其他大模型服务"
-                    ToolTip="通过分支版本实现副本修改功能">
+                    ToolTip="BUG是正常的">
                     <MenuItem.Icon>
                         <Image Source="/Resources/Images/book.png" />
                     </MenuItem.Icon>
