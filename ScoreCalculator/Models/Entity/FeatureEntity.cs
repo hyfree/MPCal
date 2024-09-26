@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ScoreCalculator.Models.Entity
 {
-    public class FeatureEntity
+    public class FeatureEntity : BaseEntity
     {
-        public long Id { get; set; }
+      
         public string Name { get; set; }
 
     }

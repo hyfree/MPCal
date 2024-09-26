@@ -17,10 +17,10 @@ namespace ScoreCalculator.Models.Entity
     /// <summary>
     /// 测评记录
     /// </summary>
-    public class RecordEntryEntity:ViewModelBase
+    public class RecordEntryEntity: ViewModelBaseEntity
     {
        
-        public long Id { get; set; }
+      
         /// <summary>
         /// 所属项目Id
         /// </summary>

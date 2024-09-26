@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace ScoreCalculator.Models.Data
@@ -43,6 +44,7 @@ namespace ScoreCalculator.Models.Data
         /// </summary>
         public double LoseScore { get;set;}
 
+        [JsonIgnore]
         public ObservableCollection<RecordEntryEntity> RecordEntryEntitys { get; set; }=new ObservableCollection<RecordEntryEntity>();
 
 

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ScoreCalculator.Models.ViewModel
 {
-    public abstract class ViewModelBase :INotifyPropertyChanged
+    public abstract class ViewModelBaseEntity : BaseEntity,INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 

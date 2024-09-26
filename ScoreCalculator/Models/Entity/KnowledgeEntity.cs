@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 namespace ScoreCalculator.Models.Entity
 {
 
-    public class KnowledgeEntity
+    public class KnowledgeEntity : BaseEntity
     {
         
-        public long Id { get; set; }
+     
 
         /// <summary>
         /// 标题

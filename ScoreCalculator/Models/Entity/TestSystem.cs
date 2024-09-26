@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 namespace ScoreCalculator.Models.Entity
 {
 
-    public class TestSystem
+    public class TestSystem: BaseEntity
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Key]
+
+       
         public int TagId { get; set; }
         public string Tag { get; set; }
         public string OriginalTag { get; set; }

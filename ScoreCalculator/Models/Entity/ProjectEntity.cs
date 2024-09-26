@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace ScoreCalculator.Models.Entity
 {
-    public class ProjectEntity
+    public class ProjectEntity : BaseEntity
     {
-        public long Id { get; set; }
+       
         /// <summary>
         /// 项目名称
         /// </summary>
