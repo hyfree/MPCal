@@ -199,5 +199,23 @@ namespace ScoreCalculator.Views.Windows.Launch
            this.Refresh();
 
         }
+
+        private async void Window_LoadedAsync(object sender, RoutedEventArgs e)
+        {
+            var service=new LicenseServer();
+            var dic=await service.CheckLicenseServerAsync();
+            if (dic!=null)
+            {
+
+                Growl.Success($"已经连接到授权服务器！");
+               //this.lis.Text=$"您的省份：{dic.data.prov}，您的城市：{dic.data.city}，您的地区：{dic.data.district}，您的ip：{dic.ip}。";
+            }
+            else
+            {
+                Growl.Error("授权服务器不可用，部分功能受限！");
+
+            }
+
+        }
     }
 }

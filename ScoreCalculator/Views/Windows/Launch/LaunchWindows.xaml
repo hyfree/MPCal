@@ -10,6 +10,7 @@
     Title="MPCal"
     Width="1200"
     Height="600"
+    Loaded="Window_LoadedAsync"
     mc:Ignorable="d">
     <Window.Resources>
         <Style x:Key="btn" TargetType="Button">
@@ -226,6 +227,7 @@
                         Source="/Resources/Images/panda.jpeg"
                         Stretch="Uniform" />
                     <TextBlock Text="我是花花" />
+
                 </StackPanel>
 
             </Grid>
