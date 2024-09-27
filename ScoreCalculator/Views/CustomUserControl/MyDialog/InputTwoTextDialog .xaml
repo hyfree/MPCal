@@ -1,0 +1,72 @@
+﻿<Window
+    x:Class="ScoreCalculator.Views.CustomUserControl.MyDialog.InputTwoTextDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:ScoreCalculator.Views.CustomUserControl.MyDialog"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="输入"
+    Width="400"
+    Height="140"
+    mc:Ignorable="d">
+    <Grid Margin="10">
+        <Grid.Resources>
+            <!--  Default settings for controls  -->
+            <Style TargetType="{x:Type Label}">
+                <Setter Property="Margin" Value="0,3,5,5" />
+                <Setter Property="Padding" Value="0,0,0,5" />
+            </Style>
+            <Style TargetType="{x:Type TextBox}">
+                <Setter Property="Margin" Value="0,0,0,5" />
+            </Style>
+            <Style TargetType="{x:Type Button}">
+                <Setter Property="Width" Value="70" />
+                <Setter Property="Height" Value="25" />
+                <Setter Property="Margin" Value="5,0,0,0" />
+            </Style>
+        </Grid.Resources>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <!--  Left,Top,Right,Bottom margins  -->
+        <Label Grid.Row="0" Grid.Column="0">输入旧值：</Label>
+        <TextBox
+            Name="leftMarginTextBox"
+            Grid.Row="0"
+            Grid.Column="1" />
+        <Label Grid.Row="1" Grid.Column="0">输入新值：</Label>
+        <TextBox
+            Name="leftMarginTextBox2"
+            Grid.Row="1"
+            Grid.Column="1" />
+        <!--  Accept or Cancel  -->
+        <StackPanel
+            Grid.Row="4"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            HorizontalAlignment="Right"
+            Orientation="Horizontal">
+            <Button
+                Name="okButton"
+                Click="okButton_Click"
+                IsDefault="True">
+                OK
+            </Button>
+            <Button Name="cancelButton" IsCancel="True">Cancel</Button>
+        </StackPanel>
+    </Grid>
+</Window>

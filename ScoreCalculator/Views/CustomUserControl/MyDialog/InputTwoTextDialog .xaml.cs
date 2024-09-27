@@ -17,10 +17,11 @@ namespace ScoreCalculator.Views.CustomUserControl.MyDialog
     /// <summary>
     /// InputTextDialog.xaml 的交互逻辑
     /// </summary>
-    public partial class InputTextDialog : Window
+    public partial class InputTwoTextDialog : Window
     {
         public string value;
-        public InputTextDialog(string defaultValue)
+        public string value2;
+        public InputTwoTextDialog(string defaultValue)
         {
             InitializeComponent();
             //this.keyLabel.Content = key;
@@ -34,6 +35,7 @@ namespace ScoreCalculator.Views.CustomUserControl.MyDialog
         private void okButton_Click(object sender, RoutedEventArgs e)
         {
             this.value=this.leftMarginTextBox.Text;
+            this.value2=this.leftMarginTextBox2.Text;
             this.DialogResult = true;
 
 

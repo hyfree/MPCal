@@ -28,7 +28,13 @@ namespace ScoreCalculator.Views.Commands
             TotalComputation = new RoutedUICommand("TotalComputation", "TotalComputation", typeof(ProjectCommands));
             Refresh = new RoutedUICommand("Refresh", "Refresh", typeof(ProjectCommands));
             ExportProblemConfirmationSheet = new RoutedUICommand("ExportProblemConfirmationSheet", "ExportProblemConfirmationSheet", typeof(ProjectCommands));
-         
+
+            CopyView = new RoutedUICommand("CopyView", "CopyView", typeof(ProjectCommands));
+            PasteView = new RoutedUICommand("PasteView", "PasteView", typeof(ProjectCommands));
+            AddSubSystemName = new RoutedUICommand("AddSubSystemName", "AddSubSystemName", typeof(ProjectCommands));
+            ReplaceSubSystemName = new RoutedUICommand("ReplaceSubSystemName", "ReplaceSubSystemName", typeof(ProjectCommands));
+            DeleteSubSystemName = new RoutedUICommand("DeleteSubSystemName", "DeleteSubSystemName", typeof(ProjectCommands));
+
 
         }
         public static RoutedUICommand ImportProjectData { get; }
@@ -45,6 +51,15 @@ namespace ScoreCalculator.Views.Commands
         public static RoutedUICommand SingleComputation { get; }
         public static RoutedUICommand TotalComputation { get; }
         public static RoutedUICommand Refresh { get; }
+        //复制和粘贴视图
+        public static RoutedUICommand CopyView { get; }
+        public static RoutedUICommand PasteView { get; }
+
+
+        public static RoutedUICommand AddSubSystemName { get; }
+        public static RoutedUICommand ReplaceSubSystemName { get; }
+        public static RoutedUICommand DeleteSubSystemName { get; }
+
 
         /// <summary>
         /// 激活打分表

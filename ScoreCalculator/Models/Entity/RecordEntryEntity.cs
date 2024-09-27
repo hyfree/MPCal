@@ -317,7 +317,22 @@ namespace ScoreCalculator.Models.Entity
             return 1;
         
         }
+        public static RecordEntryEntity CreateByZhiBiao(long projectId, SecurityDimensionEnum securityDimensionEnum, string zhiBiao,string subSystemName, string version)
+        {
+            var id = SnowFlakeNetService.FactoryGeInstance().NextId();
 
+            return new RecordEntryEntity()
+            {
+                Id = id,
+                ProjectId = projectId,
+                TestObjectName = "被测对象名称",
+                SubSystemName = subSystemName,
+                SecurityDimension = securityDimensionEnum,
+                ZhiBiao = zhiBiao,
+                Index = id.ToHex(),
+                Version = version
+            };
+        }
         public static RecordEntryEntity CreateByZhiBiao(long projectId,SecurityDimensionEnum securityDimensionEnum,string zhiBiao,string version)
         {
             var id = SnowFlakeNetService.FactoryGeInstance().NextId();
@@ -348,6 +363,34 @@ namespace ScoreCalculator.Models.Entity
                 Index = id.ToHex(),
                 Version = version
             };
+        }
+
+        public RecordEntryEntity Clone()
+        {
+            var record = new RecordEntryEntity();//RecordEntryEntity.CreateByZhiBiao(projectEntity.Id, securityDimensionEnum.Value, zhibiaoStr, GetSubSystemName(), this.Version);
+            var id = SnowFlakeNetService.FactoryGeInstance().NextId();
+
+            record.Id=Id;
+            record.ProjectId=this.Id;
+            record.SecurityDimension=this.SecurityDimension;
+            record.ZhiBiao=this.ZhiBiao;
+            record.Index= id.ToHex();
+
+            record.Version=this.Version;
+            record.TestObjectName = this.TestObjectName;
+            record.SubSystemName = this.SubSystemName;
+            record.Suggest = this.Suggest;
+            record.Description = this.Description;
+            record.Question = this.Question;
+            record.D = this.D;
+            record.A = this.A;
+            record.K = this.K;
+            record.RA = this.RA;
+            record.RK = this.RK;
+            record.Score = this.Score;
+            record.TestStatus = this.TestStatus;
+
+            return record;
         }
 
 

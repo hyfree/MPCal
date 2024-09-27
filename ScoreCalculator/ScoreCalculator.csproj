@@ -35,6 +35,7 @@
     <None Remove="Resources\Images\data.png" />
     <None Remove="Resources\Images\delete.png" />
     <None Remove="Resources\Images\edit.png" />
+    <None Remove="Resources\Images\editor.png" />
     <None Remove="Resources\Images\fix.png" />
     <None Remove="Resources\Images\import.png" />
     <None Remove="Resources\Images\KnowledgeBase.png" />
@@ -47,6 +48,7 @@
     <None Remove="Resources\Images\project.png" />
     <None Remove="Resources\Images\save.png" />
     <None Remove="Resources\Images\setting.png" />
+    <None Remove="Resources\Images\SubSystem.png" />
     <None Remove="Resources\Images\tools.png" />
     <None Remove="Resources\Images\XingWeiKu.png" />
     <None Remove="Resources\Images\ZhiLiang.png" />
@@ -82,6 +84,7 @@
     <Content Include="Resources\Icons\calculators.ico" />
     <Resource Include="Resources\Images\AI.png" />
     <Resource Include="Resources\Images\book.png" />
+    <Resource Include="Resources\Images\editor.png" />
     <Resource Include="Resources\Images\KnowledgeBase.png" />
   </ItemGroup>
 
@@ -140,6 +143,7 @@
     <Resource Include="Resources\Images\save.png" />
     <Resource Include="Resources\Images\setting.png" />
     <Resource Include="Resources\Images\SheBei.png" />
+    <Resource Include="Resources\Images\SubSystem.png" />
     <Resource Include="Resources\Images\Table.png" />
     <Resource Include="Resources\Images\tools.png" />
     <Resource Include="Resources\Images\WangLuo.png" />

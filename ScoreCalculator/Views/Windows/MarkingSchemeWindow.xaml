@@ -17,12 +17,60 @@
     Icon="/Resources/Icons/calculators.png"
     Initialized="Window_Initialized"
     mc:Ignorable="d">
+    <hc:Window.InputBindings>
+        <KeyBinding
+            Key="S"
+            Command="commands:ProjectCommands.SaveProjectData"
+            Modifiers="Ctrl" />
+        <KeyBinding
+            Key="R"
+            Command="commands:ProjectCommands.ReloadProjectData"
+            Modifiers="Ctrl" />
+
+        <KeyBinding
+            Key="N"
+            Command="commands:TestObjectCommands.AddTestObject"
+            Modifiers="Ctrl" />
+        <KeyBinding
+            Key="C"
+            Command="commands:RecordEntryCommands.CopyContent"
+            Modifiers="Ctrl" />
+        <KeyBinding
+            Key="V"
+            Command="commands:RecordEntryCommands.PasteContent"
+            Modifiers="Ctrl" />
+        <KeyBinding
+            Key="C"
+            Command="commands:ProjectCommands.CopyView"
+            Modifiers="Ctrl+Alt" />
+        <KeyBinding
+            Key="V"
+            Command="commands:ProjectCommands.PasteView"
+            Modifiers="Ctrl+Alt" />
+
+    </hc:Window.InputBindings>
     <hc:Window.Resources>
         <converter:TestStatusConverter x:Key="TestStatusConverter" />
         <converter:ExposuresConverter x:Key="ExposuresConverter" />
         <converter:PropertyGridConverter x:Key="PropertyGridConverter" />
         <converter:ExposuresColorConverter x:Key="ExposuresColorConverter" />
         <converter:TestStatusColorConverter x:Key="TestStatusColorConverter" />
+
+        <Style x:Key="GroupHeaderStyle" TargetType="{x:Type GroupItem}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type GroupItem}">
+                        <Expander IsExpanded="True">
+                            <Expander.Header>
+                                <TextBlock Text="{Binding Path=Name}" />
+                            </Expander.Header>
+                            <ItemsPresenter />
+                        </Expander>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
         <ObjectDataProvider
             x:Key="AlgorithmicStrengthEnumKey"
             MethodName="GetValues"
@@ -584,225 +632,230 @@
 
                 </hc:TabItem>
             </hc:TabControl>
+            <DataGrid
+                x:Name="DataGridUI"
+                Grid.Row="1"
+                Height="auto"
+                AutoGenerateColumns="False"
+                HeadersVisibility="All"
+                MouseDoubleClick="DataGridUI_MouseDoubleClick"
+                RowDetailsVisibilityMode="Visible"
+                RowHeaderWidth="60"
+                ScrollViewer.HorizontalScrollBarVisibility="Visible"
+                ScrollViewer.VerticalScrollBarVisibility="Visible"
+                SelectedCellsChanged="DataGridUI_SelectedCellsChanged"
+                SelectionMode="Extended"
+                Unloaded="DataGrid_Unloaded">
 
-            <StackPanel CanVerticallyScroll="True">
+                <DataGrid.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem
+                            x:Name="MenuItem_EditDetails"
+                            Command="commands:RecordEntryCommands.EditDetails"
+                            CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.SelectedItem}"
+                            Header="编辑" />
+                        <MenuItem Command="commands:RecordEntryCommands.D" Header="D" />
+                        <MenuItem Command="commands:RecordEntryCommands.DA" Header="DA" />
+                        <MenuItem Command="commands:RecordEntryCommands.DAK" Header="DAK" />
+                        <MenuItem Command="commands:RecordEntryCommands.Add" Header="增加" />
+                        <MenuItem Command="commands:RecordEntryCommands.Add" Header="增加" />
+                        <MenuItem Command="commands:RecordEntryCommands.BulkAdd" Header="批量增加" />
 
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
-                        <RowDefinition />
-                    </Grid.RowDefinitions>
+                        <MenuItem
+                            x:Name="MenuItem_delete"
+                            Command="commands:RecordEntryCommands.Delete"
+                            CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.SelectedItem}"
+                            Header="删除" />
+                        <MenuItem
+                            x:Name="MenuItem_CopyContent"
+                            Command="commands:RecordEntryCommands.CopyContent"
+                            CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.SelectedItem}"
+                            Header="CopyContent" />
+                        <MenuItem
+                            x:Name="MenuItem_PasteContent"
+                            Command="commands:RecordEntryCommands.PasteContent"
+                            CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.SelectedItem}"
+                            Header="PasteContent" />
+                        <MenuItem
+                            x:Name="MenuItem_delete2"
+                            Command="commands:RecordEntryCommands.BulkDelete"
+                            CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.SelectedItem}"
+                            Header="按名删除" />
+                    </ContextMenu>
+                </DataGrid.ContextMenu>
 
-                    <DataGrid
-                        x:Name="DataGridUI"
-                        Grid.Row="1"
-                        AutoGenerateColumns="False"
-                        HeadersVisibility="All"
-                        MouseDoubleClick="DataGridUI_MouseDoubleClick"
-                        RowDetailsVisibilityMode="Visible"
-                        RowHeaderWidth="60"
-                        ScrollViewer.HorizontalScrollBarVisibility="Visible"
-                        ScrollViewer.VerticalScrollBarVisibility="Visible"
-                        SelectedCellsChanged="DataGridUI_SelectedCellsChanged"
-                        SelectionMode="Single"
-                        Unloaded="DataGrid_Unloaded">
-                        <DataGrid.ContextMenu>
-                            <ContextMenu>
-                                <MenuItem
-                                    x:Name="MenuItem_EditDetails"
-                                    Command="commands:RecordEntryCommands.EditDetails"
-                                    CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.SelectedItem}"
-                                    Header="编辑" />
-                                <MenuItem Command="commands:RecordEntryCommands.D" Header="D" />
-                                <MenuItem Command="commands:RecordEntryCommands.DA" Header="DA" />
-                                <MenuItem Command="commands:RecordEntryCommands.DAK" Header="DAK" />
-                                <MenuItem Command="commands:RecordEntryCommands.Add" Header="增加" />
-                                <MenuItem Command="commands:RecordEntryCommands.Add" Header="增加" />
-                                <MenuItem Command="commands:RecordEntryCommands.BulkAdd" Header="批量增加" />
+                <DataGrid.RowHeaderTemplate>
+                    <DataTemplate />
+                </DataGrid.RowHeaderTemplate>
+                <DataGrid.Columns>
 
+                    <DataGridTextColumn
+                        Width="200"
+                        Binding="{Binding SubSystemName, UpdateSourceTrigger=PropertyChanged}"
+                        Header="子系统名称" />
+                    <DataGridTextColumn
+                        Width="200"
+                        Binding="{Binding TestObjectName, UpdateSourceTrigger=PropertyChanged}"
+                        Header="测评对象" />
+                    <DataGridCheckBoxColumn
+                        Width="40"
+                        Binding="{Binding D, UpdateSourceTrigger=PropertyChanged}"
+                        Header="D" />
+                    <DataGridCheckBoxColumn
+                        Width="40"
+                        Binding="{Binding A, UpdateSourceTrigger=PropertyChanged}"
+                        Header="A" />
+                    <DataGridCheckBoxColumn
+                        Width="40"
+                        Binding="{Binding K, UpdateSourceTrigger=PropertyChanged}"
+                        Header="K" />
+                    <DataGridCheckBoxColumn
+                        Width="40"
+                        Binding="{Binding NK, UpdateSourceTrigger=PropertyChanged}"
+                        Header="NK" />
+                    <DataGridComboBoxColumn
+                        Width="60"
+                        Header="RA"
+                        ItemsSource="{Binding Source={StaticResource AlgorithmicStrengthEnumKey}}"
+                        SelectedItemBinding="{Binding RA, UpdateSourceTrigger=PropertyChanged}" />
+                    <DataGridComboBoxColumn
+                        Width="60"
+                        Header="RK"
+                        ItemsSource="{Binding Source={StaticResource ModuleLevelsEnumKey}}"
+                        SelectedItemBinding="{Binding RK, UpdateSourceTrigger=PropertyChanged}" />
 
-                                <MenuItem
-                                    x:Name="MenuItem_delete"
-                                    Command="commands:RecordEntryCommands.Delete"
-                                    CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.SelectedItem}"
-                                    Header="删除" />
-                                <MenuItem
-                                    x:Name="MenuItem_delete2"
-                                    Command="commands:RecordEntryCommands.BulkDelete"
-                                    CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.SelectedItem}"
-                                    Header="按名删除" />
-                            </ContextMenu>
-                        </DataGrid.ContextMenu>
-
-                        <DataGrid.RowHeaderTemplate>
-                            <DataTemplate />
-                        </DataGrid.RowHeaderTemplate>
-                        <DataGrid.Columns>
-
-                            <DataGridTextColumn
-                                Width="200"
-                                Binding="{Binding SubSystemName, UpdateSourceTrigger=PropertyChanged}"
-                                Header="子系统名称" />
-                            <DataGridTextColumn
-                                Width="200"
-                                Binding="{Binding TestObjectName, UpdateSourceTrigger=PropertyChanged}"
-                                Header="测评对象" />
-                            <DataGridCheckBoxColumn
-                                Width="40"
-                                Binding="{Binding D, UpdateSourceTrigger=PropertyChanged}"
-                                Header="D" />
-                            <DataGridCheckBoxColumn
-                                Width="40"
-                                Binding="{Binding A, UpdateSourceTrigger=PropertyChanged}"
-                                Header="A" />
-                            <DataGridCheckBoxColumn
-                                Width="40"
-                                Binding="{Binding K, UpdateSourceTrigger=PropertyChanged}"
-                                Header="K" />
-                            <DataGridCheckBoxColumn
-                                Width="40"
-                                Binding="{Binding NK, UpdateSourceTrigger=PropertyChanged}"
-                                Header="NK" />
-                            <DataGridComboBoxColumn
-                                Width="60"
-                                Header="RA"
-                                ItemsSource="{Binding Source={StaticResource AlgorithmicStrengthEnumKey}}"
-                                SelectedItemBinding="{Binding RA, UpdateSourceTrigger=PropertyChanged}" />
-                            <DataGridComboBoxColumn
-                                Width="60"
-                                Header="RK"
-                                ItemsSource="{Binding Source={StaticResource ModuleLevelsEnumKey}}"
-                                SelectedItemBinding="{Binding RK, UpdateSourceTrigger=PropertyChanged}" />
-
-                            <DataGridCheckBoxColumn
-                                Width="80"
-                                Binding="{Binding EnabledAutomatic, UpdateSourceTrigger=PropertyChanged}"
-                                Header="自动算分" />
-                            <DataGridTextColumn
-                                Width="80"
-                                Binding="{Binding Score, UpdateSourceTrigger=PropertyChanged}"
-                                Header="分数" />
-                            <DataGridComboBoxColumn
-                                Width="80"
-                                Header="风险"
-                                ItemsSource="{Binding Source={StaticResource ExposuresEnumKey}}"
-                                SelectedItemBinding="{Binding Exposures, UpdateSourceTrigger=PropertyChanged}">
-                                <DataGridComboBoxColumn.ElementStyle>
-                                    <Style TargetType="ComboBox">
-                                        <Setter Property="TextElement.Foreground" Value="{Binding Exposures, Converter={StaticResource ExposuresColorConverter}}" />
-                                    </Style>
-                                </DataGridComboBoxColumn.ElementStyle>
-                            </DataGridComboBoxColumn>
+                    <DataGridCheckBoxColumn
+                        Width="80"
+                        Binding="{Binding EnabledAutomatic, UpdateSourceTrigger=PropertyChanged}"
+                        Header="自动算分" />
+                    <DataGridTextColumn
+                        Width="80"
+                        Binding="{Binding Score, UpdateSourceTrigger=PropertyChanged}"
+                        Header="分数" />
+                    <DataGridComboBoxColumn
+                        Width="80"
+                        Header="风险"
+                        ItemsSource="{Binding Source={StaticResource ExposuresEnumKey}}"
+                        SelectedItemBinding="{Binding Exposures, UpdateSourceTrigger=PropertyChanged}">
+                        <DataGridComboBoxColumn.ElementStyle>
+                            <Style TargetType="ComboBox">
+                                <Setter Property="TextElement.Foreground" Value="{Binding Exposures, Converter={StaticResource ExposuresColorConverter}}" />
+                            </Style>
+                        </DataGridComboBoxColumn.ElementStyle>
+                    </DataGridComboBoxColumn>
 
 
 
-                            <DataGridComboBoxColumn
-                                Width="80"
-                                Header="结论"
-                                ItemsSource="{Binding Source={StaticResource TestStatusEnumKey}}"
-                                SelectedItemBinding="{Binding TestStatus, UpdateSourceTrigger=PropertyChanged}">
-                                <DataGridComboBoxColumn.ElementStyle>
-                                    <Style TargetType="ComboBox">
-                                        <Setter Property="TextElement.Foreground" Value="{Binding TestStatus, Converter={StaticResource TestStatusColorConverter}}" />
-                                    </Style>
-                                </DataGridComboBoxColumn.ElementStyle>
-                            </DataGridComboBoxColumn>
-                        </DataGrid.Columns>
-                        <DataGrid.RowDetailsTemplate>
-                            <DataTemplate>
-                                <Border
-                                    Padding="10"
-                                    Background="BlanchedAlmond"
-                                    BorderThickness="0">
-                                    <StackPanel HorizontalAlignment="Left">
+                    <DataGridComboBoxColumn
+                        Width="80"
+                        Header="结论"
+                        ItemsSource="{Binding Source={StaticResource TestStatusEnumKey}}"
+                        SelectedItemBinding="{Binding TestStatus, UpdateSourceTrigger=PropertyChanged}">
+                        <DataGridComboBoxColumn.ElementStyle>
+                            <Style TargetType="ComboBox">
+                                <Setter Property="TextElement.Foreground" Value="{Binding TestStatus, Converter={StaticResource TestStatusColorConverter}}" />
+                            </Style>
+                        </DataGridComboBoxColumn.ElementStyle>
+                    </DataGridComboBoxColumn>
+                </DataGrid.Columns>
+                <DataGrid.RowDetailsTemplate>
+                    <DataTemplate>
+                        <Border
+                            Padding="10"
+                            Background="BlanchedAlmond"
+                            BorderThickness="0">
+                            <StackPanel HorizontalAlignment="Left">
 
-                                        <StackPanel Orientation="Horizontal">
+                                <StackPanel Orientation="Horizontal">
 
-                                            <TextBlock
-                                                VerticalAlignment="Center"
-                                                FontSize="12"
-                                                Foreground="MidnightBlue"
-                                                Text="测评结论: " />
-                                            <TextBlock
-                                                VerticalAlignment="Center"
-                                                FontSize="12"
-                                                Foreground="{Binding TestStatus, Converter={StaticResource TestStatusColorConverter}}"
-                                                Text="{Binding TestStatus, Converter={StaticResource TestStatusConverter}, UpdateSourceTrigger=PropertyChanged}" />
-                                        </StackPanel>
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock
-                                                VerticalAlignment="Center"
-                                                FontSize="12"
-                                                Foreground="MidnightBlue"
-                                                Text="风险分析: " />
-                                            <TextBlock
-                                                VerticalAlignment="Center"
-                                                FontSize="12"
-                                                Foreground="{Binding Exposures, Converter={StaticResource ExposuresColorConverter}}"
-                                                Text="{Binding Exposures, Converter={StaticResource ExposuresConverter}, UpdateSourceTrigger=PropertyChanged}" />
-                                        </StackPanel>
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock
-                                                VerticalAlignment="Center"
-                                                FontSize="12"
-                                                Foreground="MidnightBlue"
-                                                Text="测评现状: " />
-                                            <TextBlock
-                                                VerticalAlignment="Center"
-                                                FontSize="12"
-                                                Foreground="MidnightBlue"
-                                                Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}" />
-                                        </StackPanel>
+                                    <TextBlock
+                                        VerticalAlignment="Center"
+                                        FontSize="12"
+                                        Foreground="MidnightBlue"
+                                        Text="测评结论: " />
+                                    <TextBlock
+                                        VerticalAlignment="Center"
+                                        FontSize="12"
+                                        Foreground="{Binding TestStatus, Converter={StaticResource TestStatusColorConverter}}"
+                                        Text="{Binding TestStatus, Converter={StaticResource TestStatusConverter}, UpdateSourceTrigger=PropertyChanged}" />
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock
+                                        VerticalAlignment="Center"
+                                        FontSize="12"
+                                        Foreground="MidnightBlue"
+                                        Text="风险分析: " />
+                                    <TextBlock
+                                        VerticalAlignment="Center"
+                                        FontSize="12"
+                                        Foreground="{Binding Exposures, Converter={StaticResource ExposuresColorConverter}}"
+                                        Text="{Binding Exposures, Converter={StaticResource ExposuresConverter}, UpdateSourceTrigger=PropertyChanged}" />
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock
+                                        VerticalAlignment="Center"
+                                        FontSize="12"
+                                        Foreground="MidnightBlue"
+                                        Text="测评现状: " />
+                                    <TextBlock
+                                        VerticalAlignment="Center"
+                                        FontSize="12"
+                                        Foreground="MidnightBlue"
+                                        Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}" />
+                                </StackPanel>
 
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock
-                                                VerticalAlignment="Center"
-                                                FontSize="12"
-                                                Foreground="MidnightBlue"
-                                                Text="问题描述: " />
-                                            <TextBlock
-                                                VerticalAlignment="Center"
-                                                FontSize="12"
-                                                Foreground="MidnightBlue"
-                                                Text="{Binding Question, UpdateSourceTrigger=PropertyChanged}" />
-                                        </StackPanel>
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock
-                                                VerticalAlignment="Center"
-                                                FontSize="12"
-                                                Foreground="MidnightBlue"
-                                                Text="风险缓解: " />
-                                            <TextBlock
-                                                VerticalAlignment="Center"
-                                                FontSize="12"
-                                                Foreground="MidnightBlue"
-                                                Text="{Binding Suggest, UpdateSourceTrigger=PropertyChanged}" />
-                                        </StackPanel>
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock
-                                                VerticalAlignment="Center"
-                                                FontSize="12"
-                                                Foreground="MidnightBlue"
-                                                Text="整改建议: " />
-                                            <TextBlock
-                                                VerticalAlignment="Center"
-                                                FontSize="12"
-                                                Foreground="MidnightBlue"
-                                                Text="{Binding Suggest, UpdateSourceTrigger=PropertyChanged}" />
-                                        </StackPanel>
-                                    </StackPanel>
-                                </Border>
-                            </DataTemplate>
-                        </DataGrid.RowDetailsTemplate>
-                    </DataGrid>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock
+                                        VerticalAlignment="Center"
+                                        FontSize="12"
+                                        Foreground="MidnightBlue"
+                                        Text="问题描述: " />
+                                    <TextBlock
+                                        VerticalAlignment="Center"
+                                        FontSize="12"
+                                        Foreground="MidnightBlue"
+                                        Text="{Binding Question, UpdateSourceTrigger=PropertyChanged}" />
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock
+                                        VerticalAlignment="Center"
+                                        FontSize="12"
+                                        Foreground="MidnightBlue"
+                                        Text="风险缓解: " />
+                                    <TextBlock
+                                        VerticalAlignment="Center"
+                                        FontSize="12"
+                                        Foreground="MidnightBlue"
+                                        Text="{Binding Suggest, UpdateSourceTrigger=PropertyChanged}" />
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock
+                                        VerticalAlignment="Center"
+                                        FontSize="12"
+                                        Foreground="MidnightBlue"
+                                        Text="整改建议: " />
+                                    <TextBlock
+                                        VerticalAlignment="Center"
+                                        FontSize="12"
+                                        Foreground="MidnightBlue"
+                                        Text="{Binding Suggest, UpdateSourceTrigger=PropertyChanged}" />
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </DataGrid.RowDetailsTemplate>
+            </DataGrid>
+            <!--<StackPanel CanVerticallyScroll="True">
 
-                </Grid>
-                <CustomUserControl:TotalsControl x:Name="TotalsControlUI" Visibility="Collapsed" />
 
-            </StackPanel>
+            -->
+            <!--<CustomUserControl:TotalsControl x:Name="TotalsControlUI" Visibility="Collapsed" />-->
+            <!--
+
+            </StackPanel>-->
 
         </DockPanel>
-        <StackPanel Grid.Row="1">
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
             <Menu Margin="10,0,0,0" Background="Transparent">
                 <MenuItem
                     Height="29"
@@ -857,7 +910,23 @@
                         <Image Source="/Resources/Images/book.png" />
                     </MenuItem.Icon>
                 </MenuItem>
+                <StackPanel
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Orientation="Horizontal" />
             </Menu>
+
+            <ComboBox
+                x:Name="SubSystemComboBox"
+                Width="400"
+                MinHeight="20"
+                hc:InfoElement.Title="子系统过滤器"
+                hc:InfoElement.TitlePlacement="Left"
+                hc:InfoElement.TitleWidth="140"
+                SelectedIndex="0"
+                SelectedItem="{Binding SubSystemName}"
+                SelectionChanged="SubSystemComboBox_SelectionChanged"
+                Style="{StaticResource ComboBoxExtend}" />
         </StackPanel>
     </Grid>
 

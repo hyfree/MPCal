@@ -17,8 +17,14 @@
                     <Image Source="/Resources/Images/project.png" />
                 </MenuItem.Icon>
 
-                <MenuItem Command="commands:ProjectCommands.ReloadProjectData" Header="重载项目" />
-                <MenuItem Command="commands:ProjectCommands.SaveProjectData" Header="保存项目" />
+                <MenuItem
+                    Command="commands:ProjectCommands.ReloadProjectData"
+                    Header="重载项目"
+                    InputGestureText="Crtl+R" />
+                <MenuItem
+                    Command="commands:ProjectCommands.SaveProjectData"
+                    Header="保存项目"
+                    InputGestureText="Ctrl+S" />
                 <Separator />
 
 
@@ -34,6 +40,23 @@
                 </MenuItem>
 
             </MenuItem>
+            <MenuItem Height="29" Header="编辑">
+                <MenuItem.Icon>
+                    <Image Source="/Resources/Images/editor.png" />
+                </MenuItem.Icon>
+
+                <MenuItem Command="commands:ProjectCommands.CopyView" Header="复制视图" />
+                <MenuItem Command="commands:ProjectCommands.PasteView" Header="粘贴视图" />
+            </MenuItem>
+            <MenuItem Height="29" Header="子系统">
+                <MenuItem.Icon>
+                    <Image Source="/Resources/Images/SubSystem.png" />
+                </MenuItem.Icon>
+
+                <MenuItem Command="commands:ProjectCommands.AddSubSystemName" Header="增加" />
+                <MenuItem Command="commands:ProjectCommands.DeleteSubSystemName" Header="删除" />
+                <MenuItem Command="commands:ProjectCommands.ReplaceSubSystemName" Header="替换" />
+            </MenuItem>
             <MenuItem Height="29" Header="数据">
                 <MenuItem.Icon>
                     <Image Source="/Resources/Images/data.png" />
@@ -46,7 +69,10 @@
                 <MenuItem.Icon>
                     <Image Source="/Resources/Images/Item.png" />
                 </MenuItem.Icon>
-                <MenuItem Command="commands:TestObjectCommands.AddTestObject" Header="新增" />
+                <MenuItem
+                    Command="commands:TestObjectCommands.AddTestObject"
+                    Header="新增"
+                    InputGestureText="Ctl+N" />
                 <MenuItem Command="commands:TestObjectCommands.BatchAddTestObject" Header="批量新增" />
                 <MenuItem Header="删除" />
                 <MenuItem Header="关联" />
@@ -54,7 +80,6 @@
                 <MenuItem Command="commands:TestObjectCommands.BatchAddTestSheBeiObject" Header="增加设备测评对象" />
                 <MenuItem Command="commands:TestObjectCommands.BatchAddTestWangLuoObject" Header="增加网络测评对象" />
                 <MenuItem Command="commands:TestObjectCommands.BatchAddTestYingYongObject" Header="增加应用测评对象" />
-
 
             </MenuItem>
             <MenuItem Height="29" Header="知识库">

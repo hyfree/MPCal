@@ -189,7 +189,7 @@ namespace ScoreCalculator.Models.Data
             {
                 if (item.Exposures!=Exposures.None)
                 {
-                    sb.Append($"{item.TestObjectName}{item.Question};");
+                    sb.Append($"{item.TestObjectName}{item.Description}{item.Question};");
                 }
             }
             return sb.ToString();

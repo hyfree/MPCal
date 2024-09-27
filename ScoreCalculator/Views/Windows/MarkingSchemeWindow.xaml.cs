@@ -3,6 +3,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 using NPOI.SS.Formula.Functions;
+using NPOI.XSSF.Streaming.Values;
 
 using ScoreCalculator.Models.Data;
 using ScoreCalculator.Models.DTO;
@@ -41,6 +42,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using static NPOI.HSSF.Util.HSSFColor;
+
 namespace ScoreCalculator
 {
     /// <summary>
@@ -70,7 +73,12 @@ namespace ScoreCalculator
         private ZhiBiaoItem SelectZhiBiaoItem;
 
         public string Version="base";
-
+        RecordEntryEntity CopyRecordEntryEntity;
+        List<RecordEntryEntity> CopyList;
+        
+        ListCollectionView listView;
+        ObservableCollection<string> SubSystemNameList = new ObservableCollection< string> { "ALL" };
+        string SubSystemName;
 
         public string GetVersion()
         {
@@ -143,6 +151,7 @@ namespace ScoreCalculator
             this.tableOfScores.LoadRecordEntryEntitys(list);
             this.tableOfScores.UpdateScore();
             this.JiSuanBiao.DataContext = tableOfScores;
+            this.SubSystemComboBox.ItemsSource= SubSystemNameList;
             //this.DataGridUI.ItemsSource= this.RecordEntryEntityList;
             Growl.Success("加载项目完成");
         }
@@ -160,7 +169,7 @@ namespace ScoreCalculator
             var addTestObjCommmad = new CommandBinding(TestObjectCommands.AddTestObject);
             addTestObjCommmad.Executed += AddTestObjCommmad_Executed;
             this.CommandBindings.Add(addTestObjCommmad);
-
+           
             var batchAdditionsCommad = new CommandBinding(TestObjectCommands.BatchAddTestObject);
             batchAdditionsCommad.Executed += BatchAdditionsCommad_Executed; ;
             this.CommandBindings.Add(batchAdditionsCommad);
@@ -213,6 +222,33 @@ namespace ScoreCalculator
                 Growl.Success("删除单个测试对象");
 
             });
+
+
+            this.AddCommandBindings(new CommandBinding(ProjectCommands.CopyView), (send, e) =>
+            {
+              this.CopyList=GetViewData();
+               
+            });
+            this.AddCommandBindings(new CommandBinding(ProjectCommands.PasteView), (send, e) =>
+            {
+                var securityDimensionEnum = GetSelectSecurityDimensionEnum();
+                var zhibiaoStr = this.GetZhiBiaoStr();
+                foreach (var item in this.CopyList)
+                {
+   
+
+                    var record = item.Clone();
+                    record.ZhiBiao=zhibiaoStr;
+                    record.SecurityDimension=securityDimensionEnum.Value;
+                    this.tableOfScores.Add(record);
+
+                }
+                RefreshView();
+              
+
+
+            });
+
             this.AddCommandBindings(new CommandBinding(RecordEntryCommands.BulkDelete), (sender, e) =>
             {
                 RecordEntryEntity item = e.Parameter as RecordEntryEntity;
@@ -237,6 +273,48 @@ namespace ScoreCalculator
                     //CommitView();
                 }
             });
+            this.AddCommandBindings(new CommandBinding(ProjectCommands.AddSubSystemName), (s, e) =>
+            {
+                var inputDig=new InputTextDialog("");
+                var result = inputDig.ShowDialog();
+                if (result!=null&&result.Value)
+                {
+                    var value=inputDig.value;
+                    this.SubSystemNameList.Add(value);
+
+                }
+
+            });
+            this.AddCommandBindings(new CommandBinding(ProjectCommands.DeleteSubSystemName), (s, e) =>
+            {
+                var inputDig = new InputTextDialog("");
+                var result = inputDig.ShowDialog();
+                if (result != null && result.Value)
+                {
+                    var value = inputDig.value;
+                    this.SubSystemNameList.Remove(value);
+                }
+
+            });
+
+            this.AddCommandBindings(new CommandBinding(ProjectCommands.ReplaceSubSystemName), (s, e) =>
+            {
+                var inputDig = new InputTwoTextDialog("");
+                var result = inputDig.ShowDialog();
+                if (result != null && result.Value)
+                {
+                    var value1 = inputDig.value;
+                    var value2 = inputDig.value2;
+
+                    this.SubSystemNameList.Remove(value1);
+                    this.SubSystemNameList.Add(value2);
+
+                    this.tableOfScores.ChangeSubNameByName(value1,value2);
+
+                }
+
+            });
+
 
             this.AddCommandBindings(new CommandBinding(RecordEntryCommands.DA), (sender, e) =>
             {
@@ -260,6 +338,30 @@ namespace ScoreCalculator
                     item.K = true;
                     RefreshView();
                    // CommitView();
+                }
+            });
+            this.AddCommandBindings(new CommandBinding(RecordEntryCommands.CopyContent), (sender, e) =>
+            {
+                this.CopyRecordEntryEntity=this.DataGridUI.SelectedItem as RecordEntryEntity;
+
+            });
+            this.AddCommandBindings(new CommandBinding(RecordEntryCommands.PasteContent), (sender, e) =>
+            {
+                if (this.CopyRecordEntryEntity!=null)
+                {
+
+                    var temp = this.DataGridUI.SelectedItem as RecordEntryEntity;
+                    temp.SubSystemName =this.CopyRecordEntryEntity.SubSystemName;
+                    temp.Suggest =this.CopyRecordEntryEntity.Suggest;
+                    temp.Description = this.CopyRecordEntryEntity.Description;
+                    temp.Question = this.CopyRecordEntryEntity.Question;
+                    temp.D = this.CopyRecordEntryEntity.D;
+                    temp.A = this.CopyRecordEntryEntity.A;
+                    temp.K = this.CopyRecordEntryEntity.K;
+                    temp.RA = this.CopyRecordEntryEntity.RA;
+                    temp.RK = this.CopyRecordEntryEntity.RK;
+                    temp.Score = this.CopyRecordEntryEntity.Score;
+                    temp.TestStatus = this.CopyRecordEntryEntity.TestStatus;
                 }
             });
 
@@ -287,6 +389,7 @@ namespace ScoreCalculator
                 }
                 Growl.Success("编辑成功");
             });
+            
         }
       
        
@@ -302,6 +405,7 @@ namespace ScoreCalculator
 
         private void ReloadProjectData_Executed(object sender, ExecutedRoutedEventArgs e)
         {
+            Growl.Success("重载项目成功");
         }
 
         private void SaveProjectCommand_Executed(object sender, ExecutedRoutedEventArgs e)
@@ -332,8 +436,13 @@ namespace ScoreCalculator
         {
             var securityDimensionEnum = GetSelectSecurityDimensionEnum();
             var zhibiaoStr = this.GetZhiBiaoStr();
-            var record = RecordEntryEntity.CreateByZhiBiao(projectEntity.Id, securityDimensionEnum.Value, zhibiaoStr,this.Version);
+            
+            var record = RecordEntryEntity.CreateByZhiBiao(projectEntity.Id, securityDimensionEnum.Value, zhibiaoStr, GetSubSystemName(), this.Version);
             this.tableOfScores.Add(record);
+        }
+        string GetSubSystemName()
+        {
+            return this.SubSystemComboBox.SelectedItem as string;
         }
 
     
@@ -375,13 +484,10 @@ namespace ScoreCalculator
             selectTag = selectItem.Tag.ToString();
             var sec = GetSecurityDimensionEnum();
             var zhibiaoStr = GetZhiBiaoStr();
-            
-
-
+           
 
             if (!selectTag.Equals(oldTag))
             {
-                
                
                 if (sec!=null)
                 {
@@ -390,8 +496,36 @@ namespace ScoreCalculator
 
                     var zhibiaoItem = this.tableOfScores.FindRuleByName(sec.Value, zhibiaoStr);
                     this.SelectZhiBiaoItem=zhibiaoItem;
-                    this.DataGridUI.ItemsSource = zhibiaoItem.RecordEntryEntitys;
-                    
+                    this.listView=new ListCollectionView(zhibiaoItem.RecordEntryEntitys);
+                    this.listView.Filter= ListCollectionViewSource_Filter;
+                    //this.listView.GroupDescriptions.Add(new PropertyGroupDescription("SubSystemName"));
+                    this.DataGridUI.ItemsSource = this.listView;
+                    //this.DataGridUI.ItemsSource = zhibiaoItem.RecordEntryEntitys;
+                    foreach (var item in zhibiaoItem.RecordEntryEntitys)
+                    {
+                        if (string.IsNullOrEmpty(item.SubSystemName)  || item.SubSystemName=="ALL")
+                        {
+                            item.SubSystemName="未命名";
+
+                        }
+                        if (string.IsNullOrEmpty(item.TestObjectName) || item.TestObjectName == "ALL")
+                        {
+                            item.SubSystemName = "未命名";
+
+                        }
+                        if (!this.SubSystemNameList.Contains(item.SubSystemName))
+                        {
+                            this.SubSystemNameList.Add(item.SubSystemName);
+
+                        }
+
+                    }
+
+                    //CollectionViewSource viewSrc = new CollectionViewSource(zhibiaoItem.RecordEntryEntitys);
+                    //this.DataGridUI_CollectionViewSource.Source= zhibiaoItem.RecordEntryEntitys;
+                   
+
+
                     if (!string.IsNullOrEmpty(zhibiaoStr))
                     {
                         
@@ -418,7 +552,14 @@ namespace ScoreCalculator
             }
 
         }
-
+        public List<RecordEntryEntity> GetViewData()
+        {
+            var sec = GetSecurityDimensionEnum();
+            var zhibiaoStr = GetZhiBiaoStr();
+            var zhibiaoItem = this.tableOfScores.FindRuleByName(sec.Value, zhibiaoStr);
+            var list= zhibiaoItem.RecordEntryEntitys.ToList<RecordEntryEntity>();
+            return list;
+        }
         public void RefreshView()
         {
             if (this.SelectZhiBiaoItem!=null)
@@ -434,10 +575,13 @@ namespace ScoreCalculator
                     this.dataViewModel.CengMian = sc.ToString();
 
                 }
-               
-              
+              //DataGridUI_CollectionViewSource.View.Refresh();
+
+                
+
             }
-         
+           
+               
             //this.DataGridUI.CommitEdit();
             //this.DataGridUI.CommitEdit(DataGridEditingUnit.Row, true);
 
@@ -452,6 +596,64 @@ namespace ScoreCalculator
         {
             var grid = (DataGrid)sender;
             grid.CommitEdit(DataGridEditingUnit.Row, true);
+        }
+        private void CollectionViewSource_Filter(object sender, FilterEventArgs e)
+        {
+            this.listView.GroupDescriptions.Clear();
+            RecordEntryEntity recode = e.Item as RecordEntryEntity;
+            var subName = GetSubSystemName();
+            if (recode != null && recode.SubSystemName != null && !string.IsNullOrEmpty(subName))
+            {
+                if (subName.Equals("ALL"))
+                {
+                    e.Accepted = true;
+                   
+                    return;
+
+                }
+                {
+                    if (recode.SubSystemName.Equals(subName))
+                    {
+                        e.Accepted = true;
+                        return;
+                    }
+                    else
+                    {
+                        e.Accepted = false;
+                        return;
+                    }
+                }
+            }
+            e.Accepted = true;
+            return;
+
+        }
+        private bool ListCollectionViewSource_Filter(object sender)
+        {
+
+            RecordEntryEntity recode = sender as RecordEntryEntity;
+            var subName = GetSubSystemName();
+            if (recode != null && recode.SubSystemName != null && !string.IsNullOrEmpty(subName))
+            {
+                if (subName.Equals("ALL"))
+                {
+                   
+                    return true;
+
+                }
+                {
+                    if (recode.SubSystemName.Equals(subName))
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+
         }
 
 
@@ -477,8 +679,13 @@ namespace ScoreCalculator
             {
                 var securityDimensionEnum = GetSelectSecurityDimensionEnum();
                 var zhibiaoStr = this.GetZhiBiaoStr();
-                var record = RecordEntryEntity.CreateByZhiBiao(projectEntity.Id, securityDimensionEnum.Value, zhibiaoStr, this.Version);
-                this.tableOfScores.Add(record);
+                if (!string.IsNullOrEmpty(zhibiaoStr))
+                {
+                    var record = RecordEntryEntity.CreateByZhiBiao(projectEntity.Id, securityDimensionEnum.Value, zhibiaoStr, this.Version);
+                    this.tableOfScores.Add(record);
+
+                }
+              
             }
            
 
@@ -517,6 +724,17 @@ namespace ScoreCalculator
             //    return;
             //}
 
+        }
+
+        private void SubSystemComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            RefreshView();
+
+            if (this.listView != null)
+            {
+
+                this.listView.Refresh();
+            }
         }
     }
 }

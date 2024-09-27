@@ -96,6 +96,38 @@ namespace ScoreCalculator.Models.ViewModel
                 recordEntryServices.DeleteBulk(this.ProjectEntity.Id, recordEntryEntity.TestObjectName, recordEntryEntity.Version);
             }
         }
+        public void ChangeSubNameByName(string oldName,string name)
+        {
+
+            foreach (var sc in Data.Keys)
+            {
+                var ct = Data[sc];
+                foreach (var rule in ct.Rules)
+                {
+
+                    for (int i = 0; i < rule.RecordEntryEntitys.Count; i++)
+                    {
+                        var recode = rule.RecordEntryEntitys[i];
+                        if (recode.SubSystemName==null)
+                        {
+                            recode.SubSystemName="未命名";
+
+                        }
+                        if (recode.SubSystemName == "ALL")
+                        {
+                            recode.SubSystemName = "未命名";
+
+                        }
+                        if (recode.SubSystemName.Equals(oldName))
+                        {
+                            recode.SubSystemName = name;
+                        }
+
+                    }
+                }
+            }
+           
+        }
 
         public ZhiBiaoItem FindRuleByName(SecurityDimensionEnum securityDimensionEnum,string name)
         {

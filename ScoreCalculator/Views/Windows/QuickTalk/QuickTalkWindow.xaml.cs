@@ -464,7 +464,7 @@ namespace ScoreCalculator
             {
                 var parentMenuItem = target;
                 var item = new MySIdeMenuItemNode();
-                InputTextDialog inputTextDialog = new InputTextDialog("名称", null);
+                InputTextDialog inputTextDialog = new InputTextDialog( null);
                 var resut = inputTextDialog.ShowDialog();
                 if (resut != null && resut.Value)
                 {
@@ -484,7 +484,7 @@ namespace ScoreCalculator
         {
             var parentMenuItem = selectItem;
            
-            InputTextDialog inputTextDialog = new InputTextDialog("名称", parentMenuItem.Header.ToString());
+            InputTextDialog inputTextDialog = new InputTextDialog( parentMenuItem.Header.ToString());
             var resut = inputTextDialog.ShowDialog();
             if (resut != null && resut.Value)
             {
