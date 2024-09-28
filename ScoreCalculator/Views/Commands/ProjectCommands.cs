@@ -34,6 +34,7 @@ namespace ScoreCalculator.Views.Commands
             AddSubSystemName = new RoutedUICommand("AddSubSystemName", "AddSubSystemName", typeof(ProjectCommands));
             ReplaceSubSystemName = new RoutedUICommand("ReplaceSubSystemName", "ReplaceSubSystemName", typeof(ProjectCommands));
             DeleteSubSystemName = new RoutedUICommand("DeleteSubSystemName", "DeleteSubSystemName", typeof(ProjectCommands));
+            ReloadSubSystemName = new RoutedUICommand("ReloadSubSystemName", "ReloadSubSystemName", typeof(ProjectCommands));
 
 
         }
@@ -59,6 +60,7 @@ namespace ScoreCalculator.Views.Commands
         public static RoutedUICommand AddSubSystemName { get; }
         public static RoutedUICommand ReplaceSubSystemName { get; }
         public static RoutedUICommand DeleteSubSystemName { get; }
+        public static RoutedUICommand ReloadSubSystemName { get; }
 
 
         /// <summary>

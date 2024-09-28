@@ -314,6 +314,33 @@ namespace ScoreCalculator
                 }
 
             });
+            this.AddCommandBindings(new CommandBinding(ProjectCommands.ReloadSubSystemName), (s, e) =>
+            {
+                var sec = GetSecurityDimensionEnum();
+                var zhibiaoStr = GetZhiBiaoStr();
+                var zhibiaoItem = this.tableOfScores.FindRuleByName(sec.Value, zhibiaoStr);
+
+                foreach (var item in zhibiaoItem.RecordEntryEntitys)
+                {
+                    if (string.IsNullOrEmpty(item.SubSystemName) || item.SubSystemName == "ALL")
+                    {
+                        item.SubSystemName = "未命名";
+
+                    }
+                    if (string.IsNullOrEmpty(item.TestObjectName) || item.TestObjectName == "ALL")
+                    {
+                        item.SubSystemName = "未命名";
+
+                    }
+                    if (!this.SubSystemNameList.Contains(item.SubSystemName))
+                    {
+                        this.SubSystemNameList.Add(item.SubSystemName);
+
+                    }
+
+                }
+
+            });
 
 
             this.AddCommandBindings(new CommandBinding(RecordEntryCommands.DA), (sender, e) =>

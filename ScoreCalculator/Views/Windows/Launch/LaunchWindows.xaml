@@ -221,14 +221,7 @@
 
                     </DataGrid.Columns>
                 </DataGrid>
-                <StackPanel Grid.Row="1" HorizontalAlignment="Left">
-                    <Image
-                        Height="200"
-                        Source="/Resources/Images/panda.jpeg"
-                        Stretch="Uniform" />
-                    <TextBlock Text="我是花花" />
-
-                </StackPanel>
+              
 
             </Grid>
         </Grid>

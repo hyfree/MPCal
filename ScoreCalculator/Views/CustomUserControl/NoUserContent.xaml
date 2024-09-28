@@ -56,6 +56,7 @@
                 <MenuItem Command="commands:ProjectCommands.AddSubSystemName" Header="增加" />
                 <MenuItem Command="commands:ProjectCommands.DeleteSubSystemName" Header="删除" />
                 <MenuItem Command="commands:ProjectCommands.ReplaceSubSystemName" Header="替换" />
+                <MenuItem Command="commands:ProjectCommands.ReloadSubSystemName" Header="重载" />
             </MenuItem>
             <MenuItem Height="29" Header="数据">
                 <MenuItem.Icon>

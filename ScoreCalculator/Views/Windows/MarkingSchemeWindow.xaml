@@ -920,7 +920,7 @@
                 x:Name="SubSystemComboBox"
                 Width="400"
                 MinHeight="20"
-                hc:InfoElement.Title="子系统过滤器"
+                hc:InfoElement.Title="子系统指示器"
                 hc:InfoElement.TitlePlacement="Left"
                 hc:InfoElement.TitleWidth="140"
                 SelectedIndex="0"

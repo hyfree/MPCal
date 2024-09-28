@@ -3,21 +3,32 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:hc="https://handyorg.github.io/handycontrol"
     xmlns:local="clr-namespace:ScoreCalculator.Views.Windows"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Title="AboutWindow"
+    Title="About"
     Width="800"
     Height="450"
     mc:Ignorable="d">
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock Text="商用密码应用安全性测评计算工具 MPScoreCalculator 简称MPCal" />
-            <TextBox
-                x:Name="about"
-                Width="700"
+
+            <hc:OutlineText
+                Margin="0,10,0,0"
+                Fill="{DynamicResource PrimaryBrush}"
+                FontSize="20"
+                FontWeight="Bold"
+                Stroke="{DynamicResource DangerBrush}"
+                StrokePosition="InSide"
+                StrokeThickness="4"
+                Text="商用密码应用安全性测评计算工具 MPCal V0.0.1" />
+            <Image
                 Height="300"
-                MaxLines="5"
-                Text="商用密码应用安全性测评计算工具" />
+                Source="/Resources/Images/panda.jpeg"
+                Stretch="Uniform" />
+            <TextBlock Text="我是花花" TextAlignment="Center" />
+
+
         </StackPanel>
     </Grid>
 </Window>
