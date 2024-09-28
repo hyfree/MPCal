@@ -58,14 +58,7 @@
                 <MenuItem Command="commands:ProjectCommands.ReplaceSubSystemName" Header="替换" />
                 <MenuItem Command="commands:ProjectCommands.ReloadSubSystemName" Header="重载" />
             </MenuItem>
-            <MenuItem Height="29" Header="数据">
-                <MenuItem.Icon>
-                    <Image Source="/Resources/Images/data.png" />
-                </MenuItem.Icon>
 
-                <MenuItem Header="导入2024_V1" />
-                <MenuItem Header="导出打分表" />
-            </MenuItem>
             <MenuItem Height="29" Header="测试对象">
                 <MenuItem.Icon>
                     <Image Source="/Resources/Images/Item.png" />
@@ -96,7 +89,15 @@
                 </MenuItem.Icon>
                 <MenuItem Header="检查错误" />
             </MenuItem>
-            <MenuItem Height="29" Header="输出转换">
+            <MenuItem Height="29" Header="数据导入">
+                <MenuItem.Icon>
+                    <Image Source="/Resources/Images/data.png" />
+                </MenuItem.Icon>
+
+                <MenuItem Header="导入2024_V1" />
+                <MenuItem Header="导出打分表" />
+            </MenuItem>
+            <MenuItem Height="29" Header="数据导出">
                 <MenuItem.Icon>
                     <Image Source="/Resources/Images/printer.png" />
                 </MenuItem.Icon>

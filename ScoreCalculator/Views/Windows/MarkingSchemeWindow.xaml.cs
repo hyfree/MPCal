@@ -214,6 +214,11 @@ namespace ScoreCalculator
             {
 
                 RecordEntryEntity item = e.Parameter as RecordEntryEntity;
+                if (item==null)
+                {
+                    item=this.DataGridUI.SelectedItem as RecordEntryEntity;
+
+                }
                 if (item!=null)
                 {
                     this.tableOfScores.DeleteItem(item);
@@ -339,6 +344,7 @@ namespace ScoreCalculator
                     }
 
                 }
+                Growl.Success("重载子系统指示器");
 
             });
 

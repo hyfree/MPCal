@@ -47,6 +47,10 @@
             Key="V"
             Command="commands:ProjectCommands.PasteView"
             Modifiers="Ctrl+Alt" />
+        <KeyBinding
+            Key="Delete"
+            Command="commands:RecordEntryCommands.Delete"
+            Modifiers="Ctrl" />
 
     </hc:Window.InputBindings>
     <hc:Window.Resources>
