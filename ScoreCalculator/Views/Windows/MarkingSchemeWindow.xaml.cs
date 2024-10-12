@@ -265,7 +265,18 @@ namespace ScoreCalculator
                 }
                
             });
-
+            this.AddCommandBindings(new CommandBinding(RecordEntryCommands.No), (sender, e) =>
+            {
+                RecordEntryEntity item = this.DataGridUI.SelectedItem as RecordEntryEntity;
+                if (item != null)
+                {
+                    item.D = false;
+                    item.A = false;
+                    item.K = false;
+                    RefreshView();
+                    //CommitView();
+                }
+            });
             this.AddCommandBindings(new CommandBinding(RecordEntryCommands.D), (sender, e) =>
             {
                 RecordEntryEntity item = this.DataGridUI.SelectedItem as RecordEntryEntity;

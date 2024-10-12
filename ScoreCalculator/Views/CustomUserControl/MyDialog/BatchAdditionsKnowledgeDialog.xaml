@@ -8,8 +8,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:myenum="clr-namespace:ScoreCalculator.Models.MyEnum"
     Title="批量增加"
-    Width="400"
-    Height="500"
+    Width="800"
+    Height="600"
     mc:Ignorable="d">
     <Window.Resources>
         <ObjectDataProvider
@@ -29,7 +29,7 @@
             </ObjectDataProvider.MethodParameters>
         </ObjectDataProvider>
     </Window.Resources>
-    <Grid Margin="5">
+    <Grid Margin="5" HorizontalAlignment="Center">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
@@ -42,13 +42,15 @@
         </Grid.RowDefinitions>
         <StackPanel
             Grid.Row="0"
+            Margin="5"
             VerticalAlignment="Center"
             Orientation="Horizontal">
             <TextBlock
                 x:Name="MyNameTextBlock"
+                MinWidth="100"
                 VerticalAlignment="Center"
-                TextAlignment="Center">
-                标题
+                TextAlignment="Left">
+                名字Name
             </TextBlock>
             <TextBox
                 x:Name="MyNameTextBox"
@@ -58,61 +60,86 @@
         </StackPanel>
         <StackPanel
             Grid.Row="1"
+            Margin="5"
             VerticalAlignment="Center"
             Orientation="Horizontal">
-            <TextBlock VerticalAlignment="Center" TextAlignment="Center">
+            <TextBlock
+                MinWidth="100"
+                VerticalAlignment="Center"
+                TextAlignment="Left">
                 所述安全层面
             </TextBlock>
             <ComboBox
+                x:Name="cengmian_comboBox"
                 Width="150"
                 Height="20"
-                ItemsSource="{Binding Source={StaticResource SecurityDimensionEnumKey}}" />
+                ItemsSource="{Binding Source={StaticResource SecurityDimensionEnumKey}}"
+                SelectionChanged="ComboBox_SelectionChanged" />
         </StackPanel>
         <StackPanel
             Grid.Row="2"
+            Margin="5"
             VerticalAlignment="Center"
             Orientation="Horizontal">
-            <TextBlock VerticalAlignment="Center" TextAlignment="Center">
+            <TextBlock
+                MinWidth="100"
+                VerticalAlignment="Center"
+                TextAlignment="Left">
                 所述指标
             </TextBlock>
-            <TextBox
+            <ComboBox
+                x:Name="zhibiao_ComboBox"
                 Width="150"
-                Height="20"
-                Margin="5,0,0,0" />
+                Height="20" />
         </StackPanel>
         <StackPanel
             Grid.Row="3"
+            Margin="5"
             VerticalAlignment="Center"
             Orientation="Horizontal">
-            <TextBlock VerticalAlignment="Center" TextAlignment="Center">
-                Feature（对象属性）
+            <TextBlock
+                x:Name="Feature"
+                MinWidth="100"
+                VerticalAlignment="Center"
+                TextAlignment="Left">
+                对象类型Feature
             </TextBlock>
-            <TextBox
+            <ComboBox
+                x:Name="feature_ComboBox"
                 Width="150"
-                Height="20"
-                Margin="5,0,0,0" />
+                Height="20" />
         </StackPanel>
 
         <StackPanel
             Grid.Row="4"
+            Margin="5"
             VerticalAlignment="Center"
             Orientation="Horizontal">
-            <TextBlock VerticalAlignment="Center" TextAlignment="Center">
-                Tag
+            <TextBlock
+                MinWidth="100"
+                VerticalAlignment="Center"
+                TextAlignment="Left">
+                对象标签Tag
             </TextBlock>
             <TextBox
+                x:Name="tagBox"
                 Width="150"
                 Height="20"
                 Margin="5,0,0,0" />
         </StackPanel>
         <StackPanel
             Grid.Row="5"
+            Margin="5"
             VerticalAlignment="Center"
             Orientation="Horizontal">
-            <TextBlock VerticalAlignment="Center" TextAlignment="Center">
+            <TextBlock
+                MinWidth="100"
+                VerticalAlignment="Center"
+                TextAlignment="Left">
                 测试状态
             </TextBlock>
             <ComboBox
+                x:Name="testStatus_ComboBox"
                 Width="150"
                 Height="20"
                 ItemsSource="{Binding Source={StaticResource TestStatusKey}}" />
@@ -126,8 +153,9 @@
                 知识内容
             </TextBlock>
             <TextBox
-                Width="250"
-                Height="200"
+                x:Name="ContentBox"
+                Width="600"
+                Height="250"
                 Margin="5,0,0,0"
                 VerticalContentAlignment="Top"
                 AcceptsReturn="True"

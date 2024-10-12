@@ -658,12 +658,12 @@
                             Command="commands:RecordEntryCommands.EditDetails"
                             CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.SelectedItem}"
                             Header="编辑" />
-                        <MenuItem Command="commands:RecordEntryCommands.D" Header="D" />
-                        <MenuItem Command="commands:RecordEntryCommands.DA" Header="DA" />
-                        <MenuItem Command="commands:RecordEntryCommands.DAK" Header="DAK" />
-                        <MenuItem Command="commands:RecordEntryCommands.Add" Header="增加" />
-                        <MenuItem Command="commands:RecordEntryCommands.Add" Header="增加" />
-                        <MenuItem Command="commands:RecordEntryCommands.BulkAdd" Header="批量增加" />
+                        <MenuItem Command="commands:RecordEntryCommands.No" Header="不符合" />
+                        <MenuItem Command="commands:RecordEntryCommands.D" Header="部分符合D" />
+                        <MenuItem Command="commands:RecordEntryCommands.DA" Header="部分符合DA" />
+                        <MenuItem Command="commands:RecordEntryCommands.DAK" Header="符合DAK" />
+                        <MenuItem Command="commands:RecordEntryCommands.Add" Header="增加测评对象" />
+                        <MenuItem Command="commands:RecordEntryCommands.BulkAdd" Header="批量增加测评对象" />
 
                         <MenuItem
                             x:Name="MenuItem_delete"

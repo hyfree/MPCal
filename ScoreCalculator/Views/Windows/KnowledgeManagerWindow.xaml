@@ -2,13 +2,34 @@
     x:Class="ScoreCalculator.Views.Windows.KnowledgeManagerWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:commands="clr-namespace:ScoreCalculator.Views.Commands"
+    xmlns:core="clr-namespace:System;assembly=mscorlib"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:ScoreCalculator.Views.Windows"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:myenum="clr-namespace:ScoreCalculator.Models.MyEnum"
     Title="知识库管理"
     Width="800"
     Height="450"
     mc:Ignorable="d">
+    <Window.Resources>
+        <ObjectDataProvider
+            x:Key="SecurityDimensionEnumKey"
+            MethodName="GetValues"
+            ObjectType="{x:Type core:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type Type="myenum:SecurityDimensionEnum" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <ObjectDataProvider
+            x:Key="TestStatusKey"
+            MethodName="GetValues"
+            ObjectType="{x:Type core:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type Type="myenum:TestStatus" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Window.Resources>
     <DockPanel>
         <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
             <Menu Background="LightSkyBlue">
@@ -17,22 +38,57 @@
                 <MenuItem Header="修改" />
 
             </Menu>
-            <TextBlock>安全层面</TextBlock>
-            <ComboBox Width="200">
-                <ComboBoxItem Content="物理" />
-                <ComboBoxItem Content="设备" />
-                <ComboBoxItem Content="网络" />
-                <ComboBoxItem Content="应用" />
-                <ComboBoxItem />
-            </ComboBox>
-            <TextBlock VerticalAlignment="Center">对象属性</TextBlock>
-            <ComboBox Width="200">
-                <ComboBoxItem Content="XX" />
-                <ComboBoxItem Content="XX" />
-                <ComboBoxItem Content="XX" />
-                <ComboBoxItem Content="XX" />
-                <ComboBoxItem />
-            </ComboBox>
+            <StackPanel
+                Grid.Row="1"
+                Margin="5"
+                VerticalAlignment="Center"
+                Orientation="Horizontal">
+                <TextBlock
+                    MinWidth="100"
+                    VerticalAlignment="Center"
+                    TextAlignment="Left">
+                    所述安全层面
+                </TextBlock>
+                <ComboBox
+                    x:Name="cengmian_comboBox"
+                    Width="150"
+                    Height="20"
+                    ItemsSource="{Binding Source={StaticResource SecurityDimensionEnumKey}}"
+                    SelectionChanged="ComboBox_SelectionChanged" />
+            </StackPanel>
+            <StackPanel
+                Grid.Row="2"
+                Margin="5"
+                VerticalAlignment="Center"
+                Orientation="Horizontal">
+                <TextBlock
+                    MinWidth="100"
+                    VerticalAlignment="Center"
+                    TextAlignment="Left">
+                    所述指标
+                </TextBlock>
+                <ComboBox
+                    x:Name="zhibiao_ComboBox"
+                    Width="150"
+                    Height="20" />
+            </StackPanel>
+            <StackPanel
+                Grid.Row="3"
+                Margin="5"
+                VerticalAlignment="Center"
+                Orientation="Horizontal">
+                <TextBlock
+                    x:Name="Feature"
+                    MinWidth="100"
+                    VerticalAlignment="Center"
+                    TextAlignment="Left">
+                    对象类型Feature
+                </TextBlock>
+                <ComboBox
+                    x:Name="feature_ComboBox"
+                    Width="150"
+                    Height="20" />
+            </StackPanel>
         </StackPanel>
 
         <DataGrid
@@ -40,12 +96,18 @@
             AutoGenerateColumns="False"
             HeadersVisibility="All"
             IsReadOnly="True"
-            RowHeaderWidth="60"
             SelectedIndex="0"
             SelectionMode="Single">
             <DataGrid.ContextMenu>
                 <ContextMenu>
-                    <MenuItem x:Name="OpenMarkingScheme" Header="打分" />
+                    <MenuItem
+                        x:Name="Delete"
+                        Command="commands:KnowledgeCommand.Delete"
+                        Header="删除" />
+                    <MenuItem
+                        x:Name="Editor"
+                        Command="commands:KnowledgeCommand.EditDetails"
+                        Header="修改" />
                 </ContextMenu>
             </DataGrid.ContextMenu>
 
@@ -56,31 +118,31 @@
                     Header="Id" />
                 <DataGridTextColumn
                     Width="100"
-                    Binding="{Binding Name}"
+                    Binding="{Binding Title}"
                     Header="标题" />
                 <DataGridTextColumn
                     Width="100"
-                    Binding="{Binding TestObjectName}"
+                    Binding="{Binding SecurityDimensionEnum}"
                     Header="所属安全层面" />
                 <DataGridTextColumn
-                    Width="100"
-                    Binding="{Binding TestObjectName}"
+                    Width="200"
+                    Binding="{Binding Feature}"
                     Header="对象属性" />
                 <DataGridTextColumn
-                    Width="100"
-                    Binding="{Binding Provinces}"
+                    Width="500"
+                    Binding="{Binding ZhiBiao}"
                     Header="指标" />
                 <DataGridTextColumn
                     Width="100"
-                    Binding="{Binding City}"
+                    Binding="{Binding Tag}"
                     Header="标签" />
                 <DataGridTextColumn
                     Width="100"
-                    Binding="{Binding Year}"
+                    Binding="{Binding TestStatus}"
                     Header="测评状态" />
                 <DataGridTextColumn
-                    Width="500"
-                    Binding="{Binding Level}"
+                    Width="800"
+                    Binding="{Binding Content}"
                     Header="内容" />
 
 
