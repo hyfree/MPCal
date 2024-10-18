@@ -18,6 +18,11 @@ namespace ScoreCalculator.Models.Entity
         /// 标题
         /// </summary>
         public string Title { get; set; }
+
+        /// <summary>
+        /// 知识类型
+        /// </summary>
+        public KnowledgeEntityType KnowledgeEntityType { get; set; }
         /// <summary>
         /// 所属安全层面
         /// </summary>

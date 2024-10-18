@@ -54,6 +54,7 @@ namespace ScoreCalculator.Views.Windows
                 if (item != null)
                 {
                     var dig = new BatchAdditionsKnowledgeDialog(this);
+                    dig.SetEntity(item);
                     dig.ShowDialog();
                 }
 
@@ -92,6 +93,16 @@ namespace ScoreCalculator.Views.Windows
                 return true;
 
             }
+            if (this.zhishi_comboBox.SelectedItem!=null)
+            {
+                var knowledgeEntityType = (KnowledgeEntityType)this.zhishi_comboBox.SelectedItem;
+                if (entity.KnowledgeEntityType!=knowledgeEntityType)
+                {
+                    return false;
+                }
+            }
+
+
             SecurityDimensionEnum cengmian = (SecurityDimensionEnum)this.cengmian_comboBox.SelectedItem;
             if (entity.SecurityDimensionEnum!=cengmian)
             {
@@ -113,9 +124,8 @@ namespace ScoreCalculator.Views.Windows
                 {
                     return false;
                 }
-
             }
-
+          
             return true;
 
         }
@@ -126,10 +136,25 @@ namespace ScoreCalculator.Views.Windows
             Load();
 
         }
+
+        public void Save(KnowledgeEntity entity)
+        {
+            var service = new KnowledgeEntityServices();
+            var list=this.DataGridUI.Items;
+            service.Save(entity);
+            Load();
+        }
+
+
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (this.cengmian_comboBox.SelectedItem==null)
+            {
+                return;
+            }
             var cengmian = (SecurityDimensionEnum)this.cengmian_comboBox.SelectedItem;
             var data = CalculationTableData.ReadData(cengmian, SystemLevel.Level3);
+            //var knowledgeEntityType = (KnowledgeEntityType)this.zhibiao_ComboBox.SelectedItem;
 
             var list = new List<string>();
             this.zhibiao_ComboBox.Items.Clear();

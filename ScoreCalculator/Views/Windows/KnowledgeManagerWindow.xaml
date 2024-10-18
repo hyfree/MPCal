@@ -22,6 +22,14 @@
             </ObjectDataProvider.MethodParameters>
         </ObjectDataProvider>
         <ObjectDataProvider
+            x:Key="KnowledgeEntityTypeEnumKey"
+            MethodName="GetValues"
+            ObjectType="{x:Type core:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type Type="myenum:KnowledgeEntityType" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <ObjectDataProvider
             x:Key="TestStatusKey"
             MethodName="GetValues"
             ObjectType="{x:Type core:Enum}">
@@ -56,6 +64,25 @@
                     ItemsSource="{Binding Source={StaticResource SecurityDimensionEnumKey}}"
                     SelectionChanged="ComboBox_SelectionChanged" />
             </StackPanel>
+            <StackPanel
+                Grid.Row="1"
+                Margin="5"
+                VerticalAlignment="Center"
+                Orientation="Horizontal">
+                <TextBlock
+                    MinWidth="100"
+                    VerticalAlignment="Center"
+                    TextAlignment="Left">
+                    知识类型
+                </TextBlock>
+                <ComboBox
+                    x:Name="zhishi_comboBox"
+                    Width="150"
+                    Height="20"
+                    ItemsSource="{Binding Source={StaticResource KnowledgeEntityTypeEnumKey}}"
+                    SelectionChanged="ComboBox_SelectionChanged" />
+            </StackPanel>
+
             <StackPanel
                 Grid.Row="2"
                 Margin="5"
@@ -124,6 +151,10 @@
                     Width="100"
                     Binding="{Binding SecurityDimensionEnum}"
                     Header="所属安全层面" />
+                <DataGridTextColumn
+                    Width="100"
+                    Binding="{Binding KnowledgeEntityType}"
+                    Header="知识类型" />
                 <DataGridTextColumn
                     Width="200"
                     Binding="{Binding Feature}"

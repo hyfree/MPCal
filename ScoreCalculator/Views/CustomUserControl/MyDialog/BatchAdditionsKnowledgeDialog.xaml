@@ -28,9 +28,18 @@
                 <x:Type Type="myenum:TestStatus" />
             </ObjectDataProvider.MethodParameters>
         </ObjectDataProvider>
+        <ObjectDataProvider
+            x:Key="KnowledgeEntityTypeEnumKey"
+            MethodName="GetValues"
+            ObjectType="{x:Type core:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type Type="myenum:KnowledgeEntityType" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
     </Window.Resources>
     <Grid Margin="5" HorizontalAlignment="Center">
         <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
@@ -76,8 +85,26 @@
                 ItemsSource="{Binding Source={StaticResource SecurityDimensionEnumKey}}"
                 SelectionChanged="ComboBox_SelectionChanged" />
         </StackPanel>
+
         <StackPanel
             Grid.Row="2"
+            Margin="5"
+            VerticalAlignment="Center"
+            Orientation="Horizontal">
+            <TextBlock
+                MinWidth="100"
+                VerticalAlignment="Center"
+                TextAlignment="Left">
+                知识类型
+            </TextBlock>
+            <ComboBox
+                x:Name="zhishi_comboBox"
+                Width="150"
+                Height="20"
+                ItemsSource="{Binding Source={StaticResource KnowledgeEntityTypeEnumKey}}" />
+        </StackPanel>
+        <StackPanel
+            Grid.Row="3"
             Margin="5"
             VerticalAlignment="Center"
             Orientation="Horizontal">
@@ -93,7 +120,7 @@
                 Height="20" />
         </StackPanel>
         <StackPanel
-            Grid.Row="3"
+            Grid.Row="4"
             Margin="5"
             VerticalAlignment="Center"
             Orientation="Horizontal">
@@ -111,7 +138,7 @@
         </StackPanel>
 
         <StackPanel
-            Grid.Row="4"
+            Grid.Row="5"
             Margin="5"
             VerticalAlignment="Center"
             Orientation="Horizontal">
@@ -128,7 +155,7 @@
                 Margin="5,0,0,0" />
         </StackPanel>
         <StackPanel
-            Grid.Row="5"
+            Grid.Row="6"
             Margin="5"
             VerticalAlignment="Center"
             Orientation="Horizontal">
@@ -146,7 +173,7 @@
 
         </StackPanel>
         <StackPanel
-            Grid.Row="6"
+            Grid.Row="7"
             VerticalAlignment="Center"
             Orientation="Horizontal">
             <TextBlock VerticalAlignment="Center" TextAlignment="Center">
@@ -163,7 +190,7 @@
                 TextWrapping="Wrap" />
         </StackPanel>
 
-        <StackPanel Grid.Row="7">
+        <StackPanel Grid.Row="8">
             <Button Click="Button_Click">确认</Button>
         </StackPanel>
     </Grid>

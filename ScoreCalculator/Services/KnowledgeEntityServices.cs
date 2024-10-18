@@ -24,6 +24,11 @@ namespace ScoreCalculator.Services
             SQLLite3Context.KnowledgeEntity.Add(knowledgeEntity);
             SQLLite3Context.SaveChanges();
         }
+        public void Save(KnowledgeEntity knowledgeEntity)
+        {
+           Delete(knowledgeEntity.Id);
+           Add(knowledgeEntity);
+        }
         public List<KnowledgeEntity> GetALL()
         {
             var list=  SQLLite3Context.KnowledgeEntity.ToList<KnowledgeEntity>();
@@ -37,7 +42,8 @@ namespace ScoreCalculator.Services
         //在数据库中删除一个记录,根据id
         public void Delete(long id)
         {
-            SQLLite3Context.KnowledgeEntity.Remove(SQLLite3Context.KnowledgeEntity.Find(id));
+            SQLLite3Context.KnowledgeEntity.Where(x => x.Id == id).DeleteFromQuery();
+
             SQLLite3Context.SaveChanges();
         }
         public bool Any(long id)
