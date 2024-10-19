@@ -1,16 +1,23 @@
-﻿<Window
+﻿<hc:Window
     x:Class="ScoreCalculator.Views.Windows.EditDetailsWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:commands="clr-namespace:ScoreCalculator.Views.Commands"
+    xmlns:core="clr-namespace:System;assembly=mscorlib"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:hc="https://handyorg.github.io/handycontrol"
     xmlns:local="clr-namespace:ScoreCalculator.Views.Windows"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:myenum="clr-namespace:ScoreCalculator.Models.MyEnum"
     Title="{Binding TestObjectName}"
     Width="800"
     Height="450"
     Initialized="Window_Initialized"
     mc:Ignorable="d">
+    <hc:Window.InputBindings>
+        <KeyBinding Key="Esc" Command="ApplicationCommands.Close" />
+
+    </hc:Window.InputBindings>
     <Window.Resources>
         <ObjectDataProvider
             x:Key="SecurityDimensionEnumKey"
@@ -188,12 +195,8 @@
                     <ContextMenu>
                         <MenuItem
                             x:Name="Delete"
-                            Command="commands:KnowledgeCommand.Delete"
-                            Header="删除" />
-                        <MenuItem
-                            x:Name="Editor"
-                            Command="commands:KnowledgeCommand.EditDetails"
-                            Header="修改" />
+                            Command="commands:KnowledgeCommand.CopyContent"
+                            Header="复制内容" />
                     </ContextMenu>
                 </DataGrid.ContextMenu>
 
@@ -241,4 +244,4 @@
 
         </DockPanel>
     </Grid>
-</Window>
+</hc:Window>

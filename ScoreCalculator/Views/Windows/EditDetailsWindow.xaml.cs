@@ -1,8 +1,11 @@
 ﻿using NPOI.SS.Formula.Functions;
 
+using ScoreCalculator.Models.Data;
 using ScoreCalculator.Models.Entity;
 using ScoreCalculator.Models.MyEnum;
 using ScoreCalculator.Services;
+using ScoreCalculator.Views.Commands;
+using ScoreCalculator.Views.CustomUserControl.MyDialog;
 
 using System;
 using System.Collections.Generic;
@@ -24,27 +27,61 @@ namespace ScoreCalculator.Views.Windows
     /// <summary>
     /// EditDetailsWindow.xaml 的交互逻辑
     /// </summary>
-    public partial class EditDetailsWindow : Window
+    public partial class EditDetailsWindow 
     {
         KnowledgeEntityServices knowledgeEntityServices = new KnowledgeEntityServices();
         ListCollectionView listView;
         public ObservableCollection<KnowledgeEntity> obs { get; set; } = new ObservableCollection<KnowledgeEntity>();
-
+        public RecordEntryEntity MyRecordEntryEntity;
 
         public EditDetailsWindow(RecordEntryEntity RecordEntryEntity)
         {
-            InitializeComponent();
+          
             this.MyRecordEntryEntity = RecordEntryEntity;
             this.DataContext = MyRecordEntryEntity;
+            InitializeComponent();
 
         }
         private void Window_Initialized(object sender, EventArgs e)
         {
 
             //  this.TabControlUI.DataContext = this.RecordEntryEntity;
+            InitCommandBindings();
+            InitView();
+            Load();
+
+
 
         }
-        public RecordEntryEntity MyRecordEntryEntity ;
+
+        void InitView()
+        {
+            if (this.MyRecordEntryEntity!=null)
+            {
+                this.cengmian_comboBox.SelectedItem=this.MyRecordEntryEntity.SecurityDimension;
+                this.zhibiao_ComboBox.SelectedItem=this.MyRecordEntryEntity.ZhiBiao;
+
+            }
+        }
+
+      
+        private void InitCommandBindings()
+        {
+            this.AddCommandBindings(new CommandBinding(KnowledgeCommand.CopyContent), (sender, e) =>
+            {
+                var item = this.DataGridUI.SelectedItem as KnowledgeEntity;
+                if (item != null)
+                {
+                    Clipboard.SetDataObject(item.Content);
+                }
+
+            });
+            this.AddCommandBindings(new CommandBinding(ApplicationCommands.Close), (sender, e) =>
+            {
+
+                this.Close();
+            });
+        }
         public void Load()
         {
             var data = knowledgeEntityServices.GetALL();
@@ -56,6 +93,39 @@ namespace ScoreCalculator.Views.Windows
             this.listView = new ListCollectionView(obs);
             this.listView.Filter = ListCollectionViewSource_Filter;
             this.DataGridUI.ItemsSource = this.listView;
+        }
+        private void AddCommandBindings(CommandBinding commandBinding, ExecutedRoutedEventHandler executed)
+        {
+            commandBinding.Executed += executed;
+            this.CommandBindings.Add(commandBinding);
+        }
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (this.cengmian_comboBox.SelectedItem == null)
+            {
+                return;
+            }
+            var cengmian = (SecurityDimensionEnum)this.cengmian_comboBox.SelectedItem;
+            var data = CalculationTableData.ReadData(cengmian, SystemLevel.Level3);
+            //var knowledgeEntityType = (KnowledgeEntityType)this.zhibiao_ComboBox.SelectedItem;
+
+            var list = new List<string>();
+            this.zhibiao_ComboBox.Items.Clear();
+            foreach (var item in data.Rules)
+            {
+                var zhibiao = item.TestObject.ToString();
+                this.zhibiao_ComboBox.Items.Add(zhibiao);
+            }
+
+            var feature_data = FeatureData.GetFeatureData(cengmian);
+            this.feature_ComboBox.Items.Clear();
+            foreach (var feature in feature_data)
+            {
+                this.feature_ComboBox.Items.Add(feature);
+            }
+
+            Load();
+
         }
 
         private bool ListCollectionViewSource_Filter(object sender)

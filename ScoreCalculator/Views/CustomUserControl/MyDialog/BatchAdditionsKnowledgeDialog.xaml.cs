@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -45,6 +46,7 @@ namespace ScoreCalculator.Views.CustomUserControl.MyDialog
             var tag=this.tagBox.Text;
             if (knowledge==null)
             {
+                
                 var entity = new KnowledgeEntity()
                 {
                     Id = SnowFlakeNetService.FactoryGeInstance().NextId(),
@@ -98,7 +100,7 @@ namespace ScoreCalculator.Views.CustomUserControl.MyDialog
             this.zhibiao_ComboBox.Items.Clear();
             foreach (var item in data.Rules)
             {
-                var zhibiao = item.ZhiBiaoYaoQiu.ToString();
+                var zhibiao = item.TestObject.ToString();
                 this.zhibiao_ComboBox.Items.Add(zhibiao);
             }
 

@@ -96,7 +96,7 @@ namespace ScoreCalculator.Views.Windows
             if (this.zhishi_comboBox.SelectedItem!=null)
             {
                 var knowledgeEntityType = (KnowledgeEntityType)this.zhishi_comboBox.SelectedItem;
-                if (entity.KnowledgeEntityType!=knowledgeEntityType)
+                if (entity.KnowledgeEntityType != knowledgeEntityType)
                 {
                     return false;
                 }
@@ -160,7 +160,7 @@ namespace ScoreCalculator.Views.Windows
             this.zhibiao_ComboBox.Items.Clear();
             foreach (var item in data.Rules)
             {
-                var zhibiao = item.ZhiBiaoYaoQiu.ToString();
+                var zhibiao = item.TestObject.ToString();
                 this.zhibiao_ComboBox.Items.Add(zhibiao);
             }
 

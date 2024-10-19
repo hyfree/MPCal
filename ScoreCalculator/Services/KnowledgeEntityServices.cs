@@ -21,6 +21,7 @@ namespace ScoreCalculator.Services
         //在数据库中添加一个记录
         public void Add(KnowledgeEntity knowledgeEntity)
         {
+           
             SQLLite3Context.KnowledgeEntity.Add(knowledgeEntity);
             SQLLite3Context.SaveChanges();
         }
