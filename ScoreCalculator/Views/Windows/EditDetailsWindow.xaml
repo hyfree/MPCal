@@ -70,9 +70,12 @@
                     <hc:TextBox
                         Height="200"
                         VerticalContentAlignment="Top"
+                        AcceptsReturn="True"
                         FontSize="16"
+                        MaxLines="200"
+                        MinLines="50"
                         Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}"
-                        TextWrapping="WrapWithOverflow" />
+                        TextWrapping="Wrap" />
                 </StackPanel>
             </hc:TabItem>
             <hc:TabItem Header="问题描述">
