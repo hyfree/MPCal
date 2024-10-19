@@ -93,12 +93,16 @@ namespace ScoreCalculator.Views.Windows.Launch
 
         private void DeleteProjectCommnad_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            var project = e.Parameter as SystemInfoEntity;
+            var project = this.DataGridUI.SelectedItem as ProjectEntity;
+
             if (project != null)
             {
-                SystemInfoService systemInfoService = new SystemInfoService();
+                //SystemInfoService systemInfoService = new SystemInfoService();
 
-                systemInfoService.Delete(project);
+                //systemInfoService.Delete(project);
+
+                ProjectService projectService = new ProjectService();
+                projectService.Delete(project);
             }
             this.Refresh();
 
@@ -110,7 +114,7 @@ namespace ScoreCalculator.Views.Windows.Launch
         /// <param name="e"></param>
         private void OnOpenMarkingScheme(object sender, ExecutedRoutedEventArgs e)
         {
-           var project=e.Parameter as ProjectEntity;
+           var project= this.DataGridUI.SelectedItem as ProjectEntity;
             if (project != null)
             {
                 MarkingSchemeWindow markingSchemeWindow = new MarkingSchemeWindow(project);

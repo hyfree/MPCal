@@ -8,6 +8,6 @@ namespace ScoreCalculator.Models.MyEnum
 {
     public enum SystemLevel
     {
-        Level1, Level2, Level3, Level4
+        Level1=0x01, Level2=0x02, Level3=0x03, Level4 = 0x04
     }
 }

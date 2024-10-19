@@ -40,6 +40,8 @@ namespace ScoreCalculator.Views.Windows
             this.MyRecordEntryEntity = RecordEntryEntity;
             this.DataContext = MyRecordEntryEntity;
             InitializeComponent();
+            WindowState=WindowState.Maximized;
+
 
         }
         private void Window_Initialized(object sender, EventArgs e)

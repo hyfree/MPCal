@@ -424,7 +424,11 @@ namespace ScoreCalculator
             });
             this.AddCommandBindings(new CommandBinding(RecordEntryCommands.EditDetails), (sender, e) => {
 
-                RecordEntryEntity data = e.Parameter as RecordEntryEntity;
+                RecordEntryEntity? data = e.Parameter as RecordEntryEntity;
+                if (data == null)
+                {
+                     data=this.DataGridUI.SelectedItem as RecordEntryEntity;
+                }
                 if (data != null)
                 {
                     EditDetailsWindow editDetailsWindow = new EditDetailsWindow(data);

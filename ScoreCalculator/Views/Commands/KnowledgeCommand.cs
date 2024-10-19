@@ -27,6 +27,7 @@ namespace ScoreCalculator.Views.Commands
             CopyContent = new RoutedUICommand("CopyContent", "CopyContent", typeof(KnowledgeCommand));
             UseContent = new RoutedUICommand("UseContent", "UseContent", typeof(KnowledgeCommand));
             PasteContent = new RoutedUICommand("PasteContent", "PasteContent", typeof(KnowledgeCommand));
+            AppendContent = new RoutedUICommand("AppendContent", "AppendContent", typeof(KnowledgeCommand));
         }
 
         public static RoutedUICommand Add { get; }
@@ -40,6 +41,7 @@ namespace ScoreCalculator.Views.Commands
         public static RoutedUICommand DAK { get; }
         public static RoutedUICommand CopyContent { get; }
         public static RoutedUICommand UseContent { get; }
+        public static RoutedUICommand AppendContent { get; }
 
         public static RoutedUICommand PasteContent { get; }
     }

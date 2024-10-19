@@ -196,10 +196,9 @@
                 SelectionMode="Single">
                 <DataGrid.ContextMenu>
                     <ContextMenu>
-                        <MenuItem
-                            x:Name="Delete"
-                            Command="commands:KnowledgeCommand.CopyContent"
-                            Header="复制内容" />
+                        <MenuItem Command="commands:KnowledgeCommand.CopyContent" Header="复制内容" />
+                        <MenuItem Command="commands:KnowledgeCommand.UseContent" Header="使用内容" />
+                        <MenuItem Command="commands:KnowledgeCommand.AppendContent" Header="追加内容" />
                     </ContextMenu>
                 </DataGrid.ContextMenu>
 
@@ -225,7 +224,7 @@
                         Binding="{Binding Feature}"
                         Header="对象属性" />
                     <DataGridTextColumn
-                        Width="500"
+                        Width="100"
                         Binding="{Binding ZhiBiao}"
                         Header="指标" />
                     <DataGridTextColumn
@@ -237,7 +236,7 @@
                         Binding="{Binding TestStatus}"
                         Header="测评状态" />
                     <DataGridTextColumn
-                        Width="800"
+                        Width="500"
                         Binding="{Binding Content}"
                         Header="内容" />
 

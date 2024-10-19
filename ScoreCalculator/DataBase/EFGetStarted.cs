@@ -46,6 +46,7 @@ namespace ScoreCalculator.DataBase
             var file = Path.Combine(dbPath);
             file = Path.GetFullPath(file);
             options.UseSqlite($"Data Source={file}");
+            //options.UseMySql("Server=localhost;Database=ct_threeview;charset=utf8;uid=root;pwd=0b85232f9ebda56fc8a1f54f74383aF8a4055e570bb36cbb5;port=3506;",ServerVersion.Parse("8.0"),null);
         }
 
 

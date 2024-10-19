@@ -51,6 +51,10 @@
             Key="Delete"
             Command="commands:RecordEntryCommands.Delete"
             Modifiers="Ctrl" />
+        <KeyBinding
+            Key="E"
+            Command="commands:RecordEntryCommands.EditDetails"
+            Modifiers="Ctrl" />
 
     </hc:Window.InputBindings>
     <hc:Window.Resources>
