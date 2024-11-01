@@ -2,8 +2,8 @@
 
 using ScoreCalculator.Models.Entity;
 using ScoreCalculator.Models.MyEnum;
+using ScoreCalculator.Models.OutputModel.Word.TestPlan;
 using ScoreCalculator.Models.ViewModel;
-using ScoreCalculator.Models.Word.TestPlan;
 
 using System;
 using System.Collections.Generic;

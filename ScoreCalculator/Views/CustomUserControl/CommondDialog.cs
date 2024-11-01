@@ -29,5 +29,24 @@ namespace ScoreCalculator.Views.CustomUserControl
                 return null;
             }
         }
+        public static string SaveExcelFileDialog(string title)
+        {
+            SaveFileDialog dlg = new SaveFileDialog();
+            dlg.Title = title;
+            dlg.FileName = "商用密码应用安全性评估问题清单.xlsx"; // Default file name
+            dlg.DefaultExt = ".xlsx"; // Default file extension
+            dlg.Filter = "Text documents|*.xlsx"; // Filter files by extension
+
+
+            // Process save file dialog box results
+            if (dlg.ShowDialog() == true)
+            {
+                return dlg.FileName;
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }

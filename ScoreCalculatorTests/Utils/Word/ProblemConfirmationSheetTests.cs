@@ -2,8 +2,8 @@
 
 using ScoreCalculator.Models.Entity;
 using ScoreCalculator.Models.MyEnum;
+using ScoreCalculator.Models.OutputModel.Word;
 using ScoreCalculator.Models.ViewModel;
-using ScoreCalculator.Models.Word;
 
 using System;
 using System.Collections.Generic;
@@ -19,7 +19,7 @@ namespace ScoreCalculator.Utils.Word.Tests
         [TestMethod()]
         public void testTest()
         {
-           ProblemConfirmationSheet problemConfirmationSheet = new ProblemConfirmationSheet();
+           ProblemConfirmationSheetDoc problemConfirmationSheet = new ProblemConfirmationSheetDoc();
             var sys = new SystemInfoEntity();
             sys.Level = 3;
             sys.Name = "测试系统";

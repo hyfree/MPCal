@@ -28,6 +28,7 @@ namespace ScoreCalculator.Views.Commands
             TotalComputation = new RoutedUICommand("TotalComputation", "TotalComputation", typeof(ProjectCommands));
             Refresh = new RoutedUICommand("Refresh", "Refresh", typeof(ProjectCommands));
             ExportProblemConfirmationSheet = new RoutedUICommand("ExportProblemConfirmationSheet", "ExportProblemConfirmationSheet", typeof(ProjectCommands));
+            ExportProblemConfirmationSheetExcel = new RoutedUICommand("ExportProblemConfirmationSheetExcel", "ExportProblemConfirmationSheetExcel", typeof(ProjectCommands));
 
             CopyView = new RoutedUICommand("CopyView", "CopyView", typeof(ProjectCommands));
             PasteView = new RoutedUICommand("PasteView", "PasteView", typeof(ProjectCommands));
@@ -71,6 +72,7 @@ namespace ScoreCalculator.Views.Commands
         public static RoutedUICommand OpenSubSystemManagerWindow { get; }
         public static RoutedUICommand OpenKnowledgeManagerWindow { get; }
         public static RoutedUICommand ExportProblemConfirmationSheet { get; }
+        public static RoutedUICommand ExportProblemConfirmationSheetExcel { get; }
 
 
 

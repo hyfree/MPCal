@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 namespace ScoreCalculator.Models.Data
 {
     /// <summary>
-    /// 指标项
+    /// 指标项,比如身份鉴别
     /// </summary>
     public class ZhiBiaoItem
     {
@@ -179,7 +179,7 @@ namespace ScoreCalculator.Models.Data
 
         }
         /// <summary>
-        /// Question合并
+        /// Question合并，将单个指标的所有测评对象合并
         /// </summary>
         /// <returns></returns>
         public string QuestionMerge()

@@ -8,8 +8,8 @@ using ScoreCalculator.Models.Data;
 using ScoreCalculator.Models.DTO;
 using ScoreCalculator.Models.Entity;
 using ScoreCalculator.Models.MyEnum;
+using ScoreCalculator.Models.OutputModel.Word;
 using ScoreCalculator.Models.ViewModel;
-using ScoreCalculator.Models.Word;
 using ScoreCalculator.Services;
 using ScoreCalculator.Utils;
 using ScoreCalculator.Utils.Word;
@@ -214,8 +214,21 @@ namespace ScoreCalculator
                     Growl.Error("保存路径错误");
                     return;
                 }
-                ProblemConfirmationSheet problemConfirmationSheet = new ProblemConfirmationSheet();
-                problemConfirmationSheet.Export(this.tableOfScores,path);
+                ProblemConfirmationSheetDoc problemConfirmationSheet = new ProblemConfirmationSheetDoc();
+                problemConfirmationSheet.ExportWord(this.tableOfScores,path);
+                Growl.Success("导出成功");
+
+            });
+            this.AddCommandBindings(new CommandBinding(ProjectCommands.ExportProblemConfirmationSheetExcel), (sender, e) =>
+            {
+                var path = CommondDialog.SaveWordFileDialog("导出问题清单");
+                if (string.IsNullOrEmpty(path))
+                {
+                    Growl.Error("保存路径错误");
+                    return;
+                }
+                ProblemConfirmationSheetExcel problemConfirmationSheet = new ProblemConfirmationSheetExcel();
+                problemConfirmationSheet.ExportExcel(this.tableOfScores, path);
                 Growl.Success("导出成功");
 
             });

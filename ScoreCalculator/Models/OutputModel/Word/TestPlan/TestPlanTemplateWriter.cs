@@ -1,6 +1,5 @@
 ﻿using NPOI.OpenXmlFormats.Wordprocessing;
 using NPOI.XWPF.UserModel;
-
 using ScoreCalculator.Models.ViewModel;
 using ScoreCalculator.Utils.Word;
 
@@ -11,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ScoreCalculator.Models.Word.TestPlan
+namespace ScoreCalculator.Models.OutputModel.Word.TestPlan
 {
     public class TestPlanTemplateWriter
     {
@@ -126,7 +125,7 @@ namespace ScoreCalculator.Models.Word.TestPlan
 
 
 
-         
+
             }
 
 

@@ -20,6 +20,9 @@ namespace ScoreCalculator.Models.Data
         /// </summary>
         public double CengMianQuanZhong { get; set; }
         public string CengMian { get; set; }
+        /// <summary>
+        /// 规则
+        /// </summary>
         public List<ZhiBiaoItem> Rules { get; set; }
         /// <summary>
         /// 安全层面得分
@@ -36,6 +39,21 @@ namespace ScoreCalculator.Models.Data
 
         public TestStatus TestStatus { get; set; }
 
+        /// <summary>
+        /// 获取全部测试记录
+        /// </summary>
+        /// <returns></returns>
+        public List<RecordEntryEntity> GetAllRecordEntryEntitys()
+        {
+            var list=new List<RecordEntryEntity>();
+
+            foreach (var rule in Rules)
+            {
+                list.AddRange(rule.RecordEntryEntitys);
+
+            }
+            return list;
+        }
 
         public static CalculationTableData ReadData(SecurityDimensionEnum securityDimensionEnum,SystemLevel level)
         {

@@ -1,7 +1,6 @@
 ﻿
 using NPOI.OpenXmlFormats.Wordprocessing;
 using NPOI.XWPF.UserModel;
-
 using ScoreCalculator.Models.Data;
 using ScoreCalculator.Models.MyEnum;
 using ScoreCalculator.Models.ViewModel;
@@ -15,18 +14,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Documents;
 
-namespace ScoreCalculator.Models.Word
+namespace ScoreCalculator.Models.OutputModel.Word
 {
-    public class ProblemConfirmationSheet
+    /// <summary>
+    /// 问题确认单
+    /// </summary>
+    public class ProblemConfirmationSheetDoc
     {
-        public void Export(TableOfScores tableOfScores,string pathCopy)
+        public void ExportWord(TableOfScores tableOfScores, string pathCopy)
         {
-            var config=MyConfig.GetMyConfig();
-            var path = Path.Combine(config.BaseTemplateDir+ "IssuesList.docx");                                                                                                                                                 
-            //var pathCopy = "D:\\WangXianQiang\\Work\\12Project\\04密评报告工具\\template\\商用密码应用安全性评估问题确认单Copy.docx";
+            var config = MyConfig.GetMyConfig();
+            var path = Path.Combine(config.BaseTemplateDir + "IssuesList.docx");
             if (File.Exists(pathCopy))
             {
-                
+
                 File.Delete(pathCopy);
 
             }
@@ -36,8 +37,8 @@ namespace ScoreCalculator.Models.Word
             var tables = doc.Tables;
             var myTable = tables[0];
 
-          
-            AddProblemConfirmationSheetRow(myTable,tableOfScores);
+
+            AddProblemConfirmationSheetRow(myTable, tableOfScores);
             //var paragraph = doc.CreateParagraph();
 
             var fileStreamCopy = File.Open(pathCopy, FileMode.OpenOrCreate);
@@ -45,9 +46,8 @@ namespace ScoreCalculator.Models.Word
 
             fileStreamCopy.Flush();
             fileStreamCopy.Close();
-
-
         }
+
         public static List<ProblemConfirmationSheetRow> TableOfScoresToList(TableOfScores tableOfScores, SecurityDimensionEnum securityDimensionEnum)
         {
             var ct = tableOfScores.FindCengMian(securityDimensionEnum);
@@ -59,7 +59,8 @@ namespace ScoreCalculator.Models.Word
             }
             return list;
         }
-        public static List<ProblemConfirmationSheetRow> AddProblemConfirmationSheetRow(XWPFTable table, TableOfScores tableOfScores)
+
+        public  List<ProblemConfirmationSheetRow> AddProblemConfirmationSheetRow(XWPFTable table, TableOfScores tableOfScores)
         {
 
             List<ProblemConfirmationSheetRow> list = new List<ProblemConfirmationSheetRow>();
@@ -76,24 +77,25 @@ namespace ScoreCalculator.Models.Word
             return list;
         }
 
-        public static void AddProblemConfirmationSheetRow(XWPFTable table, ref int pos, List<ProblemConfirmationSheetRow> data)
+
+        public  void AddProblemConfirmationSheetRow(XWPFTable table, ref int pos, List<ProblemConfirmationSheetRow> data)
         {
-            int start=pos;
-            var rows2=(from x in data
-                     where x.WenTiFengXian!=Exposures.None
-                     select x).ToList();
-            if (rows2==null || rows2.Count==0)
+            int start = pos;
+            var rows2 = (from x in data
+                         where x.WenTiFengXian != Exposures.None
+                         select x).ToList();
+            if (rows2 == null || rows2.Count == 0)
             {
                 return;
             }
             foreach (var row in rows2)
             {
-                row.No=pos;
+                row.No = pos;
                 table.AddRowByList(row.RowToList());
                 pos++;
             }
             //table.VMerge(1, start, start + rows.Count());
-            NPOIUtils.mergeCellVertically(table, 1, start, start + rows2.Count()-1);
+            NPOIUtils.mergeCellVertically(table, 1, start, start + rows2.Count() - 1);
         }
 
 

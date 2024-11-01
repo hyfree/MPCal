@@ -102,7 +102,8 @@
                     <Image Source="/Resources/Images/printer.png" />
                 </MenuItem.Icon>
                 <MenuItem Command="commands:ProjectCommands.ExportProblemConfirmationSheet" Header="问题确认单" />
-                <Separator />
+                <MenuItem Command="commands:ProjectCommands.ExportProblemConfirmationSheetExcel" Header="问题清单Excel" />
+                <!--<Separator />
                 <MenuItem Header="WORD格式差距分析" />
                 <MenuItem Header="PDF格式差距分析" />
                 <MenuItem Command="commands:ExcelCommands.CreateChaJuFenXiExcel" Header="EXCEL报告差距分析" />
@@ -114,7 +115,7 @@
                 <MenuItem Header="WORD格式商用密码应用安全性评估报告" />
                 <MenuItem Header="PDF格式商用密码应用安全性评估报告" />
                 <MenuItem Header="EXCEL格式商用密码应用安全性评估报告" />
-                <Separator />
+                <Separator />-->
             </MenuItem>
             <MenuItem Height="29" Header="活动质量管理">
                 <MenuItem.Icon>

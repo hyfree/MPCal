@@ -8,6 +8,7 @@
     <Platforms>AnyCPU;x64</Platforms>
     <ApplicationIcon>Resources\Icons\calculators.ico</ApplicationIcon>
     <AssemblyName>MPCal</AssemblyName>
+    
   </PropertyGroup>
 
   <ItemGroup>
@@ -219,6 +220,7 @@
 
   <ItemGroup>
     <Folder Include="Data\Level3\ChaJuFenXi\" />
+    <Folder Include="Models\OutputModel\Excel\" />
   </ItemGroup>
 
 </Project>
