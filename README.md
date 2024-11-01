@@ -3,7 +3,7 @@
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
-<h3 align="center">"完美的"商用密码应用安全性测评分数计算工具</h3>
+<h3 align="center">简单易用的商用密码应用安全性测评分数计算工具</h3>
   <p align="center">
     使用MPCal计算分数和洞察系统风险 ！
     <br />
