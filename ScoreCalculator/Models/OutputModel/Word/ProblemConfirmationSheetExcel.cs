@@ -125,11 +125,8 @@ namespace ScoreCalculator.Models.OutputModel.Word
                         {
                             CellRangeAddress region_CePingYaoQiu = new CellRangeAddress(rule_index+1, rowIndex, 1, 1);
                             sheet.AddMergedRegion(region_CePingYaoQiu);
-                        }
-                       
+                        }  
                     }
-
-
                     //合并单元格，如果要合并的单元格中都有数据，只会保留左上角的
                     //CellRangeAddress(0, 2, 0, 0)，合并0-2行，0-0列的单元格
                     if (tableIndex != rowIndex && (rowIndex - tableIndex) > 1)
