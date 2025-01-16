@@ -8,7 +8,7 @@
     <Platforms>AnyCPU;x64</Platforms>
     <ApplicationIcon>Resources\Icons\calculators.ico</ApplicationIcon>
     <AssemblyName>MPCal</AssemblyName>
-    
+    <RuntimeIdentifiers>win-x86;win-x64</RuntimeIdentifiers>
   </PropertyGroup>
 
   <ItemGroup>
