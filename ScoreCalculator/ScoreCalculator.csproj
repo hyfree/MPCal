@@ -2,13 +2,20 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net8.0-windows</TargetFramework>
+    <TargetFramework>net8.0-windows10.0.26100.0</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
     <Platforms>AnyCPU;x64</Platforms>
     <ApplicationIcon>Resources\Icons\calculators.ico</ApplicationIcon>
     <AssemblyName>MPCal</AssemblyName>
     <RuntimeIdentifiers>win-x86;win-x64</RuntimeIdentifiers>
+
+  </PropertyGroup>
+  <PropertyGroup>
+    <WindowsPackageType>None</WindowsPackageType>
+    <SupportedOSPlatformVersion>10.0.26100.0</SupportedOSPlatformVersion>
+    <WindowsSdkPackageVersion>10.0.26100.57</WindowsSdkPackageVersion>
+    
   </PropertyGroup>
 
   <ItemGroup>
@@ -27,6 +34,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Remove="Resources\Icons\calculators1080.png" />
+    <Content Remove="Resources\Images\FileManager.png" />
+    <Content Remove="Resources\Images\output.png" />
+    <Content Remove="Resources\Images\Warning.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Resources\Icons\calculators.png" />
     <None Remove="Resources\Images\about.png" />
     <None Remove="Resources\Images\add.png" />
@@ -37,6 +51,7 @@
     <None Remove="Resources\Images\delete.png" />
     <None Remove="Resources\Images\edit.png" />
     <None Remove="Resources\Images\editor.png" />
+    <None Remove="Resources\Images\FileManager_128x128.ico" />
     <None Remove="Resources\Images\fix.png" />
     <None Remove="Resources\Images\import.png" />
     <None Remove="Resources\Images\KnowledgeBase.png" />
@@ -82,26 +97,57 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Resources\Icons\calculators.ico" />
-    <Resource Include="Resources\Images\AI.png" />
-    <Resource Include="Resources\Images\book.png" />
-    <Resource Include="Resources\Images\editor.png" />
-    <Resource Include="Resources\Images\KnowledgeBase.png" />
+    <Content Include="Resources\Icons\calculators.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Resources\Icons\calculators1080.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\AI.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\book.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\editor.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\FileManager.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\FileManager_128x128.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\KnowledgeBase.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Resources\Icons\calculators.png" />
-    <Resource Include="Resources\Images\about.png" />
+    <Resource Include="Resources\Icons\calculators.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\about.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Resources\Images\add.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\Images\App.png" />
+    <Resource Include="Resources\Images\App.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Resources\Images\data.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\Images\delete.png" />
-    <Resource Include="Resources\Images\edit.png" />
-    <Resource Include="Resources\Images\FengXian.png" />
+    <Resource Include="Resources\Images\delete.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\edit.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\FengXian.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>
@@ -111,6 +157,8 @@
     <PackageReference Include="Flurl.Http" Version="4.0.2" />
     <PackageReference Include="HandyControl" Version="3.5.1" />
     <PackageReference Include="LiteDB" Version="5.0.21" />
+
+    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.6.250108002" />
     <PackageReference Include="NPOI" Version="2.7.2" />
     <PackageReference Include="Microsoft.Data.Sqlite" Version="9.0.1" />
     <PackageReference Include="Microsoft.Data.Sqlite.Core" Version="9.0.1" />
@@ -125,34 +173,96 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Resources\Images\Calculator.png" />
-    <Resource Include="Resources\Images\fix.png" />
-    <Resource Include="Resources\Images\GuanLi.png" />
-    <Resource Include="Resources\Images\GuanLiMian.png" />
-    <Resource Include="Resources\Images\import.png" />
-    <Resource Include="Resources\Images\Item.png" />
-    <Resource Include="Resources\Images\JianShe.png" />
-    <Resource Include="Resources\Images\JiFang.png" />
-    <Resource Include="Resources\Images\JiShuMian.png" />
-    <Resource Include="Resources\Images\LiangHuaPingGu.png" />
-    <Resource Include="Resources\Images\MaoZi.png" />
-    <Resource Include="Resources\Images\ML.png" />
-    <Resource Include="Resources\Images\MyCloud.png" />
-    <Resource Include="Resources\Images\Overview.png" />
-    <Resource Include="Resources\Images\panda.jpeg" />
-    <Resource Include="Resources\Images\printer.png" />
-    <Resource Include="Resources\Images\project.png" />
-    <Resource Include="Resources\Images\RenYuan.png" />
-    <Resource Include="Resources\Images\save.png" />
-    <Resource Include="Resources\Images\setting.png" />
-    <Resource Include="Resources\Images\SheBei.png" />
-    <Resource Include="Resources\Images\SubSystem.png" />
-    <Resource Include="Resources\Images\Table.png" />
-    <Resource Include="Resources\Images\tools.png" />
-    <Resource Include="Resources\Images\WangLuo.png" />
-    <Resource Include="Resources\Images\XingWeiKu.png" />
-    <Resource Include="Resources\Images\YingJi.png" />
-    <Resource Include="Resources\Images\ZhiLiang.png" />
+    <Resource Include="Resources\Images\Calculator.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\fix.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\GuanLi.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\GuanLiMian.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\import.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\Item.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\JianShe.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\JiFang.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\JiShuMian.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\LiangHuaPingGu.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\MaoZi.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\ML.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\MyCloud.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\output.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\Overview.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\panda.jpeg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\printer.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\project.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\RenYuan.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\save.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\setting.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\SheBei.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\SubSystem.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\Table.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\tools.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\WangLuo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\Warning.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\XingWeiKu.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\YingJi.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\ZhiLiang.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Resources\Img\1.jpg" />
     <Resource Include="Resources\Img\2.jpg" />
     <Resource Include="Resources\Img\3.jpg" />
