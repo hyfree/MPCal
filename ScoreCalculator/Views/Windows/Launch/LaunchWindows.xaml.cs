@@ -33,17 +33,17 @@ namespace ScoreCalculator.Views.Windows.Launch
         public LaunchWindows()
         {
             InitializeComponent();
-           // InitCommandBindings();
-           // using (var db=SQLLite3Context.Instance())
-           // {
-           //     if (!db.IsExists())
-           //     {
-           //         db.Database.EnsureCreated();
+            InitCommandBindings();
+            using (var db = SQLLite3Context.Instance())
+            {
+                if (!db.IsExists())
+                {
+                    db.Database.EnsureCreated();
 
-           //     }
+                }
 
-           // }
-           //LoadAllData();
+            }
+            LoadAllData();
         }
 
         private void OnCreatProject(object sender, RoutedEventArgs e)

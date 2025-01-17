@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using Windows.Storage;
+
 namespace ScoreCalculator.DataBase
 {
     public class SQLLite3Context : DbContext
@@ -24,7 +26,7 @@ namespace ScoreCalculator.DataBase
             return new SQLLite3Context();
 
         }
-        public string dbPath { get; set; } = "gm.db";
+        public string dbPath { get; set; } = AppDataPaths.GetDefault().LocalAppData +"\\gm.db";
 
         public bool IsExists()
         {

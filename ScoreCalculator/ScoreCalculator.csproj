@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
     <Platforms>x64</Platforms>
-    <ApplicationIcon>Resources\Icons\calculators.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\Icons\dog.ico</ApplicationIcon>
     <AssemblyName>MPCal</AssemblyName>
     <RuntimeIdentifiers>win-x64</RuntimeIdentifiers>
 
@@ -97,7 +97,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Resources\Icons\calculators.ico">
+    <Content Include="Resources\Icons\dog.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Resource Include="Resources\Icons\calculators1080.png">
@@ -330,6 +330,15 @@
   <ItemGroup>
     <Folder Include="Data\Level3\ChaJuFenXi\" />
     <Folder Include="Models\OutputModel\Excel\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Resources\Icons\dog.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Resources\Icons\dog1080.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

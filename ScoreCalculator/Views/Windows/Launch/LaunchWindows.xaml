@@ -7,7 +7,7 @@
     xmlns:hc="https://handyorg.github.io/handycontrol"
     xmlns:local="clr-namespace:ScoreCalculator.Views.Windows"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Title="MPCal"
+    Title="MPCAL"
     Width="1200"
     Height="600"
     Loaded="Window_LoadedAsync"
@@ -28,7 +28,7 @@
             </MenuItem>
             <MenuItem Header="客户资料管理" />
             <MenuItem Header="项目资料管理" />
-            <MenuItem Header="流转单管理" />
+            <MenuItem Header="流程管理" />
             <MenuItem Header="模板管理" />
             <MenuItem Command="commands:ProjectCommands.OpenKnowledgeManagerWindow" Header="知识库" />
 
