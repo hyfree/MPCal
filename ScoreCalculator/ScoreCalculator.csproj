@@ -34,13 +34,20 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Remove="Resources\Icons\calculators1080.png" />
     <Content Remove="Resources\Images\FileManager.png" />
     <Content Remove="Resources\Images\output.png" />
     <Content Remove="Resources\Images\Warning.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Data\Level3\CalculationTable\GuanLi.json" />
+    <None Remove="Data\Level3\CalculationTable\JianShe.json" />
+    <None Remove="Data\Level3\CalculationTable\RenYuan.json" />
+    <None Remove="Data\Level3\CalculationTable\SheBei.json" />
+    <None Remove="Data\Level3\CalculationTable\WangLuo.json" />
+    <None Remove="Data\Level3\CalculationTable\WuLi.json" />
+    <None Remove="Data\Level3\CalculationTable\YingJi.json" />
+    <None Remove="Data\Level3\CalculationTable\YingYong.json" />
     <None Remove="Resources\Icons\calculators.png" />
     <None Remove="Resources\Images\about.png" />
     <None Remove="Resources\Images\add.png" />
@@ -97,12 +104,33 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Data\Level3\CalculationTable\GuanLi.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Level3\CalculationTable\JianShe.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Level3\CalculationTable\RenYuan.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Level3\CalculationTable\SheBei.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Level3\CalculationTable\WangLuo.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Level3\CalculationTable\WuLi.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Level3\CalculationTable\YingJi.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Level3\CalculationTable\YingYong.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\Icons\dog.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Resource Include="Resources\Icons\calculators1080.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
     <Resource Include="Resources\Images\AI.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
@@ -124,9 +152,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Resources\Icons\calculators.png">
+    <DesignData Include="Resources\Icons\calculators.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
+    </DesignData>
     <Resource Include="Resources\Images\about.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
@@ -295,30 +323,6 @@
     <None Update="Data\Config.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Data\Level3\CalculationTable\SheBei.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Data\Level3\CalculationTable\WuLi.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Data\Level3\CalculationTable\WangLuo.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Data\Level3\CalculationTable\YingJi.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Data\Level3\CalculationTable\JianShe.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Data\Level3\CalculationTable\RenYuan.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Data\Level3\CalculationTable\GuanLi.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Data\Level3\CalculationTable\YingYong.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Update="Data\Word\IssuesList.docx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -333,6 +337,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Update="Resources\Icons\calculators1080.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Update="Resources\Icons\dog.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
