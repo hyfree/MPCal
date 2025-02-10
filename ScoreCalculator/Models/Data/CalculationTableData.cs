@@ -62,7 +62,7 @@ namespace ScoreCalculator.Models.Data
             var cengji = Enum.GetName(securityDimensionEnum);
             var levelStr=Enum.GetName(level);
 
-            var json= File.ReadAllText($"{AppDataPaths.GetDefault().LocalAppData}/Data/{levelStr}/CalculationTable/{cengji}.json");
+            var json= File.ReadAllText($"{Windows.ApplicationModel.Package.Current.InstalledLocation.Path}/Data/{levelStr}/CalculationTable/{cengji}.json");
             var config=  System.Text.Json.JsonSerializer.Deserialize<CalculationTableData>(json);
             return config;
         }

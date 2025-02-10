@@ -139,7 +139,8 @@
                                 x:Name="OpenQuickTalkWindow"
                                 Command="commands:ProjectCommands.OpenQuickTalkWindow"
                                 CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.SelectedItem}"
-                                Header="快速访谈" />
+                                Header="快速访谈"
+                                Visibility="Collapsed" />
                             <MenuItem
                                 x:Name="OpenMarkingScheme"
                                 Command="commands:ProjectCommands.OpenMarkingScheme"
