@@ -32,27 +32,42 @@ namespace ScoreCalculator.Views.Windows
         //从界面上获取数据，然后保存到数据库
         private void OnSaveProject(object sender, RoutedEventArgs e)
         {
-            //获取界面上的数据
-            string name = this.Name.Text;
-            string description = this.Description.Text;
-            string provinces = this.Provinces.Text;
-            string city = this.City.Text;
-            int year = int.Parse(this.Year.Text);
-            int level = int.Parse(this.Level.Text);
-            //将数据保存到数据库
-            //1.创建一个SystemEntity对象
-            ProjectEntity project = new ProjectEntity();
-            project.Name = name;
-            project.Description = description;
-            project.Provinces = provinces;
-            project.City = city;
-            project.Year = year;
-            project.Level = (SystemLevel)level;
-            //2.将SystemEntity对象保存到数据库
-            ProjectService projectService = new ProjectService();
-            projectService.Add(project);
-            LaunchWindows.Refresh();
+            try
+            {
+                //获取界面上的数据
+                string name = this.Name.Text;
+                string description = this.Description.Text;
+                string provinces = this.Provinces.Text;
+                string city = this.City.Text;
+                int year = int.Parse(this.Year.Text);
+                //int level = int.Parse(());
+                var level = (SystemLevel)this.ProjectLevelComboBox.SelectedItem;
+                if (level != SystemLevel.Level3)
+                {
+                    MessageBox.Show("请选择级别,仅支持Level3系统");
+                    return;
+                }
+                //将数据保存到数据库
+                //1.创建一个SystemEntity对象
+                ProjectEntity project = new ProjectEntity();
+                project.Name = name;
+                project.Description = description;
+                project.Provinces = provinces;
+                project.City = city;
+                project.Year = year;
+                project.Level = (SystemLevel)level;
+                //2.将SystemEntity对象保存到数据库
+                ProjectService projectService = new ProjectService();
+                projectService.Add(project);
+                LaunchWindows.Refresh();
 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+
+            }
+          
 
         }
     }

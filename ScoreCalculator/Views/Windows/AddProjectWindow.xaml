@@ -6,10 +6,22 @@
     xmlns:hc="https://handyorg.github.io/handycontrol"
     xmlns:local="clr-namespace:ScoreCalculator.Views.Windows"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:core="clr-namespace:System;assembly=mscorlib"
+    xmlns:myenum="clr-namespace:ScoreCalculator.Models.MyEnum"
     Title="增加被测系统"
     Width="800"
     Height="450"
     mc:Ignorable="d">
+    <Window.Resources>
+        <ObjectDataProvider
+           x:Key="SystemLevelEnumKey"
+           MethodName="GetValues"
+           ObjectType="{x:Type core:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type Type="myenum:SystemLevel" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Window.Resources>
     <Grid>
         <ScrollViewer>
             <hc:WaterfallPanel Margin="20,20,20,20" HorizontalAlignment="Left">
@@ -22,58 +34,67 @@
                     Width="200"
                     VerticalAlignment="Center"
                     hc:InfoElement.Title="被测系统编号"
+                    Text="01"
                     Style="{StaticResource TextBoxExtend}" />
                 <TextBox
                     x:Name="Name"
                     Width="200"
                     VerticalAlignment="Center"
                     hc:InfoElement.Title="被测系统名称"
+                    Text="测试系统"
                     Style="{StaticResource TextBoxExtend}" />
                 <TextBox
                     x:Name="Description"
                     Width="200"
                     VerticalAlignment="Center"
                     hc:InfoElement.Title="系统简介"
+                    Text="简介"
                     Style="{StaticResource TextBoxExtend}" />
                 <TextBox
                     x:Name="CompanyName"
                     Width="200"
                     VerticalAlignment="Center"
                     hc:InfoElement.Title="被测系统单位名称"
+                    Text="测试单位"
                     Style="{StaticResource TextBoxExtend}" />
                 <TextBox
                     x:Name="Provinces"
                     Width="200"
                     VerticalAlignment="Center"
                     hc:InfoElement.Title="省份"
+                    Text="山东"
                     Style="{StaticResource TextBoxExtend}" />
                 <TextBox
                     x:Name="City"
                     Width="200"
                     VerticalAlignment="Center"
                     hc:InfoElement.Title="城市"
+                    Text="济南"
                     Style="{StaticResource TextBoxExtend}" />
                 <TextBox
                     x:Name="Year"
                     Width="200"
                     VerticalAlignment="Center"
                     hc:InfoElement.Title="年份"
+                    Text="2025"
                     Style="{StaticResource TextBoxExtend}" />
-                <TextBox
-                    x:Name="Level"
-                    Width="200"
-                    VerticalAlignment="Center"
-                    hc:InfoElement.Title="测评级别"
-                    Style="{StaticResource TextBoxExtend}" />
+                
+                <hc:ComboBox
+                    x:Name="ProjectLevelComboBox"
+                    SelectedIndex="2"
+                    ItemsSource="{Binding Source={StaticResource SystemLevelEnumKey}}"
+                     hc:InfoElement.Title="测试级别"
+                     Width="200"
+                     VerticalAlignment="Center">
+                    
+                </hc:ComboBox>
                 <Button
                     Width="300"
                     Height="50"
                     Margin="10,5,0,0"
                     Click="OnSaveProject"
                     Content="增加" />
-
             </hc:WaterfallPanel>
         </ScrollViewer>
-
     </Grid>
 </Window>
