@@ -247,7 +247,10 @@
                             </StackPanel>
                         </StackPanel>
                         <!--  网络安全等级测评情况  -->
-                        <StackPanel Margin="0,10,0,10" Orientation="Horizontal">
+                        <StackPanel
+                            Margin="0,10,0,10"
+                            Background="AliceBlue"
+                            Orientation="Horizontal">
                             <TextBlock
                                 VerticalAlignment="Center"
                                 Text="网络安全等级测评情况"
@@ -319,7 +322,7 @@
                             </StackPanel>
                         </StackPanel>
                         <!--  系统服务情况  -->
-                        <StackPanel Orientation="Horizontal">
+                        <StackPanel Background="AntiqueWhite" Orientation="Horizontal">
                             <TextBlock
                                 Margin="20"
                                 Text="系统服务情况"
@@ -403,7 +406,7 @@
                             </StackPanel>
                         </StackPanel>
 
-                        <StackPanel Orientation="Horizontal">
+                        <StackPanel Background="AliceBlue" Orientation="Horizontal">
                             <TextBlock
                                 Margin="20"
                                 Text="系统网络平台"
@@ -442,7 +445,7 @@
                             Text="大概数量级/被测系统处于建设阶段" />
 
                         <!--  系统是否已投入运行  -->
-                        <StackPanel Orientation="Horizontal">
+                        <StackPanel Background="AliceBlue" Orientation="Horizontal">
                             <TextBlock
                                 VerticalAlignment="Center"
                                 Text="系统是否已投入运行"
