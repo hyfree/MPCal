@@ -21,7 +21,7 @@
                 Stroke="{DynamicResource DangerBrush}"
                 StrokePosition="InSide"
                 StrokeThickness="4"
-                Text="商用密码应用安全性评估分数计算工具 MPCal V0.0.1" />
+                Text="快乐狗子 V0.0.1" />
             <Image
                 Height="300"
                 Source="/Resources/Images/panda.jpeg"

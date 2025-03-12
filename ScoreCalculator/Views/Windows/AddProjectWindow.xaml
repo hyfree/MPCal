@@ -2,99 +2,693 @@
     x:Class="ScoreCalculator.Views.Windows.AddProjectWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:core="clr-namespace:System;assembly=mscorlib"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:hc="https://handyorg.github.io/handycontrol"
     xmlns:local="clr-namespace:ScoreCalculator.Views.Windows"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:core="clr-namespace:System;assembly=mscorlib"
     xmlns:myenum="clr-namespace:ScoreCalculator.Models.MyEnum"
     Title="增加被测系统"
-    Width="800"
-    Height="450"
+    Width="1600"
+    Height="800"
+    Icon="/Resources/Icons/dog-icon.png"
     mc:Ignorable="d">
     <Window.Resources>
         <ObjectDataProvider
-           x:Key="SystemLevelEnumKey"
-           MethodName="GetValues"
-           ObjectType="{x:Type core:Enum}">
+            x:Key="SystemLevelEnumKey"
+            MethodName="GetValues"
+            ObjectType="{x:Type core:Enum}">
             <ObjectDataProvider.MethodParameters>
                 <x:Type Type="myenum:SystemLevel" />
             </ObjectDataProvider.MethodParameters>
         </ObjectDataProvider>
+        <Style x:Key="RowDefinitionStyle" TargetType="RowDefinition">
+            <Setter Property="Height" Value="auto" />
+        </Style>
+        <Style x:Key="StackPanelStyle" TargetType="StackPanel">
+            <Setter Property="Margin" Value="5" />
+        </Style>
+        <Style
+            x:Key="TitleBoxStyle"
+            BasedOn="{StaticResource TextBoxExtend}"
+            TargetType="TextBox">
+            <Setter Property="Width" Value="200" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="1" />
+        </Style>
+        <Style
+            x:Key="GroupBoxStyle"
+            BasedOn="{StaticResource GroupBoxBaseStyle}"
+            TargetType="GroupBox">
+            <Setter Property="Margin" Value="0,5,0,20" />
+            <Setter Property="Width" Value="1200" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+
+        </Style>
     </Window.Resources>
-    <Grid>
-        <ScrollViewer>
-            <hc:WaterfallPanel Margin="20,20,20,20" HorizontalAlignment="Left">
+    <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible">
+        <StackPanel Style="{StaticResource StackPanelStyle}">
+            <StackPanel>
                 <TextBlock
-                    HorizontalAlignment="Left"
-                    Style="{StaticResource TextBlockSubTitle}"
-                    Text="创建被测系统" />
-                <TextBox
-                    x:Name="Id"
-                    Width="200"
-                    VerticalAlignment="Center"
-                    hc:InfoElement.Title="被测系统编号"
-                    Text="01"
-                    Style="{StaticResource TextBoxExtend}" />
-                <TextBox
-                    x:Name="Name"
-                    Width="200"
-                    VerticalAlignment="Center"
-                    hc:InfoElement.Title="被测系统名称"
-                    Text="测试系统"
-                    Style="{StaticResource TextBoxExtend}" />
-                <TextBox
-                    x:Name="Description"
-                    Width="200"
-                    VerticalAlignment="Center"
-                    hc:InfoElement.Title="系统简介"
-                    Text="简介"
-                    Style="{StaticResource TextBoxExtend}" />
-                <TextBox
-                    x:Name="CompanyName"
-                    Width="200"
-                    VerticalAlignment="Center"
-                    hc:InfoElement.Title="被测系统单位名称"
-                    Text="测试单位"
-                    Style="{StaticResource TextBoxExtend}" />
-                <TextBox
-                    x:Name="Provinces"
-                    Width="200"
-                    VerticalAlignment="Center"
-                    hc:InfoElement.Title="省份"
-                    Text="山东"
-                    Style="{StaticResource TextBoxExtend}" />
-                <TextBox
-                    x:Name="City"
-                    Width="200"
-                    VerticalAlignment="Center"
-                    hc:InfoElement.Title="城市"
-                    Text="济南"
-                    Style="{StaticResource TextBoxExtend}" />
-                <TextBox
-                    x:Name="Year"
-                    Width="200"
-                    VerticalAlignment="Center"
-                    hc:InfoElement.Title="年份"
-                    Text="2025"
-                    Style="{StaticResource TextBoxExtend}" />
-                
-                <hc:ComboBox
-                    x:Name="ProjectLevelComboBox"
-                    SelectedIndex="2"
-                    ItemsSource="{Binding Source={StaticResource SystemLevelEnumKey}}"
-                     hc:InfoElement.Title="测试级别"
-                     Width="200"
-                     VerticalAlignment="Center">
-                    
-                </hc:ComboBox>
-                <Button
-                    Width="300"
-                    Height="50"
-                    Margin="10,5,0,0"
-                    Click="OnSaveProject"
-                    Content="增加" />
-            </hc:WaterfallPanel>
-        </ScrollViewer>
-    </Grid>
+                    Width="800"
+                    Style="{StaticResource TextBlockLargeBold}"
+                    Text="被测信息系统基本信息表"
+                    TextAlignment="Center" />
+
+                <GroupBox Header="项目情况" Style="{StaticResource GroupBoxStyle}">
+
+                    <StackPanel>
+
+                        <TextBox
+                            x:Name="Provinces"
+                            Width="200"
+                            VerticalAlignment="Center"
+                            hc:InfoElement.Title="项目所在省份"
+                            Style="{StaticResource TitleBoxStyle}"
+                            Text="山东" />
+                        <TextBox
+                            x:Name="City"
+                            Width="200"
+                            VerticalAlignment="Center"
+                            hc:InfoElement.Title="项目所在城市"
+                            Style="{StaticResource TitleBoxStyle}"
+                            Text="济南" />
+                        <TextBox
+                            x:Name="Year"
+                            Width="200"
+                            VerticalAlignment="Center"
+                            hc:InfoElement.Title="年份"
+                            Style="{StaticResource TitleBoxStyle}"
+                            Text="2025" />
+
+                        <hc:ComboBox
+                            x:Name="ProjectLevelComboBox"
+                            Width="200"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            hc:InfoElement.Title="系统定级"
+                            ItemsSource="{Binding Source={StaticResource SystemLevelEnumKey}}"
+                            SelectedIndex="2" />
+                        <TextBox
+                            x:Name="Id"
+                            Width="600"
+                            VerticalAlignment="Center"
+                            hc:InfoElement.Title="系统编号(报告编号)"
+                            Style="{StaticResource TitleBoxStyle}"
+                            Text="01" />
+                        <Button
+                            Grid.Row="5"
+                            Grid.Column="0"
+                            Width="300"
+                            Height="50"
+                            Margin="10,5,0,0"
+                            Click="OnSaveProject"
+                            Content="点击按钮，新建项目" />
+                    </StackPanel>
+
+                </GroupBox>
+
+
+                <GroupBox Header="被测单位" Style="{StaticResource GroupBoxStyle}">
+                    <StackPanel>
+                        <TextBox
+                            x:Name="CompanyName"
+                            Width="1200"
+                            hc:InfoElement.Title="单位名称"
+                            Style="{StaticResource TitleBoxStyle}"
+                            Text="填写单位名称" />
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox
+                                x:Name="CompanyAddress"
+                                Width="600"
+                                hc:InfoElement.Title="单位地址"
+                                Style="{StaticResource TitleBoxStyle}"
+                                Text="" />
+                            <TextBox
+                                x:Name="CompanyAddressPostCode"
+                                Width="600"
+                                hc:InfoElement.Title="邮编"
+                                Style="{StaticResource TitleBoxStyle}"
+                                Text="" />
+                        </StackPanel>
+                        <TextBox
+                            x:Name="cryptographicBureau"
+                            Width="1200"
+                            hc:InfoElement.Title="所属省部密码管理部门"
+                            Style="{StaticResource TitleBoxStyle}"
+                            Text="" />
+                        <StackPanel Orientation="Vertical">
+                            <StackPanel Orientation="Horizontal">
+
+
+                                <TextBox
+                                    x:Name="LianXiRenXingMing"
+                                    Width="600"
+                                    hc:InfoElement.Title="联系人姓名"
+                                    Style="{StaticResource TitleBoxStyle}"
+                                    Text="" />
+                                <TextBox
+                                    x:Name="LianXiRenZhiWu"
+                                    Width="600"
+                                    hc:InfoElement.Title="联系人职务"
+                                    Style="{StaticResource TitleBoxStyle}"
+                                    Text="" />
+
+
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBox
+                                    x:Name="LianXiRenBuMen"
+                                    Width="600"
+                                    hc:InfoElement.Title="联系人部门"
+                                    Style="{StaticResource TitleBoxStyle}"
+                                    Text="" />
+                                <TextBox
+                                    x:Name="LianXiRenDianHua"
+                                    Width="600"
+                                    hc:InfoElement.Title="联系人办公电话"
+                                    Style="{StaticResource TitleBoxStyle}"
+                                    Text="" />
+
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBox
+                                    x:Name="LianXiRenShouJi"
+                                    Width="600"
+                                    hc:InfoElement.Title="联系人移动电话"
+                                    Style="{StaticResource TitleBoxStyle}"
+                                    Text="" />
+                                <TextBox
+                                    x:Name="LianXiRenYouXiang"
+                                    Width="600"
+                                    hc:InfoElement.Title="联系人电子邮箱"
+                                    Style="{StaticResource TitleBoxStyle}"
+                                    Text="" />
+                            </StackPanel>
+
+                        </StackPanel>
+
+                    </StackPanel>
+
+                </GroupBox>
+                <GroupBox Header="被测系统" Style="{StaticResource GroupBoxStyle}">
+                    <StackPanel>
+
+                        <TextBox
+                            x:Name="Name"
+                            Grid.Row="4"
+                            Grid.Column="0"
+                            Width="1200"
+                            VerticalAlignment="Center"
+                            hc:InfoElement.Title="系统名称"
+                            Style="{StaticResource TitleBoxStyle}"
+                            Text="测试系统" />
+
+
+                        <TextBox
+                            x:Name="Description"
+                            Grid.Row="4"
+                            Grid.Column="0"
+                            Width="1200"
+                            VerticalAlignment="Top"
+                            hc:InfoElement.Title="系统简介"
+                            MinLines="8"
+                            Style="{StaticResource TitleBoxStyle}"
+                            Text="简介"
+                            TextAlignment="Left" />
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                Text="是否认定关键基础设施"
+                                TextAlignment="Center" />
+                            <StackPanel
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                Orientation="Vertical">
+                                <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                                    <RadioButton Content="已认定，所属安全保护部门" GroupName="RenDingGuanJian" />
+                                    <TextBox
+                                        x:Name="GuanJianRenDingDanWei"
+                                        Width="600"
+                                        VerticalAlignment="Top"
+                                        Style="{StaticResource TitleBoxStyle}"
+                                        Text=""
+                                        TextAlignment="Left" />
+                                </StackPanel>
+
+                                <StackPanel Margin="0,20,0,0" HorizontalAlignment="Left">
+                                    <RadioButton
+                                        Width="600"
+                                        Content="未认定"
+                                        GroupName="RenDingGuanJian" />
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                        <!--  网络安全等级测评情况  -->
+                        <StackPanel Margin="0,10,0,10" Orientation="Horizontal">
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                Text="网络安全等级测评情况"
+                                TextAlignment="Center" />
+                            <StackPanel
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                Orientation="Vertical">
+                                <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                                    <RadioButton Content="已经测评" GroupName="DengBaoCePing" />
+                                    <StackPanel>
+                                        <TextBox
+                                            x:Name="DengBaoCePingJiGou"
+                                            Width="600"
+                                            Margin="20,0,0,0"
+                                            VerticalAlignment="Top"
+                                            hc:InfoElement.Title="机构名称"
+                                            hc:InfoElement.TitlePlacement="Left"
+                                            Style="{StaticResource TitleBoxStyle}"
+                                            Text=""
+                                            TextAlignment="Left" />
+                                        <TextBox
+                                            x:Name="DengBaoCePingShiJian"
+                                            Width="600"
+                                            Margin="20,0,0,0"
+                                            VerticalAlignment="Top"
+                                            hc:InfoElement.Title="测评时间"
+                                            hc:InfoElement.TitlePlacement="Left"
+                                            Style="{StaticResource TitleBoxStyle}"
+                                            Text=""
+                                            TextAlignment="Left" />
+                                        <TextBox
+                                            x:Name="DengBaoCePingJieLun"
+                                            Width="600"
+                                            Margin="20,0,0,0"
+                                            VerticalAlignment="Top"
+                                            hc:InfoElement.Title="测评结论"
+                                            hc:InfoElement.TitlePlacement="Left"
+                                            Style="{StaticResource TitleBoxStyle}"
+                                            Text=""
+                                            TextAlignment="Left" />
+                                    </StackPanel>
+                                </StackPanel>
+                                <StackPanel
+                                    Margin="0,20,0,0"
+                                    HorizontalAlignment="Left"
+                                    Orientation="Horizontal">
+                                    <RadioButton Content="正在测评" GroupName="DengBaoCePing" />
+                                    <StackPanel>
+                                        <TextBox
+                                            x:Name="DengBaoCePingJiGou2"
+                                            Width="600"
+                                            Margin="20,0,0,0"
+                                            VerticalAlignment="Top"
+                                            hc:InfoElement.Title="机构名称"
+                                            hc:InfoElement.TitlePlacement="Left"
+                                            Style="{StaticResource TitleBoxStyle}"
+                                            Text=""
+                                            TextAlignment="Left" />
+
+                                    </StackPanel>
+                                </StackPanel>
+                                <StackPanel Margin="0,20,0,0" HorizontalAlignment="Left">
+                                    <RadioButton
+                                        Width="600"
+                                        Content="未测评"
+                                        GroupName="DengBaoCePing" />
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                        <!--  系统服务情况  -->
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock
+                                Margin="20"
+                                Text="系统服务情况"
+                                TextAlignment="Left" />
+                            <StackPanel>
+                                <!--  服务范围  -->
+                                <StackPanel>
+                                    <TextBlock Text="服务范围" />
+                                    <WrapPanel>
+                                        <CheckBox Content="全国" />
+                                        <CheckBox Content="跨省" />
+                                        <CheckBox Content="全省" />
+                                        <CheckBox Content="跨市" />
+                                        <CheckBox Content="地（市、区）内" />
+                                        <CheckBox Content="其他" />
+                                    </WrapPanel>
+                                </StackPanel>
+                                <!--  服务领域  -->
+                                <StackPanel>
+                                    <TextBlock Text="服务领域" />
+                                    <WrapPanel>
+                                        <CheckBox Content="电信" />
+                                        <CheckBox Content="广电" />
+                                        <CheckBox Content="经营性公众互联网" />
+                                        <CheckBox Content="铁路" />
+                                        <CheckBox Content="银行" />
+                                        <CheckBox Content="海关" />
+                                        <CheckBox Content="税务" />
+                                        <CheckBox Content="民航" />
+                                        <CheckBox Content="电力" />
+                                        <CheckBox Content="证券" />
+                                        <CheckBox Content="保险" />
+                                        <CheckBox Content="国防科技工业" />
+                                        <CheckBox Content="公安" />
+                                        <CheckBox Content="财政" />
+                                        <CheckBox Content="事劳动和社会保障" />
+                                        <CheckBox Content="审计" />
+                                        <CheckBox Content="商业贸易" />
+                                        <CheckBox Content="国土资源" />
+                                        <CheckBox Content="能源" />
+                                        <CheckBox Content="交通" />
+                                        <CheckBox Content="统计" />
+                                        <CheckBox Content="工商行政管理" />
+                                        <CheckBox Content="邮政" />
+                                        <CheckBox Content="教育" />
+                                        <CheckBox Content="文化" />
+                                        <CheckBox Content="卫生" />
+                                        <CheckBox Content="农业" />
+                                        <CheckBox Content="水利" />
+                                        <CheckBox Content="外交" />
+                                        <CheckBox Content="发展改革" />
+                                        <CheckBox Content="科技" />
+                                        <CheckBox Content="宣传" />
+                                        <CheckBox Content="质量监督检验检疫" />
+                                        <CheckBox Content="其他" />
+
+                                    </WrapPanel>
+                                </StackPanel>
+                                <!--  服务对象  -->
+                                <StackPanel>
+                                    <TextBlock Text="服务对象" />
+                                    <WrapPanel>
+                                        <CheckBox Content="单位内部人员" />
+                                        <CheckBox Content="社会公众人员" />
+                                        <CheckBox Content="两者均包含" />
+                                        <CheckBox Content="其他" />
+                                    </WrapPanel>
+                                </StackPanel>
+                            </StackPanel>
+
+                            <StackPanel>
+                                <TextBlock Text="服务领域" />
+                                <WrapPanel>
+                                    <CheckBox Content="电信" />
+                                    <CheckBox Content="跨省" />
+                                    <CheckBox Content="全省" />
+                                    <CheckBox Content="跨市" />
+                                    <CheckBox Content="地（市、区）内" />
+                                    <CheckBox Content="其他" />
+                                </WrapPanel>
+                            </StackPanel>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock
+                                Margin="20"
+                                Text="系统网络平台"
+                                TextAlignment="Left" />
+                            <StackPanel>
+                                <!--  服务范围  -->
+                                <StackPanel>
+                                    <TextBlock Text="覆盖范围" />
+                                    <WrapPanel>
+                                        <CheckBox Content="局域网" />
+                                        <CheckBox Content="城域网" />
+                                        <CheckBox Content="广域网" />
+
+                                        <CheckBox Content="其他" />
+                                    </WrapPanel>
+                                </StackPanel>
+                                <!--  网络性质  -->
+                                <StackPanel>
+                                    <TextBlock Text="网络性质" />
+                                    <WrapPanel>
+                                        <CheckBox Content="业务专网" />
+                                        <CheckBox Content="互联网" />
+                                        <CheckBox Content="其他" />
+
+                                    </WrapPanel>
+                                </StackPanel>
+
+                            </StackPanel>
+
+
+                        </StackPanel>
+                        <TextBox
+                            Width="1200"
+                            hc:InfoElement.Title="系统服务用户数量"
+                            Style="{StaticResource TitleBoxStyle}"
+                            Text="大概数量级/被测系统处于建设阶段" />
+
+                        <!--  系统是否已投入运行  -->
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                Text="系统是否已投入运行"
+                                TextAlignment="Center" />
+                            <StackPanel
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                Orientation="Vertical">
+                                <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                                    <RadioButton Content="是，投入运行时间" GroupName="touRuYunXing" />
+                                    <TextBox
+                                        Width="600"
+                                        VerticalAlignment="Top"
+                                        Style="{StaticResource TitleBoxStyle}"
+                                        Text=""
+                                        TextAlignment="Left" />
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal">
+                                    <RadioButton Content="否，目前情况" GroupName="touRuYunXing" />
+                                    <TextBox
+                                        Width="600"
+                                        VerticalAlignment="Top"
+                                        Style="{StaticResource TitleBoxStyle}"
+                                        Text=""
+                                        TextAlignment="Left" />
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+
+                        <!--  系统互联情况  -->
+                        <StackPanel
+                            Margin="0,20,0,20"
+                            Background="AliceBlue"
+                            Orientation="Horizontal">
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                Text="系统互联情况"
+                                TextAlignment="Center" />
+                            <StackPanel
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                Orientation="Vertical">
+                                <StackPanel HorizontalAlignment="Left" Orientation="Vertical">
+                                    <RadioButton
+                                        HorizontalAlignment="Left"
+                                        Content="与其他行业系统连接"
+                                        GroupName="huLianQiangKuang" />
+                                    <RadioButton
+                                        HorizontalAlignment="Left"
+                                        Content="与本行业其他单位系统连接"
+                                        GroupName="huLianQiangKuang" />
+                                    <RadioButton
+                                        HorizontalAlignment="Left"
+                                        Content="与本单位其他系统连接"
+                                        GroupName="huLianQiangKuang" />
+
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <RadioButton Content="其他" GroupName="huLianQiangKuang" />
+                                    <TextBox
+                                        Width="600"
+                                        VerticalAlignment="Top"
+                                        Style="{StaticResource TitleBoxStyle}"
+                                        Text=""
+                                        TextAlignment="Left" />
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock
+                                        VerticalAlignment="Center"
+                                        Text="互联系统名称"
+                                        TextAlignment="Center" />
+                                    <TextBox
+                                        Width="600"
+                                        VerticalAlignment="Top"
+                                        Style="{StaticResource TitleBoxStyle}"
+                                        Text=""
+                                        TextAlignment="Left" />
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                        <!--  云平台情况  -->
+                        <StackPanel
+                            Margin="0,20,0,20"
+                            Background="AntiqueWhite"
+                            Orientation="Horizontal">
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                Text="是否依赖不在本系统测评范围内的云平台"
+                                TextAlignment="Center" />
+                            <StackPanel
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                Orientation="Vertical">
+                                <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                                    <StackPanel>
+                                        <RadioButton
+                                            HorizontalAlignment="Left"
+                                            Content="是"
+                                            GroupName="yiLaiYunPingTai" />
+                                        <TextBox
+                                            Width="300"
+                                            VerticalAlignment="Top"
+                                            hc:TitleElement.Title="云平台名称"
+                                            Style="{StaticResource TitleBoxStyle}"
+                                            Text=""
+                                            TextAlignment="Left" />
+                                    </StackPanel>
+                                    <StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <RadioButton
+                                                HorizontalAlignment="Left"
+                                                Content="云平台已经评估"
+                                                GroupName="yunPingTaiShiFouPingGu" />
+                                            <RadioButton
+                                                HorizontalAlignment="Left"
+                                                Content="云平台正在评估"
+                                                GroupName="yunPingTaiShiFouPingGu" />
+                                            <RadioButton
+                                                HorizontalAlignment="Left"
+                                                Content="云平台未评估"
+                                                GroupName="yunPingTaiShiFouPingGu" />
+                                        </StackPanel>
+                                        <TextBox
+                                            Width="600"
+                                            VerticalAlignment="Top"
+                                            hc:TitleElement.Title="密评机构名称"
+                                            Style="{StaticResource TitleBoxStyle}"
+                                            Text=""
+                                            TextAlignment="Left" />
+                                        <TextBox
+                                            Width="600"
+                                            VerticalAlignment="Top"
+                                            hc:TitleElement.Title="测评时间"
+                                            Style="{StaticResource TitleBoxStyle}"
+                                            Text=""
+                                            TextAlignment="Left" />
+                                        <TextBox
+                                            Width="600"
+                                            VerticalAlignment="Top"
+                                            hc:TitleElement.Title="评估结论"
+                                            Style="{StaticResource TitleBoxStyle}"
+                                            Text=""
+                                            TextAlignment="Left" />
+                                    </StackPanel>
+
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <RadioButton Content="否" GroupName="yiLaiYunPingTai" />
+
+                                </StackPanel>
+
+
+                            </StackPanel>
+
+                        </StackPanel>
+
+                        <!--  密码应用方案  -->
+                        <StackPanel
+                            Margin="0,20,0,20"
+                            Background="AntiqueWhite"
+                            Orientation="Horizontal">
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                Text="系统是否具有密码应用方案"
+                                TextAlignment="Center" />
+                            <StackPanel
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                Orientation="Vertical">
+                                <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                                    <StackPanel Orientation="Horizontal">
+                                        <StackPanel>
+                                            <RadioButton
+                                                HorizontalAlignment="Left"
+                                                Content="有密码应用方案，且通过评估"
+                                                GroupName="miMaFangAn" />
+                                            <TextBox
+                                                Width="300"
+                                                VerticalAlignment="Top"
+                                                hc:TitleElement.Title="通过时间"
+                                                Style="{StaticResource TitleBoxStyle}"
+                                                Text=""
+                                                TextAlignment="Left" />
+                                        </StackPanel>
+                                        <StackPanel Orientation="Vertical">
+                                            <TextBlock Text="密评方式：" />
+                                            <RadioButton
+                                                HorizontalAlignment="Left"
+                                                Content="自行评估"
+                                                GroupName="miMaFangAnPingGuFangShi" />
+                                            <RadioButton
+                                                HorizontalAlignment="Left"
+                                                Content="委托密评机构评估"
+                                                GroupName="miMaFangAnPingGuFangShi" />
+                                            <TextBox
+                                                Width="300"
+                                                VerticalAlignment="Top"
+                                                hc:TitleElement.Title="密评机构名称"
+                                                Style="{StaticResource TitleBoxStyle}"
+                                                Text=""
+                                                TextAlignment="Left" />
+                                        </StackPanel>
+                                    </StackPanel>
+
+
+                                </StackPanel>
+                                <StackPanel>
+                                    <RadioButton
+                                        HorizontalAlignment="Left"
+                                        Content="有密码应用方案，但未通过密评"
+                                        GroupName="miMaFangAn" />
+
+                                </StackPanel>
+                                <StackPanel>
+                                    <RadioButton
+                                        HorizontalAlignment="Left"
+                                        Content="无密码应用方案"
+                                        GroupName="miMaFangAn" />
+
+                                </StackPanel>
+
+
+                            </StackPanel>
+
+                        </StackPanel>
+
+
+                    </StackPanel>
+
+
+                </GroupBox>
+
+            </StackPanel>
+
+
+
+
+
+
+
+
+
+
+        </StackPanel>
+
+    </ScrollViewer>
 </Window>

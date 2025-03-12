@@ -50,7 +50,7 @@ namespace ScoreCalculator.Views.Windows
                 //将数据保存到数据库
                 //1.创建一个SystemEntity对象
                 ProjectEntity project = new ProjectEntity();
-                project.Name = name;
+                project.ProjectName = name;
                 project.Description = description;
                 project.Provinces = provinces;
                 project.City = city;

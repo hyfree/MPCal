@@ -43,7 +43,16 @@ namespace ScoreCalculator.Views.Windows.Launch
                 }
 
             }
-            LoadAllData();
+            try
+            {
+                LoadAllData();
+            }
+            catch (Exception)
+            {
+
+               HandyControl.Controls.MessageBox.Show("加载数据失败！");
+            }
+           
         }
 
         private void OnCreatProject(object sender, RoutedEventArgs e)

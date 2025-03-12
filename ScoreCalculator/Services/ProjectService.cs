@@ -1,4 +1,6 @@
-﻿using ScoreCalculator.DataBase;
+﻿using Microsoft.EntityFrameworkCore;
+
+using ScoreCalculator.DataBase;
 using ScoreCalculator.Models.Data;
 using ScoreCalculator.Models.Entity;
 using ScoreCalculator.Models.MyEnum;
@@ -43,7 +45,7 @@ namespace ScoreCalculator.Services
         {
 
             ProjectEntity project = new ProjectEntity();
-            project.Name = "示例项目";
+            project.ProjectName = "示例项目";
             project.Description = "描述此项目的信息";
             project.Provinces = "山东";
             project.City = "城市";
@@ -76,9 +78,8 @@ namespace ScoreCalculator.Services
             if (IsEmpty())
             {
                 return new List<ProjectEntity>();
-
             }
-            return SQLLite3Context.ProjectEntities.ToList();
+            return SQLLite3Context.ProjectEntities.Include(x=>x.TestedCompanyInformation).ToList();
         }
         //在数据库中查询一个系统
 

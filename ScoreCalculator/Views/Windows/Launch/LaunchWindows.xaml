@@ -7,10 +7,11 @@
     xmlns:hc="https://handyorg.github.io/handycontrol"
     xmlns:local="clr-namespace:ScoreCalculator.Views.Windows"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Title="MPCAL"
+    Title="快乐狗子"
     Width="1200"
     Height="600"
     Loaded="Window_LoadedAsync"
+     Icon="/Resources/Icons/dog-icon.png"
     mc:Ignorable="d">
     <Window.Resources>
         <Style x:Key="btn" TargetType="Button">
