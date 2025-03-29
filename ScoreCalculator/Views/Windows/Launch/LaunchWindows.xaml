@@ -10,8 +10,8 @@
     Title="快乐狗子"
     Width="1200"
     Height="600"
+    Icon="/Resources/Icons/dog-icon.png"
     Loaded="Window_LoadedAsync"
-     Icon="/Resources/Icons/dog-icon.png"
     mc:Ignorable="d">
     <Window.Resources>
         <Style x:Key="btn" TargetType="Button">
@@ -182,15 +182,15 @@
                             Header="Id" />
                         <DataGridTextColumn
                             Width="100"
-                            Binding="{Binding Name}"
+                            Binding="{Binding SystemName}"
                             Header="被测系统名称" />
                         <DataGridTextColumn
                             Width="100"
-                            Binding="{Binding TestObjectName}"
+                            Binding="{Binding ProjectName}"
                             Header="所属项目" />
                         <DataGridTextColumn
                             Width="100"
-                            Binding="{Binding TestObjectName}"
+                            Binding="{Binding ProjectName}"
                             Header="被测单位" />
                         <DataGridTextColumn
                             Width="100"

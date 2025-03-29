@@ -34,6 +34,17 @@ namespace ScoreCalculator.Views.Windows
         {
             try
             {
+                if (string.IsNullOrEmpty(this.Name.Text))
+                {
+                    MessageBox.Show("项目名称不能为空");
+                    return;
+                }
+                if (string.IsNullOrEmpty(this.ProjectName.Text))
+                {
+                    MessageBox.Show("被测系统名称不能为空");
+                    return;
+                }
+
                 //获取界面上的数据
                 string name = this.Name.Text;
                 string description = this.Description.Text;
@@ -50,7 +61,9 @@ namespace ScoreCalculator.Views.Windows
                 //将数据保存到数据库
                 //1.创建一个SystemEntity对象
                 ProjectEntity project = new ProjectEntity();
-                project.ProjectName = name;
+                project.SystemName = name;
+                project.ProjectName = this.ProjectName.Text;
+               
                 project.Description = description;
                 project.Provinces = provinces;
                 project.City = city;

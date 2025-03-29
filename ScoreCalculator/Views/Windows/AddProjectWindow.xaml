@@ -1,4 +1,5 @@
-﻿<Window
+﻿
+<Window
     x:Class="ScoreCalculator.Views.Windows.AddProjectWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -56,58 +57,7 @@
                     Text="被测信息系统基本信息表"
                     TextAlignment="Center" />
 
-                <GroupBox Header="项目情况" Style="{StaticResource GroupBoxStyle}">
 
-                    <StackPanel>
-
-                        <TextBox
-                            x:Name="Provinces"
-                            Width="200"
-                            VerticalAlignment="Center"
-                            hc:InfoElement.Title="项目所在省份"
-                            Style="{StaticResource TitleBoxStyle}"
-                            Text="山东" />
-                        <TextBox
-                            x:Name="City"
-                            Width="200"
-                            VerticalAlignment="Center"
-                            hc:InfoElement.Title="项目所在城市"
-                            Style="{StaticResource TitleBoxStyle}"
-                            Text="济南" />
-                        <TextBox
-                            x:Name="Year"
-                            Width="200"
-                            VerticalAlignment="Center"
-                            hc:InfoElement.Title="年份"
-                            Style="{StaticResource TitleBoxStyle}"
-                            Text="2025" />
-
-                        <hc:ComboBox
-                            x:Name="ProjectLevelComboBox"
-                            Width="200"
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Center"
-                            hc:InfoElement.Title="系统定级"
-                            ItemsSource="{Binding Source={StaticResource SystemLevelEnumKey}}"
-                            SelectedIndex="2" />
-                        <TextBox
-                            x:Name="Id"
-                            Width="600"
-                            VerticalAlignment="Center"
-                            hc:InfoElement.Title="系统编号(报告编号)"
-                            Style="{StaticResource TitleBoxStyle}"
-                            Text="01" />
-                        <Button
-                            Grid.Row="5"
-                            Grid.Column="0"
-                            Width="300"
-                            Height="50"
-                            Margin="10,5,0,0"
-                            Click="OnSaveProject"
-                            Content="点击按钮，新建项目" />
-                    </StackPanel>
-
-                </GroupBox>
 
 
                 <GroupBox Header="被测单位" Style="{StaticResource GroupBoxStyle}">
@@ -673,7 +623,66 @@
                             </StackPanel>
 
                         </StackPanel>
+                        <!--  项目创建所需的信息  -->
+                        <GroupBox Header="项目情况" Style="{StaticResource GroupBoxStyle}">
 
+                            <StackPanel>
+
+                                <TextBox
+                                    x:Name="Provinces"
+                                    Width="200"
+                                    VerticalAlignment="Center"
+                                    hc:InfoElement.Title="项目所在省份"
+                                    Style="{StaticResource TitleBoxStyle}"
+                                    Text="山东" />
+                                <TextBox
+                                    x:Name="City"
+                                    Width="200"
+                                    VerticalAlignment="Center"
+                                    hc:InfoElement.Title="项目所在城市"
+                                    Style="{StaticResource TitleBoxStyle}"
+                                    Text="济南" />
+                                <TextBox
+                                    x:Name="Year"
+                                    Width="200"
+                                    VerticalAlignment="Center"
+                                    hc:InfoElement.Title="年份"
+                                    Style="{StaticResource TitleBoxStyle}"
+                                    Text="2025" />
+
+                                <hc:ComboBox
+                                    x:Name="ProjectLevelComboBox"
+                                    Width="200"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    hc:InfoElement.Title="系统定级"
+                                    ItemsSource="{Binding Source={StaticResource SystemLevelEnumKey}}"
+                                    SelectedIndex="2" />
+                                <TextBox
+                                    x:Name="Id"
+                                    Width="600"
+                                    VerticalAlignment="Center"
+                                    hc:InfoElement.Title="系统编号(报告编号)"
+                                    Style="{StaticResource TitleBoxStyle}"
+                                    Text="Project01" />
+                                <TextBox
+                                    x:Name="ProjectName"
+                                    Width="600"
+                                    VerticalAlignment="Center"
+                                    hc:InfoElement.Title="项目名称"
+                                    Style="{StaticResource TitleBoxStyle}"
+                                    Text="XXX密评项目" />
+                                <Button
+                                    Grid.Row="5"
+                                    Grid.Column="0"
+                                    Width="300"
+                                    Height="50"
+                                    Margin="10,5,0,0"
+                                    Click="OnSaveProject"
+                                    Content="点击按钮，新建项目" />
+                            </StackPanel>
+
+                        </GroupBox>
 
                     </StackPanel>
 
