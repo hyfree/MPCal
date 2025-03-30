@@ -1,4 +1,5 @@
-﻿using ScoreCalculator.Models.Entity;
+﻿using ScoreCalculator.DataBase;
+using ScoreCalculator.Models.Entity;
 using ScoreCalculator.Models.MyEnum;
 using ScoreCalculator.Services;
 using ScoreCalculator.Views.Windows.Launch;
@@ -34,6 +35,7 @@ namespace ScoreCalculator.Views.Windows
         {
             try
             {
+
                 if (string.IsNullOrEmpty(this.Name.Text))
                 {
                     MessageBox.Show("项目名称不能为空");
@@ -44,6 +46,25 @@ namespace ScoreCalculator.Views.Windows
                     MessageBox.Show("被测系统名称不能为空");
                     return;
                 }
+                var companyInfo=new TestedCompanyInformationEntity()
+                {
+                    Id= SnowFlakeNetService.FactoryGeInstance().NextId(),
+                    CompanyName=this.CompanyName.Text,
+                    Address=this.CompanyAddress.Text,
+                    PostCode=this.CompanyAddressPostCode.Text,
+                    MiMaju=this.MiMaju.Text,
+                    ContactPersonName=this.LianXiRenXingMing.Text,
+                    ContactPersonDuties=this.LianXiRenZhiWu.Text,
+                    ContactPersonDepartment=this.LianXiRenBuMen.Text,
+                    ContactPersonOfficePhone=this.LianXiRenDianHua.Text,
+                    ContactPersonMobilePhone=this.LianXiRenDianHua.Text,
+                    ContactPersonEmail=this.LianXiRenYouXiang.Text,
+                };
+
+                var db =  SQLLite3Context.Instance();
+                //插入被测公司信息
+                db.TestedCompanyInformationEntity.Add(companyInfo);
+
 
                 //获取界面上的数据
                 string name = this.Name.Text;
@@ -60,15 +81,19 @@ namespace ScoreCalculator.Views.Windows
                 }
                 //将数据保存到数据库
                 //1.创建一个SystemEntity对象
-                ProjectEntity project = new ProjectEntity();
-                project.SystemName = name;
-                project.ProjectName = this.ProjectName.Text;
-               
-                project.Description = description;
-                project.Provinces = provinces;
-                project.City = city;
-                project.Year = year;
-                project.Level = (SystemLevel)level;
+                ProjectEntity project = new ProjectEntity() 
+                {
+
+                    SystemName = name,
+                    ProjectName = this.ProjectName.Text,
+                    TestedCompanyInformation=companyInfo,
+                    Description = description,
+                    Provinces = provinces,
+                    City = city,
+                    Year = year,
+                    Level = (SystemLevel)level
+                };
+             
                 //2.将SystemEntity对象保存到数据库
                 ProjectService projectService = new ProjectService();
                 projectService.Add(project);

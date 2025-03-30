@@ -16,7 +16,7 @@ namespace ScoreCalculator.Models.Entity
         /// <summary>
         /// 公司名称
         /// </summary>
-        public string Name { get; set; }
+        public string CompanyName { get; set; }
         /// <summary>
         /// 单位地址
         /// </summary>

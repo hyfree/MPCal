@@ -38,6 +38,7 @@ namespace ScoreCalculator.DataBase
         public DbSet<RecordEntryEntity> RecordEntryEntity { get; set; }
         public DbSet<KnowledgeEntity> KnowledgeEntity { get; set; }
         public DbSet<ProjectEntity> ProjectEntities { get; set; }
+        public DbSet<TestedCompanyInformationEntity> TestedCompanyInformationEntity { get; set; }
 
 
 

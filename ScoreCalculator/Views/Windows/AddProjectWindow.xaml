@@ -83,7 +83,7 @@
                                 Text="" />
                         </StackPanel>
                         <TextBox
-                            x:Name="cryptographicBureau"
+                            x:Name="MiMaju"
                             Width="1200"
                             hc:InfoElement.Title="所属省部密码管理部门"
                             Style="{StaticResource TitleBoxStyle}"
